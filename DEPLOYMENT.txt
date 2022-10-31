@@ -1,0 +1,76 @@
+
+Install CCT 7.0
+------------------------------------------------------------------------------------------------
+1. Install CCT 7.0 on lxomp47x in directory /opt/ibmtools/www/ccg7
+2. Test that it is all working.
+
+CCT Team
+------------------------------------------------------------------------------------------------
+1. Review release with CCT team and get feed back.
+2. Allow CCT team time to test.
+3. Meet back again with CCT team to over issues and additional features required.
+4. Resolve any issues have CCT team test again.
+5. Receive final approval from CCT team to go with second phase of roll out.
+
+Training Users
+-----------------------------------------------------------------------------------------------
+1. Create a URL link on CCT 6.0 home page for people to try out CCT 7.0 at https://lxomp47x.corp.intranet/cct7
+2. Setup 4 public meetings over a two week period where people can come to learn about CCT 7.0
+3. Hold the meeting and provide training to users.
+
+Resolve User issues and requirements
+----------------------------------------------------------------------------------------------
+1. Perform any last minute enhancements and requires.
+
+Set Release Date
+----------------------------------------------------------------------------------------------
+1. Set a roll out release date.
+2. Create a new IR for the release date.
+
+Implement Change
+==============================================================================================
+1. Run conversion_tool.php on lxomp47x to copy CCT 6.0 data into CCT 7.0
+2. Test to make sure everything is working correctly.
+3. Remove symbolic link for cct6 -> cct
+4. Create symbolic link for cct7 -> cct
+5. Test again.
+6. Turn on cronjobs to startup email process.
+7. Close Remedy IR.
+
+
+Notes:
+
+// Table timezone is used by the New Work Request generator.
+select count(*) from timezone;
+
+create index idx_timezone_1 on timezone (country, state, city);
+create index idx_timezone_2 on timezone (country);
+create index idx_timezone_3 on timezone (state);
+create index idx_timezone_4 on timezone (city);
+create index idx_timezone_5 on timezone (state, city);
+create index idx_timezone_6 on timezone (timezone);
+
+// Bring logs current so there won't be any outstanding email to send.
+update cct7_tickets set change_date = update_date where change_date != update_date;
+update cct7_systems set change_date = system_update_date where change_date != system_update_date;
+update cct7_contacts set change_date = contact_update_date where change_date != contact_update_date;
+
+Emails:
+-------------------------------------------------------------------------------------------------------------------------
+Email is generated when a new log entry is created in tables: cct7_log_tickets, cct7_log_systems, and
+cct7_log_tickets. The program called "send_notifications.php" is run nightly from Greg's crontab to send
+email. There is also a command-line option: "send_notifications.php reminders" that is run once a day via.
+cron to send out any reminder emails where contacts have not yet approved the work request.
+
+Manual email can be sent from the web page through popup dialog boxes while viewing data by ticket, server or
+contact. These email messages do not spool or generate a log message. They are sent immediately. The email
+functions are built into class modules: cct7_tickets, cct7_systems, and cct7_contacts. Email operations are
+built into the cron job send_notifications.php command.
+
+Paging:
+-------------------------------------------------------------------------------------------------------------------------
+Paging is only done via the Schedule tool which is found on the toolbar. When a SA changes the status from say "Starting"
+or "Success", the program will page the on-call person(s) for that server. Users have the option to disable paging when
+they approve the work. The actual paging is done in cct7_systems in a method called "page()". There is no other place
+in CCT where this process is duplicated.
+

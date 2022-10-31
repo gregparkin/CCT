@@ -1,0 +1,150 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=Cp1252" />
+<script src="../dbdoc.js" type="text/javascript"></script>
+<link href="../dbdoc.css" type="text/css" rel="stylesheet">
+</head>
+<body class="object">
+<div id="header"><h2>CCT6_EMAIL_SPOOL</h2>
+<div class="tabs clearfix">
+
+<div class="tab" id="current"><div><a href="CCT6_EMAIL_SPOOL.html">Columns</a></div></div>
+<div class="tab"><div><a href="CCT6_EMAIL_SPOOL_Constraints.html">Constraints</a></div></div>
+<div class="tab"><div><a href="CCT6_EMAIL_SPOOL_Grants.html">Grants</a></div></div>
+<div class="tab"><div><a href="CCT6_EMAIL_SPOOL_Statistics.html">Statistics</a></div></div>
+<div class="tab"><div><a href="CCT6_EMAIL_SPOOL_Triggers.html">Triggers</a></div></div>
+<div class="tab"><div><a href="CCT6_EMAIL_SPOOL_Dependencies.html">Dependencies</a></div></div>
+<div class="tab"><div><a href="CCT6_EMAIL_SPOOL_Details.html">Details</a></div></div>
+<div class="tab"><div><a href="CCT6_EMAIL_SPOOL_Partitions.html">Partitions</a></div></div>
+<div class="tab"><div><a href="CCT6_EMAIL_SPOOL_Indexes.html">Indexes</a></div></div>
+</div></div><br/>
+<div class="tab-panes">
+<div id="Columns"> <table cellpadding="0" cellspacing="0" cellspacing="0" summary=""><tr>
+	<th>COLUMN_NAME</th>
+	<th>DATA_TYPE</th>
+	<th>NULLABLE</th>
+	<th>DATA_DEFAULT</th>
+	<th>COLUMN_ID</th>
+	<th>COMMENTS</th>
+</tr>
+	<tr>
+<td>EMAIL_SPOOL_ID</td>
+<td>NUMBER</td>
+<td>No</td>
+<td>null</td>
+<td>1</td>
+<td>PRIMARY KEY - unique record id</td>
+	</tr>
+	<tr>
+<td>SENDMAIL_DATE</td>
+<td>DATE</td>
+<td>Yes</td>
+<td>null</td>
+<td>2</td>
+<td>The date CCT actually sent out the email</td>
+	</tr>
+	<tr>
+<td>SENDMAIL_SUCCESSFUL</td>
+<td>VARCHAR2(1 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>3</td>
+<td>Successfully emailed? Y or N</td>
+	</tr>
+	<tr>
+<td>SPOOL_DATE</td>
+<td>DATE</td>
+<td>Yes</td>
+<td>null</td>
+<td>4</td>
+<td>The date the page message was spooled</td>
+	</tr>
+	<tr>
+<td>CM_TICKET_NO</td>
+<td>VARCHAR2(20 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>5</td>
+<td>Remedy CM ticket number</td>
+	</tr>
+	<tr>
+<td>COMPUTER_HOSTNAME</td>
+<td>VARCHAR2(255 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>6</td>
+<td>Computer hostname</td>
+	</tr>
+	<tr>
+<td>FROM_CUID</td>
+<td>VARCHAR2(20 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>7</td>
+<td>From person CUID</td>
+	</tr>
+	<tr>
+<td>FROM_NAME</td>
+<td>VARCHAR2(200 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>8</td>
+<td>From person name</td>
+	</tr>
+	<tr>
+<td>FROM_EMAIL</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>9</td>
+<td>From person email address</td>
+	</tr>
+	<tr>
+<td>TO_CUID</td>
+<td>VARCHAR2(20 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>10</td>
+<td>To person CUID</td>
+	</tr>
+	<tr>
+<td>TO_NAME</td>
+<td>VARCHAR2(200 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>11</td>
+<td>To person name</td>
+	</tr>
+	<tr>
+<td>TO_EMAIL</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>12</td>
+<td>To person email address</td>
+	</tr>
+	<tr>
+<td>EMAIL_TEMPLATE</td>
+<td>VARCHAR2(20 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>13</td>
+<td>Email template (canned email messages): submit, cancel, etc.</td>
+	</tr>
+	<tr>
+<td>EMAIL_SUBJECT</td>
+<td>VARCHAR2(256 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>14</td>
+<td>Optional email subject heading line.</td>
+	</tr>
+	<tr>
+<td>EMAIL_MESSAGE</td>
+<td>VARCHAR2(4000 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>15</td>
+<td>Optional message</td>
+	</tr>
+</table></div>

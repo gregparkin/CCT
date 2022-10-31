@@ -1,0 +1,58 @@
+Requested JSON parse failed. Error code: SyntaxError: JSON.parse: unexpected character at line 2 column 1 of the JSON data ResponseText:
+
+<br />
+<font size='1'><table class='xdebug-error xe-warning' dir='ltr' border='1' cellspacing='0' cellpadding='1'>
+    <tr><th align='left' bgcolor='#f57900' colspan="5"><span style='background-color: #cc0000; color: #fce94f; font-size: x-large;'>( ! )</span> Warning: oci_execute(): ORA-00904: &amp;quot;SENDMAIL_MESSAGE&amp;quot;: invalid identifier in /opt/ibmtools/www/cct7/classes/oracle.php on line <i>987</i></th></tr>
+    <tr><th align='left' bgcolor='#e9b96e' colspan='5'>Call Stack</th></tr>
+    <tr><th align='center' bgcolor='#eeeeec'>#</th><th align='left' bgcolor='#eeeeec'>Time</th><th align='left' bgcolor='#eeeeec'>Memory</th><th align='left' bgcolor='#eeeeec'>Function</th><th align='left' bgcolor='#eeeeec'>Location</th></tr>
+    <tr><td bgcolor='#eeeeec' align='center'>1</td><td bgcolor='#eeeeec' align='center'>0.0031</td><td bgcolor='#eeeeec' align='right'>468288</td><td bgcolor='#eeeeec'>{main}(  )</td><td title='/opt/ibmtools/www/cct7/ajax_dialog_toolbar_open_tickets.php' bgcolor='#eeeeec'>.../ajax_dialog_toolbar_open_tickets.php<b>:</b>0</td></tr>
+    <tr><td bgcolor='#eeeeec' align='center'>2</td><td bgcolor='#eeeeec' align='center'>0.0831</td><td bgcolor='#eeeeec' align='right'>1686080</td><td bgcolor='#eeeeec'>cct7_tickets->activate( <span>$ticket_no = </span><span>&#39;CCT700023205&#39;</span> )</td><td title='/opt/ibmtools/www/cct7/ajax_dialog_toolbar_open_tickets.php' bgcolor='#eeeeec'>.../ajax_dialog_toolbar_open_tickets.php<b>:</b>363</td></tr>
+    <tr><td bgcolor='#eeeeec' align='center'>3</td><td bgcolor='#eeeeec' align='center'>0.3082</td><td bgcolor='#eeeeec' align='right'>2109288</td><td bgcolor='#eeeeec'>oracle->execute(  )</td><td title='/opt/ibmtools/www/cct7/classes/cct7_tickets.php' bgcolor='#eeeeec'>.../cct7_tickets.php<b>:</b>1462</td></tr>
+    <tr><td bgcolor='#eeeeec' align='center'>4</td><td bgcolor='#eeeeec' align='center'>0.3082</td><td bgcolor='#eeeeec' align='right'>2109288</td><td bgcolor='#eeeeec'>oracle->sql2( <span>$what = </span><span>&#39;INSERT INTO cct7_tickets  ( sendmail_date , sendmail_cuid , sendmail_name , sendmail_email , sendmail_success , sendmail_subject , sendmail_message  )  VALUES ( 1501021148, \&#39;gparkin\&#39;, \&#39;Greg Parkin\&#39;, \&#39;gregparkin58@gmail.com\&#39;, \&#39;Y\&#39;, \&#39;Change Coordination Tool - NEW Work Request: CM0000340820/CCT700023205\&#39;, \&#39;&lt;p&gt;This is a &lt;font color=\&#39;\&#39;blue\&#39;\&#39;&gt;&lt;b&gt;NEW Patching OS Work Request&lt;/b&gt;&lt;/font&gt; for tickets: CM0000340820/CCT700023205. If you are required to approve this work please do it by: 08/04/2017 MDT. Sign-...&#39;</span> )</td><td title='/opt/ibmtools/www/cct7/classes/oracle.php' bgcolor='#eeeeec'>.../oracle.php<b>:</b>2141</td></tr>
+    <tr><td bgcolor='#eeeeec' align='center'>5</td><td bgcolor='#eeeeec' align='center'>0.3082</td><td bgcolor='#eeeeec' align='right'>2107648</td><td bgcolor='#eeeeec'><a href='http://www.php.net/function.oci-execute' target='_new'>oci_execute</a>
+        ( <span>resource(38) of type (oci8 statement)</span> )</td><td title='/opt/ibmtools/www/cct7/classes/oracle.php' bgcolor='#eeeeec'>.../oracle.php<b>:</b>987</td></tr>
+    <tr><th colspan='5' align='left' bgcolor='#e9b96e'>Dump <i>$_SERVER</i></th></tr>
+    <tr><td colspan='2' align='right' bgcolor='#eeeeec' valign='top'><pre>$_SERVER['REQUEST_URI']&nbsp;=</pre></td><td colspan='3' bgcolor='#eeeeec'><pre class='xdebug-var-dump' dir='ltr'>
+<small>/opt/ibmtools/www/cct7/classes/oracle.php:987:</small><small>string</small> <font color='#cc0000'>'/ajax_dialog_toolbar_open_tickets.php'</font> <i>(length=37)</i>
+</pre></td></tr>
+    <tr><th align='left' colspan='5' bgcolor='#e9b96e'>Variables in local scope (#4)</th></tr>
+    <tr><td colspan='2' align='right' bgcolor='#eeeeec' valign='top'><pre>$e&nbsp;=</pre></td><td colspan='3' bgcolor='#eeeeec'><pre class='xdebug-var-dump' dir='ltr'>
+<small>/opt/ibmtools/www/cct7/classes/oracle.php:987:</small><font color='#3465a4'>*uninitialized*</font>
+</pre></td></tr>
+    <tr><td colspan='2' align='right' bgcolor='#eeeeec' valign='top'><pre>$r&nbsp;=</pre></td><td colspan='3' bgcolor='#eeeeec'><pre class='xdebug-var-dump' dir='ltr'>
+<small>/opt/ibmtools/www/cct7/classes/oracle.php:987:</small><font color='#3465a4'>*uninitialized*</font>
+</pre></td></tr>
+    <tr><td colspan='2' align='right' bgcolor='#eeeeec' valign='top'><pre>$what&nbsp;=</pre></td><td colspan='3' bgcolor='#eeeeec'><pre class='xdebug-var-dump' dir='ltr'>
+<small>/opt/ibmtools/www/cct7/classes/oracle.php:987:</small><small>string</small> <font color='#cc0000'>'INSERT INTO cct7_tickets  ( sendmail_date , sendmail_cuid , sendmail_name , sendmail_email , sendmail_success , sendmail_subject , sendmail_message  )  VALUES ( 1501021148, &#39;gparkin&#39;, &#39;Greg Parkin&#39;, &#39;gregparkin58@gmail.com&#39;, &#39;Y&#39;, &#39;Change Coordination Tool - NEW Work Request: CM0000340820/CCT700023205&#39;, &#39;&lt;p&gt;This is a &lt;font color=&#39;&#39;blue&#39;&#39;&gt;&lt;b&gt;NEW Patching OS Work Request&lt;/b&gt;&lt;/font&gt; for tickets: CM0000340820/CCT700023205. If you are required to approve this work please do it by: 08/04/2017 MDT. Sign-on to CCT see d'...</font> <i>(length=644)</i>
+</pre></td></tr>
+</table></font>
+<p>ORA-00904: &quot;SENDMAIL_MESSAGE&quot;: invalid identifier
+<pre>
+INSERT INTO cct7_tickets  ( sendmail_date , sendmail_cuid , sendmail_name , sendmail_email , sendmail_success , sendmail_subject , sendmail_message  )  VALUES ( 1501021148, 'gparkin', 'Greg Parkin', 'gregparkin58@gmail.com', 'Y', 'Change Coordination Tool - NEW Work Request: CM0000340820/CCT700023205', '&lt;p&gt;This is a &lt;font color=''blue''&gt;&lt;b&gt;NEW Patching OS Work Request&lt;/b&gt;&lt;/font&gt; for tickets: CM0000340820/CCT700023205. If you are required to approve this work please do it by: 08/04/2017 MDT. Sign-on to CCT see details about the work, the schedule and whether you need to approve the work.&lt;/p&gt;&lt;p style=''color: blue;''&gt;If there are issues,...')
+                                                                                                                                   ^
+</pre></p>
+========= BEGIN: ORACLE ERROR =========<br>
+<p><pre style="color: black; background-color: white;"><span style="font-weight:bold;">INSERT</span> <span style="font-weight:bold;">INTO</span> <span style="color: #333;">cct7_tickets</span> (
+  <span style="color: #333;">sendmail_date</span><span >,</span> <span style="color: #333;">sendmail_cuid</span><span >,</span> <span style="color: #333;">sendmail_name</span><span >,</span>
+  <span style="color: #333;">sendmail_email</span><span >,</span> <span style="color: #333;">sendmail_success</span><span >,</span>
+  <span style="color: #333;">sendmail_subject</span><span >,</span> <span style="color: #333;">sendmail_message</span>
+)
+<span style="font-weight:bold;">VALUES</span>
+  (
+    <span style="color: green;">1501021148</span><span >,</span> <span style="color: blue;">'gparkin'</span><span >,</span> <span style="color: blue;">'Greg Parkin'</span><span >,</span>
+    <span style="color: blue;">'gregparkin58@gmail.com'</span><span >,</span> <span style="color: blue;">'Y'</span><span >,</span> <span style="color: blue;">'Change Coordination Tool - NEW Work Request: CM0000340820/CCT700023205'</span><span >,</span>
+    <span style="color: blue;">'&lt;p&gt;This is a &lt;font color=''blue''&gt;&lt;b&gt;NEW Patching OS Work Request&lt;/b&gt;&lt;/font&gt; for tickets: CM0000340820/CCT700023205. If you are required to approve this work please do it by: 08/04/2017 MDT. Sign-on to CCT see details about the work, the schedule and whether you need to approve the work.&lt;/p&gt;&lt;p style=''color: blue;''&gt;If there are issues,...'</span>
+  )</pre></p>
+<p>ORA-00904: "SENDMAIL_MESSAGE": invalid identifier</p>
+0 ajax_dialog_toolbar_open_tickets.php(363) cct7_tickets->activate('CCT700023205')<br>
+1 cct7_tickets.php(1462) oracle->execute()<br>
+2 oracle.php(2141) oracle->sql2('INSERT INTO cct7_tickets  ( sendmail_date , sendmail_cuid , sendmail_name , sendmail_email , sendmail_success , sendmail_subject , sendmail_message  )  VALUES ( 1501021148, 'gparkin', 'Greg Parkin', 'gregparkin58@gmail.com', 'Y', 'Change Coordination Tool - NEW Work Request: CM0000340820/CCT700023205', '<p>This is a <font color=''blue''><b>NEW Patching OS Work Request</b></font> for tickets: CM0000340820/CCT700023205. If you are required to approve this work please do it by: 08/04/2017 MDT. Sign-on to CCT see details about the work, the schedule and whether you need to approve the work.</p><p style=''color: blue;''>If there are issues,...')')<br>
+3 oracle.php(1009) oracle->oracle_error()<br>
+========== END: ORACLE ERROR ==========<br>File: /opt/ibmtools/www/cct7/classes/oracle.php, Line: 448 - Call Greg Parkin<br>
+<br />
+<font size='1'><table class='xdebug-error xe-warning' dir='ltr' border='1' cellspacing='0' cellpadding='1'>
+    <tr><th align='left' bgcolor='#f57900' colspan="5"><span style='background-color: #cc0000; color: #fce94f; font-size: x-large;'>( ! )</span> Warning: oci_execute(): ORA-00904: &amp;quot;SENDMAIL_MESSAGE&amp;quot;: invalid identifier in /opt/ibmtools/www/cct7/classes/oracle.php on line <i>987</i></th></tr>
+    <tr><th align='left' bgcolor='#e9b96e' colspan='5'>Call Stack</th></tr>
+    <tr><th align='center' bgcolor='#eeeeec'>#</th><th align='left' bgcolor='#eeeeec'>Time</th><th align='left' bgcolor='#eeeeec'>Memory</th><th align='left' bgcolor='#eeeeec'>Function</th><th align='left' bgcolor='#eeeeec'>Location</th></tr>
+    <tr><td bgcolor='#eeeeec' align='center'>1</td><td bgcolor='#eeeeec' align='center'>0.0031</td><td bgcolor='#eeeeec' align='right'>468288</td><td bgcolor='#eeeeec'>{main}(  )</td><td title='/opt/ibmtools/www/cct7/ajax_dialog_toolbar_open_tickets.php' bgcolor='#eeeeec'>.../ajax_dialog_toolbar_open_tickets.php<b>:</b>0</td></tr>
+    <tr><td bgcolor='#eeeeec' align='center'>2</

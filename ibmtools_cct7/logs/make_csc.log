@@ -1,0 +1,295 @@
+Starting: make_csc.php at 02/23/17 18:18:36
+==========================================================================================================================
+hostname: lxomp47x
+
+Running: /db/oracle/product/12102_64/bin/sqlplus cct/candy4Kids @/opt/ibmtools/cct7/bin/sql/cct7_csc_part1.sql
+ 
+SQL*Plus: Release 12.1.0.2.0 Production on Thu Feb 23 11:18:36 2017 
+ 
+Copyright (c) 1982, 2014, Oracle. All rights reserved. 
+ 
+Last Successful login time: Thu Feb 23 2017 11:18:28 -06:00 
+ 
+Connected to: 
+Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production 
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options 
+ 
+SQL> 
+SQL> REM 
+SQL> REM cct7_csc_part1.sql 
+SQL> REM 
+SQL> REM Create the new cct_csc table in "new_cct7_csc" 
+SQL> REM 
+SQL> 
+SQL> REM 
+SQL> REM 1. Drop new_cct7_csc if it exists 
+SQL> REM 
+SQL> 
+SQL> exec drop_table_if_exist('new_cct7_csc'); 
+BEGIN drop_table_if_exist('new_cct7_csc'); END; 
+ 
+ * 
+ERROR at line 1: 
+ORA-06550: line 1, column 7: 
+PLS-00201: identifier 'DROP_TABLE_IF_EXIST' must be declared 
+ORA-06550: line 1, column 7: 
+PL/SQL: Statement ignored 
+ 
+ 
+SQL> 
+SQL> REM 
+SQL> REM 2. Create new_cct7_csc and copy v_acsys_assign@csc2 into it. 
+SQL> REM 
+SQL> desc csc.v_acsys_assign@csc_cct_web; 
+ Name Null? Type 
+ ----------------------------------------- -------- ---------------------------- 
+ LASTID NUMBER 
+ ASSETTAG VARCHAR2(80) 
+ MAINT_WEEKLY VARCHAR2(4000) 
+ MAINT_MONTHLY VARCHAR2(4000) 
+ MAINT_QUARTERLY VARCHAR2(4000) 
+ NETGROUP VARCHAR2(20) 
+ USERID_1 VARCHAR2(15) 
+ USERID_2 VARCHAR2(15) 
+ USERID_3 VARCHAR2(15) 
+ USERID_4 VARCHAR2(15) 
+ USERID_5 VARCHAR2(15) 
+ GROUP_NAME VARCHAR2(80) 
+ GROUP_ID NOT NULL NUMBER 
+ APP_ACRONYM NOT NULL VARCHAR2(128) 
+ AIP_MGR VARCHAR2(1024) 
+ SL_OBJECTIVE NUMBER(5,2) 
+ SL_SCORE NUMBER(4,2) 
+ SL_COLOR VARCHAR2(20) 
+ ASSIGN_MGR VARCHAR2(20) 
+ CM_SPECIAL VARCHAR2(1) 
+ 
+SQL> create table new_cct7_csc as select * from csc.v_acsys_assign@csc_cct_web; 
+ 
+Table created. 
+ 
+SQL> REM create table new_cct7_csc as select * from v_acsys_assign@csctest; 
+SQL> 
+SQL> update new_cct7_csc set 
+ 2 userid_1 = lower(userid_1), 
+ 3 userid_2 = lower(userid_2), 
+ 4 userid_3 = lower(userid_3), 
+ 5 userid_4 = lower(userid_4), 
+ 6 userid_5 = lower(userid_5), 
+ 7 aip_mgr = lower(aip_mgr), 
+ 8 assign_mgr = lower(assign_mgr); 
+ 
+82582 rows updated. 
+ 
+SQL> 
+SQL> commit; 
+ 
+Commit complete. 
+ 
+SQL> 
+SQL> REM As of 10/21/2011 - v_acsys_assign@csc_cct_web 
+SQL> REM lastid|NUMBER|0|| 
+SQL> REM assettag|VARCHAR2|40|| 
+SQL> REM maint_weekly|VARCHAR2|80|| 
+SQL> REM maint_monthly|VARCHAR2|80|| 
+SQL> REM maint_quarterly|VARCHAR2|80|| 
+SQL> REM netgroup|VARCHAR2|20|| 
+SQL> REM userid_1|VARCHAR2|15|| 
+SQL> REM userid_2|VARCHAR2|15|| 
+SQL> REM userid_3|VARCHAR2|15|| 
+SQL> REM userid_4|VARCHAR2|15|| 
+SQL> REM userid_5|VARCHAR2|15|| 
+SQL> REM group_name|VARCHAR2|80|| 
+SQL> REM group_id|NUMBER|0|NOT NULL| 
+SQL> REM app_acronym|VARCHAR2|80|NOT NULL| 
+SQL> REM aip_mgr|VARCHAR2|1024|| 
+SQL> REM sl_objective|NUMBER|5,2|| 
+SQL> REM sl_score|NUMBER|4,2|| 
+SQL> REM sl_color|VARCHAR2|20|| 
+SQL> REM assign_mgr|VARCHAR2|20|| 
+SQL> REM cm_special|VARCHAR2|1|| 
+SQL> 
+SQL> REM 
+SQL> REM 3. Rename the column names in new_cct7_csc 
+SQL> REM 
+SQL> alter table new_cct7_csc rename column assettag to cct_csc_assettag; 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_csc rename column netgroup to cct_csc_netgroup; 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_csc rename column userid_1 to cct_csc_userid_1; 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_csc rename column userid_2 to cct_csc_userid_2; 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_csc rename column userid_3 to cct_csc_userid_3; 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_csc rename column userid_4 to cct_csc_userid_4; 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_csc rename column userid_5 to cct_csc_userid_5; 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_csc rename column group_name to cct_csc_group_name; 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_csc rename column group_id to cct_csc_group_id; 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_csc rename column maint_weekly to cct_csc_osmaint_weekly; 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_csc rename column maint_monthly to cct_csc_osmaint_monthly; 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_csc rename column maint_quarterly to cct_csc_osmaint_quarterly; 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_csc rename column app_acronym to cct_app_acronym; 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_csc rename column aip_mgr to cct_pase_mgr; 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_csc rename column sl_objective to cct_sl_objective; 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_csc rename column sl_score to cct_sl_score; 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_csc rename column sl_color to cct_sl_color; 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_csc rename column assign_mgr to cct_assign_mgr; 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_csc rename column cm_special to cct_special_handling; 
+ 
+Table altered. 
+ 
+SQL> 
+SQL> REM 
+SQL> REM 4. Create extra fields for the fastpg on-call cuid 
+SQL> REM 
+SQL> alter table new_cct7_csc add ( 
+ 2 cct_csc_oncall VARCHAR2(15), 
+ 3 cct_csc_format_weekly VARCHAR2(256), 
+ 4 cct_csc_format_monthly VARCHAR2(256), 
+ 5 cct_csc_format_quarterly VARCHAR2(256), 
+ 6 cct_csc_updated DATE 
+ 7 ); 
+ 
+Table altered. 
+ 
+SQL> 
+SQL> desc new_cct7_csc; 
+ Name Null? Type 
+ ----------------------------------------- -------- ---------------------------- 
+ LASTID NUMBER 
+ CCT_CSC_ASSETTAG VARCHAR2(80) 
+ CCT_CSC_OSMAINT_WEEKLY VARCHAR2(4000) 
+ CCT_CSC_OSMAINT_MONTHLY VARCHAR2(4000) 
+ CCT_CSC_OSMAINT_QUARTERLY VARCHAR2(4000) 
+ CCT_CSC_NETGROUP VARCHAR2(20) 
+ CCT_CSC_USERID_1 VARCHAR2(15) 
+ CCT_CSC_USERID_2 VARCHAR2(15) 
+ CCT_CSC_USERID_3 VARCHAR2(15) 
+ CCT_CSC_USERID_4 VARCHAR2(15) 
+ CCT_CSC_USERID_5 VARCHAR2(15) 
+ CCT_CSC_GROUP_NAME VARCHAR2(80) 
+ CCT_CSC_GROUP_ID NOT NULL NUMBER 
+ CCT_APP_ACRONYM NOT NULL VARCHAR2(128) 
+ CCT_PASE_MGR VARCHAR2(1024) 
+ CCT_SL_OBJECTIVE NUMBER(5,2) 
+ CCT_SL_SCORE NUMBER(4,2) 
+ CCT_SL_COLOR VARCHAR2(20) 
+ CCT_ASSIGN_MGR VARCHAR2(20) 
+ CCT_SPECIAL_HANDLING VARCHAR2(1) 
+ CCT_CSC_ONCALL VARCHAR2(15) 
+ CCT_CSC_FORMAT_WEEKLY VARCHAR2(256) 
+ CCT_CSC_FORMAT_MONTHLY VARCHAR2(256) 
+ CCT_CSC_FORMAT_QUARTERLY VARCHAR2(256) 
+ CCT_CSC_UPDATED DATE 
+ 
+SQL> 
+SQL> REM 
+SQL> REM 5. Insert the current date and time into cct_csc_updated 
+SQL> REM 
+SQL> 
+SQL> DECLARE 
+ 2 v_today DATE; 
+ 3 
+ 4 CURSOR c_today IS select SYSDATE from dual; 
+ 5 
+ 6 BEGIN 
+ 7 OPEN c_today; 
+ 8 
+ 9 FETCH c_today INTO v_today; 
+ 10 
+ 11 update new_cct7_csc set cct_csc_updated = v_today; 
+ 12 
+ 13 CLOSE c_today; 
+ 14 END; 
+ 15 / 
+ 
+PL/SQL procedure successfully completed. 
+ 
+SQL> 
+SQL> select distinct to_char(cct_csc_updated, 'MM/DD/YY HH24:MI') from new_cct7_csc; 
+ 
+TO_CHAR(CCT_CS 
+-------------- 
+02/23/17 11:18 
+ 
+SQL> select count(*) from new_cct7_csc; 
+ 
+ COUNT(*) 
+---------- 
+ 82582 
+ 
+SQL> 
+SQL> REM 
+SQL> REM Exit and run get_maintwin and get_oncall which will populate additional information 
+SQL> REM in table new_cct7_csc. Then you will run part2.sql to move it into place. We don't 
+SQL> REM want to move it into place until it ready so there be very little interruption for 
+SQL> REM the user. 
+SQL> REM 
+SQL> 
+SQL> quit; 
+Disconnected from Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production 
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options 
+
+Notice: Undefined index: SERVER_NAME in /opt/ibmtools/www/cct7/classes/oracle.php on line 220
+
+Warning: oci_connect(): OCIEnvNlsCreate() failed. There is something wrong with your system - please check that ORACLE_HOME and LD_LIBRARY_PATH are set and point to the right directories in /opt/ibmtools/www/cct7/classes/oracle.php on line 697
+
+Warning: oci_connect(): Error while trying to retrieve text for error ORA-01804
+ in /opt/ibmtools/www/cct7/classes/oracle.php on line 697
+
+Fatal error:  in /opt/ibmtools/www/cct7/classes/oracle.php on line 705
+==========================================================================================================================
+ Program: make_csc.php
+   START: 02/23/17 18:18:36
+     END: 02/23/17 18:18:45
+Duration: 00:00:09

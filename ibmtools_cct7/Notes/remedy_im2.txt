@@ -1,0 +1,6 @@
+
+create database link remedy_im2
+connect to gparkin
+identified by chcort60
+using 'remedy_im2';
+

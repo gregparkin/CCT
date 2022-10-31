@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<!-- THIS WORKS! -->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<title>jQuery Right-click Plugin Demo</title>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		
+        <base href="http://localhost:8888/cct6/"> 
+        
+		<style type="text/css">
+			BODY,
+			HTML {
+				padding: 0px;
+				margin: 0px;
+			}
+			BODY {
+				font-family: Verdana, Arial, Helvetica, sans-serif;
+				font-size: 11px;
+				background: #FFF;
+				padding: 15px;
+			}
+			
+			H1 {
+				font-family: Georgia, serif;
+				font-size: 20px;
+				font-weight: normal;
+			}
+			
+			H2 {
+				font-family: Georgia, serif;
+				font-size: 16px;
+				font-weight: normal;
+				margin: 0px 0px 10px 0px;
+			}
+			
+			P.note {
+				color: #999;
+				clear: both;
+			}
+			
+			#div_1,
+			#div_2 {
+				width: 150px;
+				border: solid 1px #2AA7DE;
+				background: #6CC8EF;
+				padding: 1em .5em;
+				margin: 1em;
+				float: left;
+			}
+			
+			#log, #div_3 {
+				float: left;
+			}
+		</style>		
+		
+		<script src="js/jquery.js" type="text/javascript"></script>
+		<script src="js/jquery.rightClick.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			
+			$(document).ready( function() {
+				
+				$("#div_1").rightClick( function(e) {
+					$("#log").prepend('Click on ' + $(this).attr('id') + '<br />');
+				});
+				
+				$("#div_2").rightMouseDown( function(e) {
+					$("#log").prepend('Down on ' + $(this).attr('id') + '<br />');
+				});
+				
+				$("#div_2").rightMouseUp( function(e) {
+					$("#log").prepend('Up on ' + $(this).attr('id') + '<br />');
+				});
+				
+				$("#div_3").noContext();
+				
+			});
+			
+		</script>
+	</head>
+	
+	<body>
+		
+		<h1>jQuery Right Mouse Plugin Demo</h1>
+		<p>
+			This plugin enables you to detect events triggered by the right mouse button.  There is
+			also a built-in method to disable browser context menus.
+		</p>
+		
+		<p>
+			<a href="http://abeautifulsite.net/2008/05/jquery-right-click-plugin/">Back to the project page</a>
+		</p>
+		
+		<h2>Usage</h2>
+		<pre>$(document).ready( function() {
+	
+	// Capture right click
+	$("#selector").rightClick( function(e) {
+		// Do something
+	});
+	
+	// Capture right mouse down
+	$("#selector").rightMouseDown( function(e) {
+		// Do something
+	});
+	
+	// Capture right mouseup
+	$("#selector").rightMouseUp( function(e) {
+		// Do something
+	});
+	
+	// Disable context menu on an element
+	$("#selector").noContext();
+	
+});</pre>
+		
+		<h2>Demo</h2>
+		<div id="div_1">
+			This container will capture right mouse clicks
+		</div>
+		
+		<div id="div_2">
+			This container will capture right mouse up and down
+		</div>
+		
+		<div style="clear: both;"></div>
+		
+		<div id="log" style="border: solid 1px #CCC; padding: .5em; margin: 1em; width: 250px; height: 200px; overflow: auto;">
+			-- click log --
+		</div>
+		
+		<div id="div_3" style="border: solid 1px #CCC; background: #EEE; padding: .5em; margin: 1em; width: 250px; height: 200px; overflow: auto;">
+			No context menu in this container
+		</div>
+		
+		<div style="clear: both;"></div>
+		
+	</body>
+</html>

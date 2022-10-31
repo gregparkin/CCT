@@ -1,0 +1,2 @@
+select db_link, username, host from user_db_links where username = 'mnet'
+/

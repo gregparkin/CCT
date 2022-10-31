@@ -1,0 +1,101 @@
+// Examples:
+//
+// *
+// If no switches are supplied, the first parameter is who to send to, and the
+// rest of the arguments are the text of the message.
+//
+// Callout to group 4901 with the text of 'Send callout to 4901':
+// fastpg 4901 Send callout to 4901
+//
+// *
+// Send an email to slamar:
+// fastpg -te slamar Send mail to slamar
+//
+// Send an email to the primary in group 4901:
+// fastpg -te 4901 Send mail to group 4901
+//
+// *
+// Send an epage to slamar:
+// fastpg -=MGEPage slamar Send epage to slamar
+//
+// Send an epage to the primary in group 4901:
+// fastpg -=MGEPage 4901 Send epage to group 4901
+//
+// *
+// Display the user name of the primary for group 4901:
+// fastpg -c -=MGGroup 4901
+// fastpg -j 4901
+//
+// *
+// Ping the NET application:
+// fastpg -c -=MGPing
+//
+// *
+// Send a page to the Mobile Village MV_TEST group:
+// fastpg -tg MV_TEST Page to MV_TEST Mobile Village group
+// fastpg -c -=MVAlphaPgGrp MV_TEST Page to MV_TEST Mobile Village group
+//
+// *
+// Page group 4901:
+// fastpg 4901 Page to 4901 NET group
+//
+// Page group 4901 with severity level 4 (no escalation):
+// fastpg -o(prty=4) 4901 Page to 4901 NET group
+//
+// Display all group id's that user slamar is a member of:
+// fastpg -c -=NETgroups slamar
+//
+//
+// Display all of the members of group 4901:
+// fastpg -c -=NETmembers 4901
+//
+//
+// Page all of the members of group 4901:
+// fastpg -c -=NETpageall 4901 -m "Message to 4901"
+//
+//
+// Page the first person in the 4901 group hierarchy:
+// Group hierarchy:
+//
+// Primary
+// Backup
+// All members of group
+//
+// fastpg -c -=NETpagegroup 4901 -m "Message to 4901"
+//
+//
+// Page the primary for group 4901:
+// fastpg -c -=NETpageprimary 4901 -m "Message to 4901"
+//
+//
+// Page the backup for group 4901:
+// fastpg -c -=NETpagebackup 4901 -m "Message to 4901"
+//
+//
+// Page the first escalation person for group 4901:
+// fastpg -c -=NETpageesc1 4901 -m "Message to 4901"
+//
+//
+// Page the second escalation person for group 4901:
+// fastpg -c -=NETpageesc2 4901 -m "Message to 4901"
+//
+//
+// E-mail all of the members of group 4901:
+// fastpg -c -=NETemailall 4901 -s "E-mail Subject" -m "E-mail message..."
+//
+//
+// Send a notification to all of the members of group 4901:
+// fastpg -c -=NETnotifyall 4901 -m "Notification message..."
+//
+//
+// Send an e-mail to the primary of group 4901:
+// fastpg -c -=NETemailprimary 4901 -m "E-mail message to primary..."
+//
+//
+// Send an e-mail to the backup of group 4901:
+// fastpg -c -=NETemailbackup 4901 -m "E-mail message to backup..."
+//
+//
+// Send an e-mail to the primary and backup of group 4901:
+// fastpg -c -=NETemailboth 4901 -m "E-mail message to the primary and backup..."
+//

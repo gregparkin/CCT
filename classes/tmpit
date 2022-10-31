@@ -1,0 +1,17 @@
+			$PATH         = getenv("PATH");
+			$ORABASE_EXEC = "/home/gparkin/app/gparkin/product/12.1.0/dbhome_1/bin/orabase";
+			$ORACLE_BASE  = "/home/gparkin/app/gparkin";
+			$ORACLE_HOME  = "/home/gparkin/app/gparkin/product/12.1.0/dbhome_1";
+			$ORACLE_SID   = "orcl";
+
+			putenv("OPTIND=1");
+			putenv("ORABASE_EXEC=" . $ORABASE_EXEC);
+			putenv("ORACLE_BASE="  . $ORACLE_BASE);
+			putenv("ORACLE_HOME="  . $ORACLE_HOME);
+			putenv("ORACLE_SID="   . $ORACLE_SID);
+			putenv("ORAENV_ASK=NO");
+			putenv("ORAHOME="      . $ORACLE_HOME);
+			putenv("PATH=.:" . $PATH . ":" . $ORACLE_HOME . "/bin:/opt/ibmtools/bin:/opt/lampp/bin");
+			putenv("LD_LIBRARY_PATH=" . $ORACLE_HOME . "/lib64:" . $ORACLE_HOME . "/jdbc:" . $ORACLE_HOME . "/lib");
+			putenv("ORACLE_USER=cct");
+			putenv("ORACLE_PASSWORD=candy4Kids");

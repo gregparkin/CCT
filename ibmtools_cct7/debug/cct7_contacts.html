@@ -1,0 +1,17 @@
+==========================================================================================================================
+<html><body><pre>Debug file: /opt/ibmtools/cct7/debug//cct7_contacts.html created on Fri, 24 Feb 2017 22:24:59 +0100. Mode: WRITE.
+<br>
+1: <font color="green">cct7_contacts.php</font>&nbsp;<font color="purple">getNetGroupMembers()</font>&nbsp;<font color="blue">621:</font><br><pre style="color: black; background-color: white;"><span style="font-weight:bold;">select</span> 
+  <span style="font-weight:bold;">distinct</span> <span style="color: #333;">n</span><span >.</span><span style="color: #333;">oncall_primary</span> <span style="font-weight:bold;">as</span> <span style="color: #333;">oncall_primary</span><span >,</span> 
+  <span style="color: #333;">n</span><span >.</span><span style="color: #333;">oncall_backup</span> <span style="font-weight:bold;">as</span> <span style="color: #333;">oncall_backup</span><span >,</span> 
+  <span style="color: #333;">m</span><span >.</span><span style="color: #333;">mnet_cuid</span> <span style="font-weight:bold;">as</span> <span style="color: #333;">mnet_cuid</span><span >,</span> 
+  <span style="color: #333;">m</span><span >.</span><span style="color: #333;">mnet_name</span> <span style="font-weight:bold;">as</span> <span style="color: #333;">mnet_name</span><span >,</span> 
+  <span style="color: #333;">m</span><span >.</span><span style="color: #333;">mnet_email</span> <span style="font-weight:bold;">as</span> <span style="color: #333;">mnet_email</span> 
+<span style="font-weight:bold;">from</span> 
+  <span style="color: #333;">cct7_netpin_to_cuid</span> <span style="color: #333;">n</span><span >,</span> 
+  <span style="color: #333;">cct7_mnet</span> <span style="color: #333;">m</span> 
+<span style="font-weight:bold;">where</span> 
+  <span style="color: #333;">n</span><span >.</span><span style="color: #333;">net_pin_no</span> <span >=</span> <span style="color: blue;">'17340'</span> 
+  <span style="font-weight:bold;">and</span> <span style="color: #333;">m</span><span >.</span><span style="color: #333;">mnet_cuid</span> <span >=</span> <span style="color: #333;">n</span><span >.</span><span style="color: #333;">user_cuid</span> 
+<span style="font-weight:bold;">order by</span> 
+  <span style="color: #333;">m</span><span >.</span><span style="color: #333;">mnet_cuid</span></pre>

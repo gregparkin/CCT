@@ -1,0 +1,1374 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=Cp1252" />
+<script src="../dbdoc.js" type="text/javascript"></script>
+<link href="../dbdoc.css" type="text/css" rel="stylesheet">
+</head>
+<body class="object">
+<div id="header"><h2>CCT6_TICKETS</h2>
+<div class="tabs clearfix">
+
+<div class="tab" id="current"><div><a href="CCT6_TICKETS.html">Columns</a></div></div>
+<div class="tab"><div><a href="CCT6_TICKETS_Constraints.html">Constraints</a></div></div>
+<div class="tab"><div><a href="CCT6_TICKETS_Grants.html">Grants</a></div></div>
+<div class="tab"><div><a href="CCT6_TICKETS_Statistics.html">Statistics</a></div></div>
+<div class="tab"><div><a href="CCT6_TICKETS_Triggers.html">Triggers</a></div></div>
+<div class="tab"><div><a href="CCT6_TICKETS_Dependencies.html">Dependencies</a></div></div>
+<div class="tab"><div><a href="CCT6_TICKETS_Details.html">Details</a></div></div>
+<div class="tab"><div><a href="CCT6_TICKETS_Partitions.html">Partitions</a></div></div>
+<div class="tab"><div><a href="CCT6_TICKETS_Indexes.html">Indexes</a></div></div>
+</div></div><br/>
+<div class="tab-panes">
+<div id="Columns"> <table cellpadding="0" cellspacing="0" cellspacing="0" summary=""><tr>
+	<th>COLUMN_NAME</th>
+	<th>DATA_TYPE</th>
+	<th>NULLABLE</th>
+	<th>DATA_DEFAULT</th>
+	<th>COLUMN_ID</th>
+	<th>COMMENTS</th>
+</tr>
+	<tr>
+<td>CM_TICKET_NO</td>
+<td>VARCHAR2(20 BYTE)</td>
+<td>No</td>
+<td>null</td>
+<td>1</td>
+<td>Remedy Ticket - change_id</td>
+	</tr>
+	<tr>
+<td>TICKET_STATUS</td>
+<td>VARCHAR2(20 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>2</td>
+<td>DRAFT, SUBMITTED, CANCELED, etc.</td>
+	</tr>
+	<tr>
+<td>TICKET_INSERT_CUID</td>
+<td>VARCHAR2(20 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>3</td>
+<td>CUID of person who created this record</td>
+	</tr>
+	<tr>
+<td>TICKET_INSERT_NAME</td>
+<td>VARCHAR2(200 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>4</td>
+<td>Name of person who created this record</td>
+	</tr>
+	<tr>
+<td>TICKET_INSERT_DATE</td>
+<td>DATE</td>
+<td>Yes</td>
+<td>null</td>
+<td>5</td>
+<td>Date of person who created this record</td>
+	</tr>
+	<tr>
+<td>TICKET_UPDATE_CUID</td>
+<td>VARCHAR2(20 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>6</td>
+<td>CUID of person who updated this record</td>
+	</tr>
+	<tr>
+<td>TICKET_UPDATE_NAME</td>
+<td>VARCHAR2(200 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>7</td>
+<td>Name of person who updated this record</td>
+	</tr>
+	<tr>
+<td>TICKET_UPDATE_DATE</td>
+<td>DATE</td>
+<td>Yes</td>
+<td>null</td>
+<td>8</td>
+<td>Date of person who updated this record</td>
+	</tr>
+	<tr>
+<td>TICKET_CONTACT_CUID</td>
+<td>VARCHAR2(20 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>9</td>
+<td>CUID of person who created this record. (Same as ticket_insert_cuid)</td>
+	</tr>
+	<tr>
+<td>TICKET_CONTACT_FIRST_NAME</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>10</td>
+<td>First name of person who created this record</td>
+	</tr>
+	<tr>
+<td>TICKET_CONTACT_LAST_NAME</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>11</td>
+<td>Last name of person who created this record</td>
+	</tr>
+	<tr>
+<td>TICKET_CONTACT_NAME</td>
+<td>VARCHAR2(200 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>12</td>
+<td>Name of person who created this record. (Same as ticket_insert_name)</td>
+	</tr>
+	<tr>
+<td>TICKET_CONTACT_EMAIL</td>
+<td>VARCHAR2(40 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>13</td>
+<td>Email address of person who created this record</td>
+	</tr>
+	<tr>
+<td>TICKET_CONTACT_COMPANY</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>14</td>
+<td>Company name of person who created this record</td>
+	</tr>
+	<tr>
+<td>TICKET_MANAGER_CUID</td>
+<td>VARCHAR2(20 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>15</td>
+<td>Owners managers CUID</td>
+	</tr>
+	<tr>
+<td>TICKET_MANAGER_FIRST_NAME</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>16</td>
+<td>Owners managers first_name</td>
+	</tr>
+	<tr>
+<td>TICKET_MANAGER_LAST_NAME</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>17</td>
+<td>Owners managers last name</td>
+	</tr>
+	<tr>
+<td>TICKET_MANAGER_NAME</td>
+<td>VARCHAR2(200 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>18</td>
+<td>Owners managers full name</td>
+	</tr>
+	<tr>
+<td>TICKET_MANAGER_EMAIL</td>
+<td>VARCHAR2(40 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>19</td>
+<td>Owners managers email address</td>
+	</tr>
+	<tr>
+<td>TICKET_MANAGER_COMPANY</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>20</td>
+<td>Owners managers company name</td>
+	</tr>
+	<tr>
+<td>TICKET_SUBMIT_DATE</td>
+<td>DATE</td>
+<td>Yes</td>
+<td>null</td>
+<td>21</td>
+<td>Date work request was submitted. No longer in draft mode.</td>
+	</tr>
+	<tr>
+<td>TICKET_SUBMIT_CUID</td>
+<td>VARCHAR2(20 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>22</td>
+<td>CUID of person who submitted work request</td>
+	</tr>
+	<tr>
+<td>TICKET_SUBMIT_NAME</td>
+<td>VARCHAR2(200 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>23</td>
+<td>Name of person who submitted work request</td>
+	</tr>
+	<tr>
+<td>TICKET_FREEZE_DATE</td>
+<td>DATE</td>
+<td>Yes</td>
+<td>null</td>
+<td>24</td>
+<td>Date work request was frozen</td>
+	</tr>
+	<tr>
+<td>TICKET_FREEZE_CUID</td>
+<td>VARCHAR2(20 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>25</td>
+<td>CUID of person who freezed the work request</td>
+	</tr>
+	<tr>
+<td>TICKET_FREEZE_NAME</td>
+<td>VARCHAR2(200 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>26</td>
+<td>Name of person who freezed the work request</td>
+	</tr>
+	<tr>
+<td>TICKET_CANCEL_DATE</td>
+<td>DATE</td>
+<td>Yes</td>
+<td>null</td>
+<td>27</td>
+<td>Date work request was canceled</td>
+	</tr>
+	<tr>
+<td>TICKET_CANCEL_CUID</td>
+<td>VARCHAR2(20 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>28</td>
+<td>CUID of person who canceled the work request</td>
+	</tr>
+	<tr>
+<td>TICKET_CANCEL_NAME</td>
+<td>VARCHAR2(200 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>29</td>
+<td>Name of person who canceled the work request</td>
+	</tr>
+	<tr>
+<td>TICKET_CANCEL_COMMENTS</td>
+<td>VARCHAR2(4000 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>30</td>
+<td>Comments as to why the work request was canceled</td>
+	</tr>
+	<tr>
+<td>CLASSIFICATION_ID</td>
+<td>NUMBER</td>
+<td>Yes</td>
+<td>null</td>
+<td>31</td>
+<td>cct6_classifications.classification_id (ie. Unique record ID)</td>
+	</tr>
+	<tr>
+<td>CLASSIFICATION</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>32</td>
+<td>Classification (ie. Patching)</td>
+	</tr>
+	<tr>
+<td>CLASSIFICATION_COMMENTS</td>
+<td>VARCHAR2(4000 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>33</td>
+<td>Classification comments</td>
+	</tr>
+	<tr>
+<td>CLASSIFICATION_CUID</td>
+<td>VARCHAR2(20 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>34</td>
+<td>CUID of person who will approve this work</td>
+	</tr>
+	<tr>
+<td>CLASSIFICATION_LAST_NAME</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>35</td>
+<td>Last name of approver</td>
+	</tr>
+	<tr>
+<td>CLASSIFICATION_FIRST_NAME</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>36</td>
+<td>First name of approver</td>
+	</tr>
+	<tr>
+<td>CLASSIFICATION_NICK_NAME</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>37</td>
+<td>Nick name of approver</td>
+	</tr>
+	<tr>
+<td>CLASSIFICATION_MIDDLE</td>
+<td>VARCHAR2(20 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>38</td>
+<td>Middle name of approver</td>
+	</tr>
+	<tr>
+<td>CLASSIFICATION_NAME</td>
+<td>VARCHAR2(200 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>39</td>
+<td>Full name of approver</td>
+	</tr>
+	<tr>
+<td>CLASSIFICATION_JOB_TITLE</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>40</td>
+<td>Job title of approver</td>
+	</tr>
+	<tr>
+<td>CLASSIFICATION_EMAIL</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>41</td>
+<td>Email address of approver</td>
+	</tr>
+	<tr>
+<td>CLASSIFICATION_WORK_PHONE</td>
+<td>VARCHAR2(20 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>42</td>
+<td>Work phone number of approver</td>
+	</tr>
+	<tr>
+<td>CLASSIFICATION_PAGER</td>
+<td>VARCHAR2(20 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>43</td>
+<td>Pager number of approver</td>
+	</tr>
+	<tr>
+<td>CLASSIFICATION_STREET</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>44</td>
+<td>Street address of approver</td>
+	</tr>
+	<tr>
+<td>CLASSIFICATION_CITY</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>45</td>
+<td>City of approver</td>
+	</tr>
+	<tr>
+<td>CLASSIFICATION_STATE</td>
+<td>VARCHAR2(10 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>46</td>
+<td>State of approver</td>
+	</tr>
+	<tr>
+<td>CLASSIFICATION_RC</td>
+<td>VARCHAR2(45 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>47</td>
+<td>Qwest RC code of approver</td>
+	</tr>
+	<tr>
+<td>CLASSIFICATION_COMPANY</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>48</td>
+<td>Company name that the approver works for</td>
+	</tr>
+	<tr>
+<td>CLASSIFICATION_TIER1</td>
+<td>VARCHAR2(100 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>49</td>
+<td>Tier1 level support for approver</td>
+	</tr>
+	<tr>
+<td>CLASSIFICATION_TIER2</td>
+<td>VARCHAR2(100 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>50</td>
+<td>Tier2 level support for approver</td>
+	</tr>
+	<tr>
+<td>CLASSIFICATION_TIER3</td>
+<td>VARCHAR2(100 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>51</td>
+<td>Tier3 level support for apprver</td>
+	</tr>
+	<tr>
+<td>CLASSIFICATION_STATUS</td>
+<td>VARCHAR2(20 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>52</td>
+<td>Employee status for approver</td>
+	</tr>
+	<tr>
+<td>CLASSIFICATION_CHANGE_DATE</td>
+<td>DATE</td>
+<td>Yes</td>
+<td>null</td>
+<td>53</td>
+<td>Last mnet record change date for this person</td>
+	</tr>
+	<tr>
+<td>CLASSIFICATION_CTL_CUID</td>
+<td>VARCHAR2(20 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>54</td>
+<td>CTL sponsor for approver</td>
+	</tr>
+	<tr>
+<td>CLASSIFICATION_MGR_CUID</td>
+<td>VARCHAR2(20 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>55</td>
+<td>Manager CUID of approver</td>
+	</tr>
+	<tr>
+<td>TICKET_OS_MAINTWIN</td>
+<td>VARCHAR2(10 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>56</td>
+<td>OS Maintenance Window: W=Weekly, M=Monthly, Q=Quarterly</td>
+	</tr>
+	<tr>
+<td>TICKET_APPROVALS_REQUIRED</td>
+<td>VARCHAR2(10 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>57</td>
+<td>Are approvals required? Yes or No</td>
+	</tr>
+	<tr>
+<td>TICKET_READ_ESC1_DATE</td>
+<td>DATE</td>
+<td>Yes</td>
+<td>null</td>
+<td>58</td>
+<td>Read Receipt escalation 1</td>
+	</tr>
+	<tr>
+<td>TICKET_READ_ESC2_DATE</td>
+<td>DATE</td>
+<td>Yes</td>
+<td>null</td>
+<td>59</td>
+<td>Read Receipt escalation 2</td>
+	</tr>
+	<tr>
+<td>TICKET_READ_ESC3_DATE</td>
+<td>DATE</td>
+<td>Yes</td>
+<td>null</td>
+<td>60</td>
+<td>Read Receipt escalation3</td>
+	</tr>
+	<tr>
+<td>TICKET_RESP_ESC1_DATE</td>
+<td>DATE</td>
+<td>Yes</td>
+<td>null</td>
+<td>61</td>
+<td>Response escalation 1</td>
+	</tr>
+	<tr>
+<td>TICKET_RESP_ESC2_DATE</td>
+<td>DATE</td>
+<td>Yes</td>
+<td>null</td>
+<td>62</td>
+<td>Response escalation 2</td>
+	</tr>
+	<tr>
+<td>TICKET_RESP_ESC3_DATE</td>
+<td>DATE</td>
+<td>Yes</td>
+<td>null</td>
+<td>63</td>
+<td>Response escalation 3</td>
+	</tr>
+	<tr>
+<td>CM_ASSIGN_GROUP</td>
+<td>VARCHAR2(254 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>64</td>
+<td>Assignment Group - AIM-TOOLS-BOM</td>
+	</tr>
+	<tr>
+<td>CM_CATEGORY</td>
+<td>VARCHAR2(20 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>65</td>
+<td>Category - Software</td>
+	</tr>
+	<tr>
+<td>CM_CATEGORY_TYPE</td>
+<td>VARCHAR2(20 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>66</td>
+<td>Category Type - Application</td>
+	</tr>
+	<tr>
+<td>CM_CLOSED_BY</td>
+<td>VARCHAR2(50 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>67</td>
+<td>Closed By - gparkin</td>
+	</tr>
+	<tr>
+<td>CM_CLOSE_CODE</td>
+<td>VARCHAR2(30 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>68</td>
+<td>Close Code - Completed Successfully</td>
+	</tr>
+	<tr>
+<td>CM_CLOSE_DATE</td>
+<td>DATE</td>
+<td>Yes</td>
+<td>null</td>
+<td>69</td>
+<td>Close Date and Time - 02/27/2012 08:58</td>
+	</tr>
+	<tr>
+<td>CM_COMPONENT</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>70</td>
+<td>Component - GSD331-TOOLS</td>
+	</tr>
+	<tr>
+<td>CM_SCHEDULING_FLEXIBILITY</td>
+<td>VARCHAR2(15 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>71</td>
+<td>Scheduling Flexibility - Flexible</td>
+	</tr>
+	<tr>
+<td>CM_END_DATE</td>
+<td>DATE</td>
+<td>Yes</td>
+<td>null</td>
+<td>72</td>
+<td>End Date and Time - 02/24/2013 23:59</td>
+	</tr>
+	<tr>
+<td>CM_ENTERED_BY</td>
+<td>VARCHAR2(50 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>73</td>
+<td>Entered By - mobarke</td>
+	</tr>
+	<tr>
+<td>CM_EXP_CODE</td>
+<td>VARCHAR2(30 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>74</td>
+<td>Explanation Code - S01</td>
+	</tr>
+	<tr>
+<td>CM_FIX_LEVEL</td>
+<td>VARCHAR2(20 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>75</td>
+<td>Fix Level - (null) CMP staff</td>
+	</tr>
+	<tr>
+<td>CM_IMPACT</td>
+<td>VARCHAR2(2050 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>76</td>
+<td>Impact - None. Minimal this installation will ...</td>
+	</tr>
+	<tr>
+<td>CM_IMPLEMENTOR_FIRST_LAST</td>
+<td>VARCHAR2(50 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>77</td>
+<td>Implementor Name - Barker, Max</td>
+	</tr>
+	<tr>
+<td>CM_IMPLEMENTOR_LOGIN</td>
+<td>VARCHAR2(30 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>78</td>
+<td>Implementor CUID - mobarke</td>
+	</tr>
+	<tr>
+<td>CM_IPL_BOOT</td>
+<td>VARCHAR2(1 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>79</td>
+<td>IPL/Boot - Y or N</td>
+	</tr>
+	<tr>
+<td>CM_LATE</td>
+<td>VARCHAR2(1 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>80</td>
+<td>Late Change? - Y or N</td>
+	</tr>
+	<tr>
+<td>CM_PARENT_IR</td>
+<td>VARCHAR2(15 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>81</td>
+<td>Parent CM Ticket no.</td>
+	</tr>
+	<tr>
+<td>CM_NORMAL_RELEASE_SESSION</td>
+<td>VARCHAR2(5 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>82</td>
+<td>Normal Release Session - (null)</td>
+	</tr>
+	<tr>
+<td>CM_CREATE_DATE</td>
+<td>DATE</td>
+<td>Yes</td>
+<td>null</td>
+<td>83</td>
+<td>02/20/2012 12:52</td>
+	</tr>
+	<tr>
+<td>CM_PAGER</td>
+<td>VARCHAR2(15 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>84</td>
+<td>Pager - (null)</td>
+	</tr>
+	<tr>
+<td>CM_PHONE</td>
+<td>VARCHAR2(15 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>85</td>
+<td>Phone - 8012373141</td>
+	</tr>
+	<tr>
+<td>CM_PIN</td>
+<td>VARCHAR2(15 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>86</td>
+<td>PIN - (null)</td>
+	</tr>
+	<tr>
+<td>CM_PLAN_A_B</td>
+<td>VARCHAR2(1 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>87</td>
+<td>Plan A or B - A or B</td>
+	</tr>
+	<tr>
+<td>CM_PRODUCT</td>
+<td>VARCHAR2(30 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>88</td>
+<td>Product - (null)</td>
+	</tr>
+	<tr>
+<td>CM_PRODUCT_TYPE</td>
+<td>VARCHAR2(52 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>89</td>
+<td>Product Type - (null)</td>
+	</tr>
+	<tr>
+<td>CM_RISK</td>
+<td>NUMBER</td>
+<td>Yes</td>
+<td>null</td>
+<td>90</td>
+<td>Risk</td>
+	</tr>
+	<tr>
+<td>CM_SOFTWARE_OBJECT</td>
+<td>VARCHAR2(30 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>91</td>
+<td>Software Object - (null)</td>
+	</tr>
+	<tr>
+<td>CM_START_DATE</td>
+<td>DATE</td>
+<td>Yes</td>
+<td>null</td>
+<td>92</td>
+<td>Start Date and Time - 02/24/2012 19:00</td>
+	</tr>
+	<tr>
+<td>CM_STATUS</td>
+<td>VARCHAR2(15 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>93</td>
+<td>Approval Status - Approved</td>
+	</tr>
+	<tr>
+<td>CM_TESTED</td>
+<td>VARCHAR2(1 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>94</td>
+<td>Tested - Y or N</td>
+	</tr>
+	<tr>
+<td>CM_DURATION</td>
+<td>NUMBER</td>
+<td>Yes</td>
+<td>null</td>
+<td>95</td>
+<td>Duration time in total seconds - 17930 (not really useful)</td>
+	</tr>
+	<tr>
+<td>CM_BUSINESS_UNIT</td>
+<td>VARCHAR2(10 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>96</td>
+<td>Business Unit - (null)</td>
+	</tr>
+	<tr>
+<td>CM_DURATION_COMPUTED</td>
+<td>VARCHAR2(30 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>97</td>
+<td>Duration (Days:Hdrs:Min) - 0 : 4 : 59</td>
+	</tr>
+	<tr>
+<td>CM_EMAIL</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>98</td>
+<td>Email - mobarke@us.ibm.com</td>
+	</tr>
+	<tr>
+<td>CM_COMPANY_NAME</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>99</td>
+<td>Company Name - CMP</td>
+	</tr>
+	<tr>
+<td>CM_DIRECTOR</td>
+<td>VARCHAR2(50 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>100</td>
+<td>Director - Johnson, Douglas J.</td>
+	</tr>
+	<tr>
+<td>CM_MANAGER</td>
+<td>VARCHAR2(50 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>101</td>
+<td>Manager - Shepherd, Becky A.</td>
+	</tr>
+	<tr>
+<td>CM_TESTED_ITV</td>
+<td>VARCHAR2(1 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>102</td>
+<td>System Tested - Y or N</td>
+	</tr>
+	<tr>
+<td>CM_TESTED_ENDTOEND</td>
+<td>VARCHAR2(1 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>103</td>
+<td>End to End Tested - Y or N</td>
+	</tr>
+	<tr>
+<td>CM_TESTED_DEVELOPMENT</td>
+<td>VARCHAR2(1 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>104</td>
+<td>Development Tested - Y or N</td>
+	</tr>
+	<tr>
+<td>CM_TESTED_USER</td>
+<td>VARCHAR2(1 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>105</td>
+<td>User Tested - Y or N</td>
+	</tr>
+	<tr>
+<td>CM_OWNER_NAME</td>
+<td>VARCHAR2(50 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>106</td>
+<td>Owner Name - (null)</td>
+	</tr>
+	<tr>
+<td>CM_OWNER_CUID</td>
+<td>VARCHAR2(10 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>107</td>
+<td>Owner CUID - MOBARKE</td>
+	</tr>
+	<tr>
+<td>CM_GROUPID</td>
+<td>VARCHAR2(10 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>108</td>
+<td>groupid - 11891 (link to some record in Remedy)</td>
+	</tr>
+	<tr>
+<td>CM_TEMP</td>
+<td>VARCHAR2(30 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>109</td>
+<td>temp - (null)</td>
+	</tr>
+	<tr>
+<td>CM_LAST_MODIFIED_BY</td>
+<td>VARCHAR2(30 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>110</td>
+<td>Last Modified By - gparkin</td>
+	</tr>
+	<tr>
+<td>CM_LAST_MODIFIED</td>
+<td>DATE</td>
+<td>Yes</td>
+<td>null</td>
+<td>111</td>
+<td>Last Modified - 02/27/2012 08:58</td>
+	</tr>
+	<tr>
+<td>CM_LATE_DATE</td>
+<td>DATE</td>
+<td>Yes</td>
+<td>null</td>
+<td>112</td>
+<td>Late Date - 02/19/2012 12:00</td>
+	</tr>
+	<tr>
+<td>CM_RISK_INTEGER</td>
+<td>NUMBER</td>
+<td>Yes</td>
+<td>null</td>
+<td>113</td>
+<td>Risk Integer - 3</td>
+	</tr>
+	<tr>
+<td>CM_OWNER_LOGIN_ID</td>
+<td>VARCHAR2(15 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>114</td>
+<td>owner_login_id = 193464 (not really useful here)</td>
+	</tr>
+	<tr>
+<td>CM_OPEN_CLOSED</td>
+<td>VARCHAR2(10 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>115</td>
+<td>Open/Closed - Closed</td>
+	</tr>
+	<tr>
+<td>CM_USER_TIMESTAMP</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>116</td>
+<td>User Timestamp - mobarke2/20/2012 8:41:08 AM</td>
+	</tr>
+	<tr>
+<td>CM_DESCRIPTION</td>
+<td>VARCHAR2(2048 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>117</td>
+<td>Implementation Instructions - Back up ER On lxomp11m, run...</td>
+	</tr>
+	<tr>
+<td>CM_BACKOFF_PLAN</td>
+<td>VARCHAR2(2048 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>118</td>
+<td>Backoff Plans - Untar the ER backup file. Run make...</td>
+	</tr>
+	<tr>
+<td>CM_IMPLEMENTATION_INSTRUCTIONS</td>
+<td>VARCHAR2(2048 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>119</td>
+<td>Implementation Instructions - Backup up ER on lxomp11m, run...</td>
+	</tr>
+	<tr>
+<td>CM_BUSINESS_REASON</td>
+<td>VARCHAR2(2048 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>120</td>
+<td>Business Reasons - Improve the ER date...</td>
+	</tr>
+	<tr>
+<td>CM_OWNER_FIRST_NAME</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>121</td>
+<td>Owner First Name - Max</td>
+	</tr>
+	<tr>
+<td>CM_OWNER_LAST_NAME</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>122</td>
+<td>Barker</td>
+	</tr>
+	<tr>
+<td>CM_CHANGE_OCCURS</td>
+<td>VARCHAR2(1 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>123</td>
+<td>Change Occurs - Y</td>
+	</tr>
+	<tr>
+<td>CM_LLA_REFRESH</td>
+<td>VARCHAR2(1 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>124</td>
+<td>LLA Refresh - Y</td>
+	</tr>
+	<tr>
+<td>CM_IMS_COLD_START</td>
+<td>VARCHAR2(1 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>125</td>
+<td>CMP Cold Start - N</td>
+	</tr>
+	<tr>
+<td>CM_RELEASE_LEVEL</td>
+<td>VARCHAR2(8 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>126</td>
+<td>Release Level - (null)</td>
+	</tr>
+	<tr>
+<td>CM_MASTER_IR</td>
+<td>VARCHAR2(15 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>127</td>
+<td>Master IR</td>
+	</tr>
+	<tr>
+<td>CM_OWNER_GROUP</td>
+<td>VARCHAR2(254 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>128</td>
+<td>Owner Group - AIM-TOOLS-BOM</td>
+	</tr>
+	<tr>
+<td>CM_CAB_APPROVAL_REQUIRED</td>
+<td>VARCHAR2(1 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>129</td>
+<td>CAB Approval Required? - Y or N</td>
+	</tr>
+	<tr>
+<td>CM_CHANGE_EXECUTIVE_TEAM_FLAG</td>
+<td>VARCHAR2(1 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>130</td>
+<td>Executive Team Flag - Y or N</td>
+	</tr>
+	<tr>
+<td>CM_EMERGENCY_CHANGE</td>
+<td>VARCHAR2(1 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>131</td>
+<td>Emergency Change?</td>
+	</tr>
+	<tr>
+<td>CM_APPROVAL_STATUS</td>
+<td>NUMBER</td>
+<td>Yes</td>
+<td>null</td>
+<td>132</td>
+<td>Approval Status - 1</td>
+	</tr>
+	<tr>
+<td>CM_COMPONENT_TYPE</td>
+<td>VARCHAR2(40 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>133</td>
+<td>Component Type - Application</td>
+	</tr>
+	<tr>
+<td>CM_DESC_SHORT</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>134</td>
+<td>Description Short - Er Q1 Release. BUR Q1 release</td>
+	</tr>
+	<tr>
+<td>CM_LAST_STATUS_CHANGE_BY</td>
+<td>VARCHAR2(30 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>135</td>
+<td>Last Status Change By - wasikd</td>
+	</tr>
+	<tr>
+<td>CM_LAST_STATUS_CHANGE_TIME</td>
+<td>DATE</td>
+<td>Yes</td>
+<td>null</td>
+<td>136</td>
+<td>Last Status Change Time - 02/20/2012 15:11</td>
+	</tr>
+	<tr>
+<td>CM_PREVIOUS_STATUS</td>
+<td>VARCHAR2(15 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>137</td>
+<td>Previous Status - Turnover</td>
+	</tr>
+	<tr>
+<td>CM_COMPONENT_ID</td>
+<td>VARCHAR2(255 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>138</td>
+<td>component_id = 239227993</td>
+	</tr>
+	<tr>
+<td>CM_TEST_TOOL</td>
+<td>VARCHAR2(20 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>139</td>
+<td>Test Tool - Other</td>
+	</tr>
+	<tr>
+<td>CM_TESTED_ORL</td>
+<td>VARCHAR2(1 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>140</td>
+<td>Tested ORL - Y or N</td>
+	</tr>
+	<tr>
+<td>CM_FEATURED_PROJECT</td>
+<td>VARCHAR2(1 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>141</td>
+<td>CM for featured project - N</td>
+	</tr>
+	<tr>
+<td>CM_FEATURED_PROJ_NAME</td>
+<td>VARCHAR2(60 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>142</td>
+<td>Featured Project Name - (null)</td>
+	</tr>
+	<tr>
+<td>CM_TMPMAINPLATFORM</td>
+<td>VARCHAR2(30 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>143</td>
+<td>Tmp Main Platform - MIDRANGE</td>
+	</tr>
+	<tr>
+<td>CM_TMPBLOCKMESSAGE</td>
+<td>VARCHAR2(254 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>144</td>
+<td>Message - (null)</td>
+	</tr>
+	<tr>
+<td>CM_GUID</td>
+<td>VARCHAR2(30 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>145</td>
+<td>guid - 10221682522600T0Jplgh73gMA-CgC</td>
+	</tr>
+	<tr>
+<td>CM_PLATFORM</td>
+<td>VARCHAR2(254 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>146</td>
+<td>Platform - MIDRANGE</td>
+	</tr>
+	<tr>
+<td>CM_CLLICODES</td>
+<td>VARCHAR2(254 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>147</td>
+<td>CLLI Codes - AUSSITXBX,SLKCUTCB,...</td>
+	</tr>
+	<tr>
+<td>CM_PROCESSOR_NAME</td>
+<td>VARCHAR2(254 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>148</td>
+<td>LXOMP11M,LXOMP11M-RC</td>
+	</tr>
+	<tr>
+<td>CM_SYSTEM_NAME</td>
+<td>VARCHAR2(254 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>149</td>
+<td>LXOMPROD,CMPPROD-NOGOLDAPPS,LAB,ELDNP0091MS,...</td>
+	</tr>
+	<tr>
+<td>CM_CITY</td>
+<td>VARCHAR2(254 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>150</td>
+<td>LEWIS CENTER,LITTLETON,MINNEAPOLIS,...</td>
+	</tr>
+	<tr>
+<td>CM_STATE</td>
+<td>VARCHAR2(254 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>151</td>
+<td>GA,OH,...</td>
+	</tr>
+	<tr>
+<td>CM_TMPDESC</td>
+<td>VARCHAR2(254 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>152</td>
+<td>Tmp Description - Er Q1 Release. BUR Q1 release</td>
+	</tr>
+	<tr>
+<td>CM_TURN_OVERDATE</td>
+<td>DATE</td>
+<td>Yes</td>
+<td>null</td>
+<td>153</td>
+<td>Turnover Date - 02/20/2012 15:11</td>
+	</tr>
+	<tr>
+<td>CM_ASSIGN_GROUP2</td>
+<td>VARCHAR2(254 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>154</td>
+<td>Implementor Assignment Group2</td>
+	</tr>
+	<tr>
+<td>CM_ASSIGN_GROUP3</td>
+<td>VARCHAR2(254 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>155</td>
+<td>Implementor Assignment Group3</td>
+	</tr>
+	<tr>
+<td>CM_IMPLEMENTOR_NAME2</td>
+<td>VARCHAR2(50 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>156</td>
+<td>Implementor Name2</td>
+	</tr>
+	<tr>
+<td>CM_IMPLEMENTOR_NAME3</td>
+<td>VARCHAR2(50 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>157</td>
+<td>Implementor Name3</td>
+	</tr>
+	<tr>
+<td>CM_GROUPID2</td>
+<td>VARCHAR2(10 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>158</td>
+<td>groupid2 (null)</td>
+	</tr>
+	<tr>
+<td>CM_GROUPID3</td>
+<td>VARCHAR2(10 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>159</td>
+<td>groupid3 (null)</td>
+	</tr>
+	<tr>
+<td>CM_TEMPLATE</td>
+<td>VARCHAR2(10 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>160</td>
+<td>Template - True</td>
+	</tr>
+	<tr>
+<td>CM_HD_OUTAGE_TICKET_NUMBER</td>
+<td>VARCHAR2(20 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>161</td>
+<td>Outage Ticket Number - (null)</td>
+	</tr>
+	<tr>
+<td>CM_ROOT_CAUSE_OWNER</td>
+<td>VARCHAR2(30 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>162</td>
+<td>Root Cause Owner</td>
+	</tr>
+	<tr>
+<td>CM_CONTROL_COUNT</td>
+<td>VARCHAR2(20 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>163</td>
+<td>Control Count</td>
+	</tr>
+	<tr>
+<td>GEN_REQUEST_START</td>
+<td>DATE</td>
+<td>Yes</td>
+<td>null</td>
+<td>164</td>
+<td>Performance: GenRequest() start time</td>
+	</tr>
+	<tr>
+<td>GEN_REQUEST_END</td>
+<td>DATE</td>
+<td>Yes</td>
+<td>null</td>
+<td>165</td>
+<td>Performance: GenRequest() end time</td>
+	</tr>
+	<tr>
+<td>GEN_REQUEST_DURATION</td>
+<td>VARCHAR2(20 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>166</td>
+<td>Performance: GenRequest() duration (i.e. 00:00:14) HH:MM:SS</td>
+	</tr>
+	<tr>
+<td>GEN_REQUEST_TOTAL_SYSTEMS</td>
+<td>NUMBER</td>
+<td>Yes</td>
+<td>null</td>
+<td>167</td>
+<td>Total systems GenRequest() gathered from user input</td>
+	</tr>
+	<tr>
+<td>GEN_REQUEST_TOTAL_CONTACTS</td>
+<td>NUMBER</td>
+<td>Yes</td>
+<td>null</td>
+<td>168</td>
+<td>Total contacts GenRequest() gathered for each server</td>
+	</tr>
+</table></div>

@@ -1,0 +1,237 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><style>
+    p {
+        font-size: 18px;
+    }
+</style>
+</head><body><h3>Approve</h3>
+<p style="font-size: 18px;">
+    This screen is used to view and approve work requests for your net-group or subscriber group. It works just like
+    the Open tickets screen from the toolbar menu. The only difference is that it only shows tickets, servers and
+    contacts (net-pins) where you need to be concerned about.
+    <br><br>
+    Keep in mind that the server status may or may not change after you approve the work request. If there is one or
+    more contact for the server they may not have approved the work yet. The approve work status will not change for
+    a server until all contacts have approved the work. If you are the last one to approve the work for a server the
+    server work status will change to approve and will be changed in the grid.
+    <br><br>
+    There are two places where you can approve the work. The first method is by clicking in the row containing the
+    ticket. When the dialog box appears there is a button all "Approve All". Clicking on this button will approve this
+    work on all the servers you may be supporting that are listed in the ticket. This is the fastest way to approve
+    the work, but you will want to make sure you review the servers and the scheduled start times carefully before using
+    this option. The second way to approve the work is to find the server in the by opening the sub grids that show the
+    servers and contacts. Find your net group pin contact and click on it. When the information about your group
+    appears there will be an approve button there to click on.
+</p>
+
+<br>
+<h3>Main Grid</h3>
+<p style="font-size: 18px;">
+    <img src="help_toolbar_open_approve.php_files/a1.png">
+    The following is a grid contains tickets that you need to be concerned with.
+</p>
+
+<br>
+<h3>Paging Through the Grid</h3>
+<p style="font-size: 18px;">
+    <img src="help_toolbar_open_approve.php_files/toolbar_open2.png" align="top"><br>
+    You page through the grid by clicking on the arrow icons at the bottom (center) of the grid. The first icon starting
+    at the left (bar - left arrow, left arrow) will page back to the top of the grid. The second icon (left arrow,
+    left arrow) takes you back one page. The third icon (right arrow, right arrow) takes you one page forward. And the
+    last icon (right arrow, right arrow, bar) takes you to the last page in the grid.
+</p>
+
+<br>
+<h3>Useful Grid Icons</h3>
+<p style="font-size: 18px;">
+    <img src="help_toolbar_open_approve.php_files/toolbar_open6.png" align="bottom"><br>
+    These icons on the far bottom left of the grid can be used to <b><u>Search</u></b>, <b><u>Export to Excel</u></b> and
+    <b><u>Refresh</u></b> the grid.
+</p>
+
+<br>
+<h3>Search</h3>
+<p style="font-size: 18px;">
+    <img src="help_toolbar_open_approve.php_files/search1.png" align="bottom">
+    This is what the search window looks like when you click on the magnifying glass. Once you setup your search
+    criteria you would click on the Find button. You can search on multiple columns to drill down to what you want.
+    When you close the search menu you can page up and down through your search results. To reset the search
+    options, click on the magnifying glass icon again and click on the Reset button. You will now see all the
+    default tickets again.
+</p>
+
+<br>
+<h3>Export to Excel</h3>
+<p style="font-size: 18px;">
+    <img src="help_toolbar_open_approve.php_files/excel.png"><br>
+    When you click on the suitcase icon, the entire grid will be downloaded to your PC in cvs format which is
+    compatible with Excel and LibreOffice Calc. Just remember it is the whole grid and not just the data you are
+    viewing in the current grid page.
+</p>
+
+<br>
+<h3>Sub-Grids</h3>
+<p style="font-size: 18px;">
+    <img src="help_toolbar_open_approve.php_files/a2.png"><br>
+    As you expand a record by clicking on the plus sign, all servers that you are requested to approve or review will
+    be displayed and all servers that don't concern you are hidden. When you expand the server records, only contacts
+    records where you are a member of it's net-group are shown. If the contact is from the subscriber list you will see a
+    group number starting with SUBxxx where SUB tells you this is a subscriber's list. When you click on the contact
+    record you will be presented with buttons that you can click on to choose how you approve the work. Please
+    keep in mind the final server approval status will not change until everyone has approved the work request.
+</p>
+
+
+<br>
+<h3>Ticket Dialog Box - General</h3>
+<p style="font-size: 18px;">
+    <img src="help_toolbar_open_approve.php_files/ticket1.png"><br>
+    If you want to see more information about a ticket or perform some kind of action on it, click on on the row where
+    the ticket is located. A dialog box will appear giving you a list of options you can perform. If you are not the
+    CCT owner or CCT admin you will not be able to approve all, cancel or update the ticket. But you can look at detail
+    information about the work request. However you can still log messages and send out email for the ticket.<br><br>
+    If you Approve All from this dialog box, CCT will approve all the servers you support that are listed in this
+    ticket. This is a handy option if the SA is targeting 100's of servers where you are a support contact for most of
+    them. This will save you time from clicking on each server in the sub-grids and approving each server one by one.
+    <br><br>
+    The <b>Approve All - With Paging</b> button means that the on-call person for your group will be paged about work
+    status so they have an opportunity to shutdown their applications, do manual restarts of their application and check
+    things out to see if anything broken.<br><br>
+    The <b>Approve All - NO PAGING</b> option means no pages will be sent out to your on-call net-group. In other words,
+    you do not have to worry about things starting back up. You will still get an email about the work status the next
+    day.<br><br>
+    As you approve work for your net-group the tickets will be removed from your approve list. If you need to come back
+    into CCT later and look at the ticket again, you can use the search button on the toolbar to find the ticket and
+    servers you support again. From there you can add additional log information for the SA doing the work and even
+    send out email messages.
+</p>
+
+<br>
+<h3>Ticket Dialog Box - View Remedy Ticket</h3>
+<p style="font-size: 18px;">
+    <img src="help_toolbar_open_approve.php_files/ticket2.png"><br>
+    Remedy tickets are no longer required in order for CCT to work. However, there is a place in the CCT ticket where
+    you can enter a Remedy ticket that references this CCT ticket. There is also a View button that you click on that
+    can retrieve the Remedy ticket directly from the Remedy CM database. Be patience here, because it can sometimes
+    take time to retrieve and display the ticket.
+</p>
+
+<br>
+<h3>Ticket Dialog Box - Description / Implementation Instructions</h3>
+<p style="font-size: 18px;">
+    <img src="help_toolbar_open_approve.php_files/ticket3.png"><br>
+    This tab in the Ticket Dialog Box and is where you input information about the work request and your implementation
+    instructions. It is the same information you would find in a Remedy ticket.
+</p>
+
+<br>
+<h3>Ticket Dialog Box - Backoff Plans</h3>
+<p style="font-size: 18px;">
+    <img src="help_toolbar_open_approve.php_files/ticket4.png"><br>
+    This is where you describe your backout plans in the event your work was unsuccessful.
+</p>
+
+<br>
+<h3>Ticket Dialog Box - Business Reasons / Impacts</h3>
+<p style="font-size: 18px;">
+    <img src="help_toolbar_open_approve.php_files/ticket5.png"><br>
+    This tab is used to documentation business reasons for the changes and what the impact are to the users.
+</p>
+
+<br>
+<h3>Ticket Dialog Box - Send Email</h3>
+<p style="font-size: 18px;">
+    <img src="help_toolbar_open_approve.php_files/ticket6.png"><br>
+    This tab is used to send out email to all contacts identified by systems being worked on. If you are a application
+    owner and there are servers in this ticket that you do not support, then it would be better if you use the sendmail
+    function that is available in the Server Dialog box. (See below for details.)<br><br>
+    This email form should be self explanatory. Simply type in a message under 4000 characters and click the Sendmail
+    button.
+</p>
+
+<br>
+<h3>Ticket Dialog Box - Log</h3>
+<p style="font-size: 18px;">
+    <img src="help_toolbar_open_approve.php_files/ticket7.png"><br>
+    Any notes generated or added by the users at the ticket level are shown here in the Log tab. There is a log
+    at the system and contact level as well. All log information is sent to users anytime something is added to
+    ensure that everyone is in the loop.<br><br>
+    <img src="help_toolbar_open_approve.php_files/ticket8.png">
+    The green text area is where the log is actually displayed and cannot be updated or changed. The yellow text area
+    is where you would type additional information. After you type your note you click on the Add Entry button and it
+    adds it to the ticket log. Email will be sent out to everyone at set intervals so they can see your messages so
+    remember, everything you type here everyone sees. Be professional.
+</p>
+
+<br>
+<h3>Server Dialog Box - Server (tab)</h3>
+<p style="font-size: 18px;">
+    <img src="help_toolbar_open_approve.php_files/server1.png"><br>
+    When the sub-grid is open under a ticket in the main grid, a list of servers is displayed. When you click on a row
+    for server you are interested in a Server Dialog Box will appear. If you are the owner of the ticket you have some
+    options to Cancel, Reschedule, or Reset Original schedule dates. An explanation for each button is displayed in the
+    dialog box.
+</p>
+
+<br>
+<h3>Server Dialog Box - Sendmail (tab)</h3>
+<p style="font-size: 18px;">
+    <img src="help_toolbar_open_approve.php_files/server2.png"><br>
+    If you want to send an email to all the clients for this server, this is where you would do it. It works just like
+    the sendmail option for tickets and contacts only it targets only clients for this server. Simply type in your
+    messages and click the Sendmail button.
+</p>
+
+<br>
+<h3>Server Dialog Box - Log (tab)</h3>
+<p style="font-size: 18px;">
+    <img src="help_toolbar_open_approve.php_files/server3.png"><br>
+    This is the log for ticket server. All messages about the server are shown in the green text box. To add to the
+    log, type your message in the yellow text area and click the the Add Entry button. Any new entries will be sent
+    out to all contacts associated with this server.
+</p>
+
+<br>
+<h3>Contact Dialog Box - Respond (tab)</h3>
+<p style="font-size: 18px;">
+    <img src="help_toolbar_open_approve.php_files/contact1.png"><br>
+    This dialog box opens when you click on a contact record under the server sub-grid when the contact sub-grid is
+    opened. If you are the ticket owner you can approve the work for others, but your name will recorded as the one
+    who approved the work, so make sure you have prior written documentation first before you approve work for someone
+    else.<br><br>
+    Additional information on what the different buttons do are listed in the dialog box.<br><br>
+    <b>Approve - With Paging</b> means the on-call person for your net-group will be paged during the work activity
+    so they can perform any work activities on their part to ensure their application is working properly.<br><br>
+    <b>Approve - NO PAGING</b> means you don't want any pages sent out to your on-call net-group person.
+</p>
+
+<br>
+<h3>Contact Dialog Box - Netpin Group Members (tab)</h3>
+<p style="font-size: 18px;">
+    <img src="help_toolbar_open_approve.php_files/contact2.png"><br>
+    This tab simply displays all the members of the current Net-Group Pin # as defined in NET. Use the information
+    to see if you need to remove or add someone to your Net-Group. (See the NET application).
+</p>
+
+<br>
+<h3>Contact Dialog Box - Send Email (tab)</h3>
+<p style="font-size: 18px;">
+    <img src="help_toolbar_open_approve.php_files/contact3.png"><br>
+    Use this tab to send email to the list of contacts for this Netpin Group. This is a good place to send out
+    additional reminders for contacts to approve the work.<br><br>
+    Add your text to the message body text area and click the Sendmail button.
+</p>
+
+<br>
+<h3>Contact Dialog Box - Log (tab)</h3>
+<p style="font-size: 18px;">
+    <img src="help_toolbar_open_approve.php_files/contact4.png"><br>
+    Log notes and turnover on the contact member list level. The text area in green are a list of any previous
+    messages entered. The yellow text area is where you add any new notes. Once you have entered a note you would
+    click the Add Entry button to save it. Your note will then be shown in the green log area. You cannot remove
+    any notes you have added so be sure it is what you want to say before clicking the Add Entry button.
+</p>
+
+
+
+</body></html>

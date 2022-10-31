@@ -1,0 +1,38 @@
+
+Setup CSC dblink
+
+select * from user_db_links;
+
+drop database link csc_cct_web;
+
+create database link csc_cct_web
+connect to cct_web
+identified by chcort60
+using 'CSC_CLUSTER';
+
+desc csc.v_acsys_assign@csc_cct_web
+
+total 124
+drwxr-xr-x  3 oracle dba   4096 Dec 11 10:46 .
+drwxr-xr-x 12 oracle dba   4096 Feb 16  2009 ..
+-rw-r--r--  1 root   root    94 Jun 30  2009 afiedt.buf
+-rw-r-----  1 oracle dba    392 Dec 14  2009 listener.ora
+-rw-r--r--  1 oracle dba   3785 Feb 17  2009 listener_org.ora
+drwxr-xr-x  2 oracle dba   4096 Feb 16  2009 samples
+-rw-r-----  1 oracle dba    172 Dec 26  2003 shrept.lst
+-rw-r--r--  1 oracle dba    213 Nov  4  2010 tmpit
+-rw-r--r--  1 oracle dba  12049 Nov 21 10:32 tnsnames.ora
+-rw-r--r--  1 oracle dba   6618 Feb 17  2009 tnsnames.ora.20090217
+-rw-r--r--  1 root   root  8612 Sep 29  2009 tnsnames.ora.20090929
+-rw-r--r--  1 oracle dba   9174 Dec 17  2009 tnsnames.ora.20091217
+-rw-r--r--  1 oracle dba   9747 Dec  1  2010 tnsnames.ora.20101201
+-rw-r--r--  1 oracle dba   9969 Mar 22  2012 tnsnames.ora.20120322
+-rw-r--r--  1 oracle dba  11338 Jun 23  2013 tnsnames.ora.20130623
+-rw-r--r--  1 oracle dba  11567 Feb 20  2014 tnsnames.ora.20140220
+gparkin@lxomp11m:/opt/dbms/oracle/product/ora10204_64/network/admin>
+
+CSC, CSC_CLUSTER, EMS =
+   (DESCRIPTION =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = cscdb.qintra.com)(PORT = 1560))
+      (CONNECT_DATA = (SERVER = DEDICATED) (SID = csc))
+   ) 

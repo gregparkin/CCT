@@ -1,0 +1,97 @@
+
+Connected to: Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
+
+Export file created by EXPORT:V12.01.00 via conventional path
+import done in WE8ISO8859P1 character set and AL16UTF16 NCHAR character set
+import server uses WE8MSWIN1252 character set (possible charset conversion)
+export client uses US7ASCII character set (possible charset conversion)
+IMP-00017: following statement failed with ORACLE error 2153:
+ "CREATE DATABASE LINK "CCT_TEST.CORP.INTRANET" CONNECT TO "CCT" IDENTIFIED B"
+ "Y VALUES '07F26390089684DAC4E4D96AF9B6D8506854BB5276262819B5E90718F88A71C86"
+ "DCB1BD7E29DFA75ECFEECC3013CCB771B03405180B59F67C9603554F7FBCA6F319D7C0DCA6B"
+ "1AB3E345A763D0AB4847E2AB807D9C466244FFE00A14915816B22FE6B3903D773ED6F4974F4"
+ "B6C5BA2AFFC9EDDBA04F066C2515CFAE574D14E25' USING 'IBMTOOLT'"
+IMP-00003: ORACLE error 2153 encountered
+ORA-02153: invalid VALUES password string
+IMP-00017: following statement failed with ORACLE error 2153:
+ "CREATE DATABASE LINK "ITAST.CORP.INTRANET" CONNECT TO "QWESTIBM" IDENTIFIED"
+ " BY VALUES '075FF8F6D33944155858E20DEB47F04D4669A5364D9A4951AFDECDA9F9D2E82"
+ "1DE82E50CEBC0CE88F47626947A089DC667E3D0D69969EBE996ADFD8674D33772E4D26781EE"
+ "876A45EAC256C9E553A12D04040A46009D695E8C0D35E04E97FFEB1BA026645D6B42BA22717"
+ "53D3CD0FFB495ED38A4B2F81973A50CEC4273E801CC' USING 'ITAST'"
+IMP-00003: ORACLE error 2153 encountered
+ORA-02153: invalid VALUES password string
+. . importing table            "CCT6_APPLICATIONS"     184223 rows imported
+. . importing table           "CCT6_ASSIGN_GROUPS"       6164 rows imported
+. . importing table            "CCT6_AUTO_APPROVE"        302 rows imported
+. . importing table       "CCT6_AUTO_APPROVE_TEST"          0 rows imported
+. . importing table         "CCT6_CLASSIFICATIONS"         13 rows imported
+. . importing table               "CCT6_COMPUTERS"      94170 rows imported
+. . importing table        "CCT6_COMPUTERS_BACKUP"      94170 rows imported
+. . importing table         "CCT6_COMPUTER_STATUS"         13 rows imported
+. . importing table                "CCT6_CONTACTS"     916996 rows imported
+. . importing table                "CCT6_CONTRACT"         36 rows imported
+. . importing table                     "CCT6_CSC"      82641 rows imported
+. . importing table              "CCT6_CSC_BACKUP"      82641 rows imported
+. . importing table             "CCT6_CSC_CHANGES"          0 rows imported
+. . importing table               "CCT6_DATABASES"      12273 rows imported
+. . importing table               "CCT6_DEBUGGING"          1 rows imported
+. . importing table              "CCT6_EMAIL_LIST"       1156 rows imported
+. . importing table             "CCT6_EMAIL_SPOOL"    1222066 rows imported
+. . importing table         "CCT6_EMAIL_SPOOL_OLD"     671056 rows imported
+. . importing table               "CCT6_EVENT_LOG"    2669039 rows imported
+. . importing table              "CCT6_LIST_NAMES"        275 rows imported
+. . importing table            "CCT6_LIST_SYSTEMS"      38536 rows imported
+. . importing table          "CCT6_MANAGING_GROUP"         72 rows imported
+. . importing table        "CCT6_MASTER_APPROVERS"        985 rows imported
+. . importing table                    "CCT6_MNET"      95439 rows imported
+. . importing table          "CCT6_NETPIN_TO_CUID"      12773 rows imported
+. . importing table             "CCT6_NET_MEMBERS"      71953 rows imported
+. . importing table        "CCT6_ONCALL_OVERRIDES"        235 rows imported
+. . importing table                 "CCT6_OS_LITE"         22 rows imported
+. . importing table              "CCT6_PAGE_SPOOL"     177074 rows imported
+. . importing table          "CCT6_PAGE_SPOOL_OLD"      66292 rows imported
+. . importing table                "CCT6_PLATFORM"         13 rows imported
+. . importing table              "CCT6_STATE_CITY"       1501 rows imported
+. . importing table        "CCT6_SUBSCRIBER_LISTS"       7698 rows imported
+. . importing table                 "CCT6_SYSTEMS"     254732 rows imported
+. . importing table                 "CCT6_TICKETS"       9879 rows imported
+. . importing table           "CCT6_USER_PROFILES"       3055 rows imported
+. . importing table         "CCT6_VIRTUAL_SERVERS"      25456 rows imported
+. . importing table            "CCT7_APPLICATIONS"     184248 rows imported
+. . importing table           "CCT7_ASSIGN_GROUPS"       6164 rows imported
+. . importing table         "CCT7_CLASSIFICATIONS"         13 rows imported
+. . importing table               "CCT7_COMPUTERS"      94217 rows imported
+. . importing table        "CCT7_COMPUTERS_BACKUP"      94225 rows imported
+. . importing table         "CCT7_COMPUTER_STATUS"         13 rows imported
+. . importing table                "CCT7_CONTACTS"     941018 rows imported
+. . importing table                "CCT7_CONTRACT"         36 rows imported
+. . importing table                     "CCT7_CSC"      82581 rows imported
+. . importing table              "CCT7_CSC_BACKUP"      82581 rows imported
+. . importing table               "CCT7_DATABASES"      12234 rows imported
+. . importing table              "CCT7_LIST_NAMES"        274 rows imported
+. . importing table            "CCT7_LIST_SYSTEMS"      38536 rows imported
+. . importing table            "CCT7_LOG_CONTACTS"          0 rows imported
+. . importing table             "CCT7_LOG_SYSTEMS"     740013 rows imported
+. . importing table             "CCT7_LOG_TICKETS"          1 rows imported
+. . importing table          "CCT7_MANAGING_GROUP"         71 rows imported
+. . importing table                    "CCT7_MNET"      95439 rows imported
+. . importing table             "CCT7_MNET_BACKUP"      95439 rows imported
+. . importing table          "CCT7_NETPIN_TO_CUID"      12867 rows imported
+. . importing table                 "CCT7_OS_LITE"         21 rows imported
+. . importing table                "CCT7_PLATFORM"         13 rows imported
+. . importing table            "CCT7_SENDMAIL_LOG"          0 rows imported
+. . importing table              "CCT7_STATE_CITY"       1502 rows imported
+. . importing table       "CCT7_SUBSCRIBER_GROUPS"          0 rows imported
+. . importing table      "CCT7_SUBSCRIBER_MEMBERS"          0 rows imported
+. . importing table      "CCT7_SUBSCRIBER_SERVERS"          0 rows imported
+. . importing table                 "CCT7_SYSTEMS"      82948 rows imported
+. . importing table                 "CCT7_TICKETS"       3768 rows imported
+. . importing table                   "CCT7_USERS"          1 rows imported
+. . importing table         "CCT7_VIRTUAL_SERVERS"      25382 rows imported
+. . importing table         "CCT7_WORK_ACTIVITIES"         13 rows imported
+. . importing table                     "TIMEZONE"
+IMP-00009: abnormal end of export file
+IMP-00018: partial import of previous table completed: 8120538 rows imported
+Import terminated successfully with warnings.

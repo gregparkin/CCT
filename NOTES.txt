@@ -1,0 +1,17 @@
+
+Email Process
+------------------------------------------------------------------------------------------------------------------------
+Email is created by "send_notifications.php" (cronjob) and sent out once a day.
+Email is generated from the log entries found in tables: cct7_log_tickets, cct7_log_systems, and cct7_log_contacts.
+
+From the toolbar_open.php program, users can send email directly from dialog_toolbar_open_tickets.php,
+dialog_toolbar_open_systems.php and dialog_toolbar_open_contacts.php. Email is actually sent using the mail() function
+found in classes cct7_tickets.php, cct7_systems.php and cct7_contacts.php.
+
+
+Additional Features
+------------------------------------------------------------------------------------------------------------------------
+Exemption List for work classification. This is a place where ER's approved for work classification exceptions are
+exempt from say; patching. The server is still selected in the work request, but the server work status will be
+marked as REJECTED with a log entry stating that it was exempt in a ER for this activity.
+

@@ -1,0 +1,238 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=Cp1252" />
+<script src="../dbdoc.js" type="text/javascript"></script>
+<link href="../dbdoc.css" type="text/css" rel="stylesheet">
+</head>
+<body class="object">
+<div id="header"><h2>CCT6_DATABASES</h2>
+<div class="tabs clearfix">
+
+<div class="tab" id="current"><div><a href="CCT6_DATABASES.html">Columns</a></div></div>
+<div class="tab"><div><a href="CCT6_DATABASES_Constraints.html">Constraints</a></div></div>
+<div class="tab"><div><a href="CCT6_DATABASES_Grants.html">Grants</a></div></div>
+<div class="tab"><div><a href="CCT6_DATABASES_Statistics.html">Statistics</a></div></div>
+<div class="tab"><div><a href="CCT6_DATABASES_Triggers.html">Triggers</a></div></div>
+<div class="tab"><div><a href="CCT6_DATABASES_Dependencies.html">Dependencies</a></div></div>
+<div class="tab"><div><a href="CCT6_DATABASES_Details.html">Details</a></div></div>
+<div class="tab"><div><a href="CCT6_DATABASES_Partitions.html">Partitions</a></div></div>
+<div class="tab"><div><a href="CCT6_DATABASES_Indexes.html">Indexes</a></div></div>
+</div></div><br/>
+<div class="tab-panes">
+<div id="Columns"> <table cellpadding="0" cellspacing="0" cellspacing="0" summary=""><tr>
+	<th>COLUMN_NAME</th>
+	<th>DATA_TYPE</th>
+	<th>NULLABLE</th>
+	<th>DATA_DEFAULT</th>
+	<th>COLUMN_ID</th>
+	<th>COMMENTS</th>
+</tr>
+	<tr>
+<td>COMPUTER_LASTID</td>
+<td>NUMBER(10,0)</td>
+<td>No</td>
+<td>null</td>
+<td>1</td>
+<td>null</td>
+	</tr>
+	<tr>
+<td>COMPUTER_HOSTNAME</td>
+<td>VARCHAR2(255 CHAR)</td>
+<td>Yes</td>
+<td>null</td>
+<td>2</td>
+<td>null</td>
+	</tr>
+	<tr>
+<td>COMPUTER_ASSET_TAG</td>
+<td>VARCHAR2(80 CHAR)</td>
+<td>Yes</td>
+<td>null</td>
+<td>3</td>
+<td>null</td>
+	</tr>
+	<tr>
+<td>COMPUTER_SERIAL_NO</td>
+<td>VARCHAR2(128 CHAR)</td>
+<td>Yes</td>
+<td>null</td>
+<td>4</td>
+<td>null</td>
+	</tr>
+	<tr>
+<td>DATABASE_LASTID</td>
+<td>NUMBER(10,0)</td>
+<td>No</td>
+<td>null</td>
+<td>5</td>
+<td>null</td>
+	</tr>
+	<tr>
+<td>DATABASE_ASSET_TAG</td>
+<td>VARCHAR2(80 CHAR)</td>
+<td>Yes</td>
+<td>null</td>
+<td>6</td>
+<td>null</td>
+	</tr>
+	<tr>
+<td>DATABASE_SEASSIGNMENT</td>
+<td>NUMBER(5,0)</td>
+<td>No</td>
+<td>null</td>
+<td>7</td>
+<td>null</td>
+	</tr>
+	<tr>
+<td>DATABASE_NAME</td>
+<td>VARCHAR2(128 CHAR)</td>
+<td>Yes</td>
+<td>null</td>
+<td>8</td>
+<td>null</td>
+	</tr>
+	<tr>
+<td>DATABASE_CONNECTION_TYPE</td>
+<td>VARCHAR2(80 CHAR)</td>
+<td>Yes</td>
+<td>null</td>
+<td>9</td>
+<td>null</td>
+	</tr>
+	<tr>
+<td>DATABASE_FAILOVER_PRIORITY</td>
+<td>VARCHAR2(81 CHAR)</td>
+<td>Yes</td>
+<td>null</td>
+<td>10</td>
+<td>null</td>
+	</tr>
+	<tr>
+<td>DATABASE_INSTANCE</td>
+<td>VARCHAR2(128 CHAR)</td>
+<td>Yes</td>
+<td>null</td>
+<td>11</td>
+<td>null</td>
+	</tr>
+	<tr>
+<td>DATABASE_SERVICE</td>
+<td>VARCHAR2(128 CHAR)</td>
+<td>Yes</td>
+<td>null</td>
+<td>12</td>
+<td>null</td>
+	</tr>
+	<tr>
+<td>DATABASE_TYPE</td>
+<td>VARCHAR2(43 CHAR)</td>
+<td>Yes</td>
+<td>null</td>
+<td>13</td>
+<td>null</td>
+	</tr>
+	<tr>
+<td>DATABASE_VERSION</td>
+<td>VARCHAR2(32 CHAR)</td>
+<td>Yes</td>
+<td>null</td>
+<td>14</td>
+<td>null</td>
+	</tr>
+	<tr>
+<td>DATABASE_MDL_POC</td>
+<td>VARCHAR2(20 CHAR)</td>
+<td>Yes</td>
+<td>null</td>
+<td>15</td>
+<td>null</td>
+	</tr>
+	<tr>
+<td>DATABASE_PATCH_INSTALL</td>
+<td>VARCHAR2(43 CHAR)</td>
+<td>Yes</td>
+<td>null</td>
+<td>16</td>
+<td>null</td>
+	</tr>
+	<tr>
+<td>DATABASE_PATCH_LEVEL</td>
+<td>VARCHAR2(32 CHAR)</td>
+<td>Yes</td>
+<td>null</td>
+<td>17</td>
+<td>null</td>
+	</tr>
+	<tr>
+<td>DATABASE_FAMILY_GROUP_KEY</td>
+<td>NUMBER(10,0)</td>
+<td>No</td>
+<td>null</td>
+<td>18</td>
+<td>null</td>
+	</tr>
+	<tr>
+<td>DATABASE_COMMENT</td>
+<td>VARCHAR2(4000 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>19</td>
+<td>null</td>
+	</tr>
+	<tr>
+<td>DATABASE_MANAGER_CUID</td>
+<td>VARCHAR2(20 CHAR)</td>
+<td>Yes</td>
+<td>null</td>
+<td>20</td>
+<td>null</td>
+	</tr>
+	<tr>
+<td>DATABASE_PROD_MANAGER_CUID</td>
+<td>VARCHAR2(20 CHAR)</td>
+<td>Yes</td>
+<td>null</td>
+<td>21</td>
+<td>null</td>
+	</tr>
+	<tr>
+<td>DATABASE_ARRANGEMENT</td>
+<td>VARCHAR2(81 CHAR)</td>
+<td>Yes</td>
+<td>null</td>
+<td>22</td>
+<td>null</td>
+	</tr>
+	<tr>
+<td>DATABASE_NON_STANDARD_SUPPORT</td>
+<td>VARCHAR2(81 CHAR)</td>
+<td>Yes</td>
+<td>null</td>
+<td>23</td>
+<td>null</td>
+	</tr>
+	<tr>
+<td>DATABASE_ASSIGN_CHANGE_DATE</td>
+<td>DATE</td>
+<td>Yes</td>
+<td>null</td>
+<td>24</td>
+<td>null</td>
+	</tr>
+	<tr>
+<td>NO_OWNING_APPL_REASON</td>
+<td>VARCHAR2(81 CHAR)</td>
+<td>Yes</td>
+<td>null</td>
+<td>25</td>
+<td>null</td>
+	</tr>
+	<tr>
+<td>ASSET_SYSTEM</td>
+<td>VARCHAR2(40 CHAR)</td>
+<td>Yes</td>
+<td>null</td>
+<td>26</td>
+<td>null</td>
+	</tr>
+</table></div>

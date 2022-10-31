@@ -1,0 +1,470 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=Cp1252" />
+<script src="../dbdoc.js" type="text/javascript"></script>
+<link href="../dbdoc.css" type="text/css" rel="stylesheet">
+</head>
+<body class="object">
+<div id="header"><h2>CCT6_CONTACTS</h2>
+<div class="tabs clearfix">
+
+<div class="tab" id="current"><div><a href="CCT6_CONTACTS.html">Columns</a></div></div>
+<div class="tab"><div><a href="CCT6_CONTACTS_Constraints.html">Constraints</a></div></div>
+<div class="tab"><div><a href="CCT6_CONTACTS_Grants.html">Grants</a></div></div>
+<div class="tab"><div><a href="CCT6_CONTACTS_Statistics.html">Statistics</a></div></div>
+<div class="tab"><div><a href="CCT6_CONTACTS_Triggers.html">Triggers</a></div></div>
+<div class="tab"><div><a href="CCT6_CONTACTS_Dependencies.html">Dependencies</a></div></div>
+<div class="tab"><div><a href="CCT6_CONTACTS_Details.html">Details</a></div></div>
+<div class="tab"><div><a href="CCT6_CONTACTS_Partitions.html">Partitions</a></div></div>
+<div class="tab"><div><a href="CCT6_CONTACTS_Indexes.html">Indexes</a></div></div>
+</div></div><br/>
+<div class="tab-panes">
+<div id="Columns"> <table cellpadding="0" cellspacing="0" cellspacing="0" summary=""><tr>
+	<th>COLUMN_NAME</th>
+	<th>DATA_TYPE</th>
+	<th>NULLABLE</th>
+	<th>DATA_DEFAULT</th>
+	<th>COLUMN_ID</th>
+	<th>COMMENTS</th>
+</tr>
+	<tr>
+<td>CONTACT_ID</td>
+<td>NUMBER</td>
+<td>No</td>
+<td>null</td>
+<td>1</td>
+<td>PRIMARY KEY - Unique record ID</td>
+	</tr>
+	<tr>
+<td>SYSTEM_ID</td>
+<td>NUMBER</td>
+<td>Yes</td>
+<td>null</td>
+<td>2</td>
+<td>FOREIGN KEY - cct6_systems.system_id - CASCADE DELETE</td>
+	</tr>
+	<tr>
+<td>CONTACT_RESPONSE_STATUS</td>
+<td>VARCHAR2(20 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>3</td>
+<td>WAITING, APPROVED, REJECTED, RESCHEDULE</td>
+	</tr>
+	<tr>
+<td>CONTACT_RESPONSE_DATE</td>
+<td>DATE</td>
+<td>Yes</td>
+<td>null</td>
+<td>4</td>
+<td>Contact response date</td>
+	</tr>
+	<tr>
+<td>CONTACT_INSERT_CUID</td>
+<td>VARCHAR2(20 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>5</td>
+<td>CUID of person who created this record</td>
+	</tr>
+	<tr>
+<td>CONTACT_INSERT_NAME</td>
+<td>VARCHAR2(200 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>6</td>
+<td>Name of person who created this record</td>
+	</tr>
+	<tr>
+<td>CONTACT_INSERT_DATE</td>
+<td>DATE</td>
+<td>Yes</td>
+<td>null</td>
+<td>7</td>
+<td>Date of person who created this record</td>
+	</tr>
+	<tr>
+<td>CONTACT_UPDATE_CUID</td>
+<td>VARCHAR2(20 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>8</td>
+<td>CUID of person who updated this record</td>
+	</tr>
+	<tr>
+<td>CONTACT_UPDATE_NAME</td>
+<td>VARCHAR2(200 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>9</td>
+<td>Name of person who updated this record</td>
+	</tr>
+	<tr>
+<td>CONTACT_UPDATE_DATE</td>
+<td>DATE</td>
+<td>Yes</td>
+<td>null</td>
+<td>10</td>
+<td>Date of person who updated this record</td>
+	</tr>
+	<tr>
+<td>CONTACT_CSC_BANNER</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>11</td>
+<td>(i.e. Application Support)</td>
+	</tr>
+	<tr>
+<td>CONTACT_APP_ACRONYM</td>
+<td>VARCHAR2(4000 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>12</td>
+<td>Application acronym (i.e. CCT)</td>
+	</tr>
+	<tr>
+<td>CONTACT_GROUP_TYPE</td>
+<td>VARCHAR2(10 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>13</td>
+<td>OS, PASE, DBA, OTHER</td>
+	</tr>
+	<tr>
+<td>CONTACT_NOTIFY_TYPE</td>
+<td>VARCHAR2(10 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>14</td>
+<td>APPROVER, FYI</td>
+	</tr>
+	<tr>
+<td>CONTACT_SOURCE</td>
+<td>VARCHAR2(200 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>15</td>
+<td>CSC, CCT, On-Call</td>
+	</tr>
+	<tr>
+<td>CONTACT_OVERRIDE</td>
+<td>VARCHAR2(1 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>16</td>
+<td>Override used? Y or N</td>
+	</tr>
+	<tr>
+<td>CONTACT_CUID</td>
+<td>VARCHAR2(20 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>17</td>
+<td>Contact CUID login name</td>
+	</tr>
+	<tr>
+<td>CONTACT_LAST_NAME</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>18</td>
+<td>Contact last name</td>
+	</tr>
+	<tr>
+<td>CONTACT_FIRST_NAME</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>19</td>
+<td>Contact first name</td>
+	</tr>
+	<tr>
+<td>CONTACT_NICK_NAME</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>20</td>
+<td>Contact nick name</td>
+	</tr>
+	<tr>
+<td>CONTACT_MIDDLE</td>
+<td>VARCHAR2(20 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>21</td>
+<td>Contact middle name</td>
+	</tr>
+	<tr>
+<td>CONTACT_NAME</td>
+<td>VARCHAR2(200 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>22</td>
+<td>Contact name</td>
+	</tr>
+	<tr>
+<td>CONTACT_JOB_TITLE</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>23</td>
+<td>Contact Job Title</td>
+	</tr>
+	<tr>
+<td>CONTACT_EMAIL</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>24</td>
+<td>Contact email address</td>
+	</tr>
+	<tr>
+<td>CONTACT_WORK_PHONE</td>
+<td>VARCHAR2(20 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>25</td>
+<td>Contact work phone number</td>
+	</tr>
+	<tr>
+<td>CONTACT_PAGER</td>
+<td>VARCHAR2(20 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>26</td>
+<td>Contact pager number</td>
+	</tr>
+	<tr>
+<td>CONTACT_STREET</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>27</td>
+<td>Contact street</td>
+	</tr>
+	<tr>
+<td>CONTACT_CITY</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>28</td>
+<td>Contact City</td>
+	</tr>
+	<tr>
+<td>CONTACT_STATE</td>
+<td>VARCHAR2(10 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>29</td>
+<td>Contact State</td>
+	</tr>
+	<tr>
+<td>CONTACT_RC</td>
+<td>VARCHAR2(45 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>30</td>
+<td>Contact RC</td>
+	</tr>
+	<tr>
+<td>CONTACT_COMPANY</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>31</td>
+<td>Contact company name</td>
+	</tr>
+	<tr>
+<td>CONTACT_TIER1</td>
+<td>VARCHAR2(100 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>32</td>
+<td>Contact tier1 support information</td>
+	</tr>
+	<tr>
+<td>CONTACT_TIER2</td>
+<td>VARCHAR2(100 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>33</td>
+<td>Contact tier2 support information</td>
+	</tr>
+	<tr>
+<td>CONTACT_TIER3</td>
+<td>VARCHAR2(100 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>34</td>
+<td>Contact tier3 support information</td>
+	</tr>
+	<tr>
+<td>CONTACT_STATUS</td>
+<td>VARCHAR2(20 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>35</td>
+<td>Contact employee status</td>
+	</tr>
+	<tr>
+<td>CONTACT_CHANGE_DATE</td>
+<td>DATE</td>
+<td>Yes</td>
+<td>null</td>
+<td>36</td>
+<td>MNET information change date</td>
+	</tr>
+	<tr>
+<td>CONTACT_CTL_CUID</td>
+<td>VARCHAR2(20 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>37</td>
+<td>Contact CTL sponsor CUID person</td>
+	</tr>
+	<tr>
+<td>CONTACT_MGR_CUID</td>
+<td>VARCHAR2(20 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>38</td>
+<td>Contact Manager CUID person</td>
+	</tr>
+	<tr>
+<td>CONTACT_AUTO_PAGE_ON</td>
+<td>VARCHAR2(1 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>39</td>
+<td>Contact Auto Page On? Y or N</td>
+	</tr>
+	<tr>
+<td>CONTACT_AUTO_PAGE_NETPIN</td>
+<td>VARCHAR2(20 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>40</td>
+<td>CCT Auto page net-pin number</td>
+	</tr>
+	<tr>
+<td>CONTACT_AUTO_PAGE_START</td>
+<td>DATE</td>
+<td>Yes</td>
+<td>null</td>
+<td>41</td>
+<td>Datetime start auto page was sent</td>
+	</tr>
+	<tr>
+<td>CONTACT_AUTO_PAGE_END</td>
+<td>DATE</td>
+<td>Yes</td>
+<td>null</td>
+<td>42</td>
+<td>Datetime end auto page was sent</td>
+	</tr>
+	<tr>
+<td>CONTACT_AUTO_PAGE_CONFIRM</td>
+<td>VARCHAR2(1 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>43</td>
+<td>CCT Auto page requires contact to confirm pages</td>
+	</tr>
+	<tr>
+<td>CONTACT_READ_ESC1_SEND_DATE</td>
+<td>DATE</td>
+<td>Yes</td>
+<td>null</td>
+<td>44</td>
+<td>Datetime read escalation 1 was sent</td>
+	</tr>
+	<tr>
+<td>CONTACT_READ_ESC2_SEND_DATE</td>
+<td>DATE</td>
+<td>Yes</td>
+<td>null</td>
+<td>45</td>
+<td>Datetime read escalation 2 was sent</td>
+	</tr>
+	<tr>
+<td>CONTACT_READ_ESC3_SEND_DATE</td>
+<td>DATE</td>
+<td>Yes</td>
+<td>null</td>
+<td>46</td>
+<td>Datetime read escalation 3 was sent</td>
+	</tr>
+	<tr>
+<td>CONTACT_RESP_ESC1_SEND_DATE</td>
+<td>DATE</td>
+<td>Yes</td>
+<td>null</td>
+<td>47</td>
+<td>Datetime response escalation 1 was sent</td>
+	</tr>
+	<tr>
+<td>CONTACT_RESP_ESC2_SEND_DATE</td>
+<td>DATE</td>
+<td>Yes</td>
+<td>null</td>
+<td>48</td>
+<td>Datetime response escalation 2 was sent</td>
+	</tr>
+	<tr>
+<td>CONTACT_RESP_ESC3_SEND_DATE</td>
+<td>DATE</td>
+<td>Yes</td>
+<td>null</td>
+<td>49</td>
+<td>Datetime response escalation 3 was sent</td>
+	</tr>
+	<tr>
+<td>CONTACT_EMAIL_SEND_DATE</td>
+<td>DATE</td>
+<td>Yes</td>
+<td>null</td>
+<td>50</td>
+<td>Datetime email notification was sent to contact</td>
+	</tr>
+	<tr>
+<td>CONTACT_EMAIL_READ_DATE</td>
+<td>DATE</td>
+<td>Yes</td>
+<td>null</td>
+<td>51</td>
+<td>Datetime email notification was read by contact</td>
+	</tr>
+	<tr>
+<td>CONTACT_RESCHEDULE_START</td>
+<td>DATE</td>
+<td>Yes</td>
+<td>null</td>
+<td>52</td>
+<td>New reschedule work start date</td>
+	</tr>
+	<tr>
+<td>CONTACT_RESCHEDULE_END</td>
+<td>DATE</td>
+<td>Yes</td>
+<td>null</td>
+<td>53</td>
+<td>New reschedule work end date</td>
+	</tr>
+	<tr>
+<td>CONTACT_RESCHEDULE_DURATION</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>54</td>
+<td>New reschedule work duration</td>
+	</tr>
+	<tr>
+<td>CONTACT_TURNOVER_NOTE</td>
+<td>VARCHAR2(4000 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>55</td>
+<td>Optional turnover note from client</td>
+	</tr>
+</table></div>

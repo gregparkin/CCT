@@ -1,0 +1,9 @@
+tmp/*
+node_modules/
+*.txt
+.idea
+*.iml
+*.ipr
+*.iws
+/npm-debug.log
+.DAV

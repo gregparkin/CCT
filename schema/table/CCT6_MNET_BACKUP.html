@@ -1,0 +1,214 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=Cp1252" />
+<script src="../dbdoc.js" type="text/javascript"></script>
+<link href="../dbdoc.css" type="text/css" rel="stylesheet">
+</head>
+<body class="object">
+<div id="header"><h2>CCT6_MNET_BACKUP</h2>
+<div class="tabs clearfix">
+
+<div class="tab" id="current"><div><a href="CCT6_MNET_BACKUP.html">Columns</a></div></div>
+<div class="tab"><div><a href="CCT6_MNET_BACKUP_Constraints.html">Constraints</a></div></div>
+<div class="tab"><div><a href="CCT6_MNET_BACKUP_Grants.html">Grants</a></div></div>
+<div class="tab"><div><a href="CCT6_MNET_BACKUP_Statistics.html">Statistics</a></div></div>
+<div class="tab"><div><a href="CCT6_MNET_BACKUP_Triggers.html">Triggers</a></div></div>
+<div class="tab"><div><a href="CCT6_MNET_BACKUP_Dependencies.html">Dependencies</a></div></div>
+<div class="tab"><div><a href="CCT6_MNET_BACKUP_Details.html">Details</a></div></div>
+<div class="tab"><div><a href="CCT6_MNET_BACKUP_Partitions.html">Partitions</a></div></div>
+<div class="tab"><div><a href="CCT6_MNET_BACKUP_Indexes.html">Indexes</a></div></div>
+</div></div><br/>
+<div class="tab-panes">
+<div id="Columns"> <table cellpadding="0" cellspacing="0" cellspacing="0" summary=""><tr>
+	<th>COLUMN_NAME</th>
+	<th>DATA_TYPE</th>
+	<th>NULLABLE</th>
+	<th>DATA_DEFAULT</th>
+	<th>COLUMN_ID</th>
+	<th>COMMENTS</th>
+</tr>
+	<tr>
+<td>MNET_ID</td>
+<td>VARCHAR2(6 BYTE)</td>
+<td>No</td>
+<td>null</td>
+<td>1</td>
+<td>null</td>
+	</tr>
+	<tr>
+<td>MNET_CUID</td>
+<td>VARCHAR2(20 BYTE)</td>
+<td>No</td>
+<td>null</td>
+<td>2</td>
+<td>User ID</td>
+	</tr>
+	<tr>
+<td>MNET_LAST_NAME</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>3</td>
+<td>Last name</td>
+	</tr>
+	<tr>
+<td>MNET_FIRST_NAME</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>4</td>
+<td>First name</td>
+	</tr>
+	<tr>
+<td>MNET_NICK_NAME</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>5</td>
+<td>Nick name</td>
+	</tr>
+	<tr>
+<td>MNET_MIDDLE</td>
+<td>VARCHAR2(20 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>6</td>
+<td>Middle name</td>
+	</tr>
+	<tr>
+<td>MNET_NAME</td>
+<td>VARCHAR2(200 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>7</td>
+<td>Full name</td>
+	</tr>
+	<tr>
+<td>MNET_JOB_TITLE</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>8</td>
+<td>Job Title</td>
+	</tr>
+	<tr>
+<td>MNET_EMAIL</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>9</td>
+<td>Email Address</td>
+	</tr>
+	<tr>
+<td>MNET_WORK_PHONE</td>
+<td>VARCHAR2(20 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>10</td>
+<td>Work phone number</td>
+	</tr>
+	<tr>
+<td>MNET_PAGER</td>
+<td>VARCHAR2(20 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>11</td>
+<td>Pager number</td>
+	</tr>
+	<tr>
+<td>MNET_STREET</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>12</td>
+<td>Street address</td>
+	</tr>
+	<tr>
+<td>MNET_CITY</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>13</td>
+<td>City</td>
+	</tr>
+	<tr>
+<td>MNET_STATE</td>
+<td>VARCHAR2(10 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>14</td>
+<td>State</td>
+	</tr>
+	<tr>
+<td>MNET_RC</td>
+<td>VARCHAR2(45 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>15</td>
+<td>QWEST RC Code</td>
+	</tr>
+	<tr>
+<td>MNET_COMPANY</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>16</td>
+<td>Employee Company name</td>
+	</tr>
+	<tr>
+<td>MNET_TIER1</td>
+<td>VARCHAR2(100 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>17</td>
+<td>CMP Support Tier1</td>
+	</tr>
+	<tr>
+<td>MNET_TIER2</td>
+<td>VARCHAR2(100 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>18</td>
+<td>CMP Support Tier2</td>
+	</tr>
+	<tr>
+<td>MNET_TIER3</td>
+<td>VARCHAR2(100 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>19</td>
+<td>CMP Support Tier3</td>
+	</tr>
+	<tr>
+<td>MNET_STATUS</td>
+<td>VARCHAR2(20 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>20</td>
+<td>Employee Status</td>
+	</tr>
+	<tr>
+<td>MNET_CHANGE_DATE</td>
+<td>DATE</td>
+<td>Yes</td>
+<td>null</td>
+<td>21</td>
+<td>Date Record last updated</td>
+	</tr>
+	<tr>
+<td>MNET_CTL_CUID</td>
+<td>VARCHAR2(15 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>22</td>
+<td>CMP Sponsor Manager User ID</td>
+	</tr>
+	<tr>
+<td>MNET_MGR_CUID</td>
+<td>VARCHAR2(15 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>23</td>
+<td>Manager User ID</td>
+	</tr>
+</table></div>

@@ -1,0 +1,174 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=Cp1252" />
+<script src="../dbdoc.js" type="text/javascript"></script>
+<link href="../dbdoc.css" type="text/css" rel="stylesheet">
+</head>
+<body class="object">
+<div id="header"><h2>CCT6_APPLICATIONS</h2>
+<div class="tabs clearfix">
+
+<div class="tab" id="current"><div><a href="CCT6_APPLICATIONS.html">Columns</a></div></div>
+<div class="tab"><div><a href="CCT6_APPLICATIONS_Constraints.html">Constraints</a></div></div>
+<div class="tab"><div><a href="CCT6_APPLICATIONS_Grants.html">Grants</a></div></div>
+<div class="tab"><div><a href="CCT6_APPLICATIONS_Statistics.html">Statistics</a></div></div>
+<div class="tab"><div><a href="CCT6_APPLICATIONS_Triggers.html">Triggers</a></div></div>
+<div class="tab"><div><a href="CCT6_APPLICATIONS_Dependencies.html">Dependencies</a></div></div>
+<div class="tab"><div><a href="CCT6_APPLICATIONS_Details.html">Details</a></div></div>
+<div class="tab"><div><a href="CCT6_APPLICATIONS_Partitions.html">Partitions</a></div></div>
+<div class="tab"><div><a href="CCT6_APPLICATIONS_Indexes.html">Indexes</a></div></div>
+</div></div><br/>
+<div class="tab-panes">
+<div id="Columns"> <table cellpadding="0" cellspacing="0" cellspacing="0" summary=""><tr>
+	<th>COLUMN_NAME</th>
+	<th>DATA_TYPE</th>
+	<th>NULLABLE</th>
+	<th>DATA_DEFAULT</th>
+	<th>COLUMN_ID</th>
+	<th>COMMENTS</th>
+</tr>
+	<tr>
+<td>COMPUTER_LASTID</td>
+<td>NUMBER</td>
+<td>No</td>
+<td>null</td>
+<td>1</td>
+<td>Computer LASTID number</td>
+	</tr>
+	<tr>
+<td>COMPUTER_HOSTNAME</td>
+<td>VARCHAR2(40 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>2</td>
+<td>Hostname that application resides on</td>
+	</tr>
+	<tr>
+<td>COMPUTER_ASSET_TAG</td>
+<td>VARCHAR2(40 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>3</td>
+<td>Server asset tag number</td>
+	</tr>
+	<tr>
+<td>COMPUTER_COMPONENTID</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>4</td>
+<td>Computer componentid (same as computer_hostname)</td>
+	</tr>
+	<tr>
+<td>APPLICATION_INSTANCE</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>5</td>
+<td>Application instance</td>
+	</tr>
+	<tr>
+<td>APPLICATION_NAME</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>6</td>
+<td>Application name</td>
+	</tr>
+	<tr>
+<td>APPLICATION_ACRONYM</td>
+<td>VARCHAR2(35 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>7</td>
+<td>Application acronym</td>
+	</tr>
+	<tr>
+<td>APPLICATION_APPID</td>
+<td>VARCHAR2(40 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>8</td>
+<td>Application APPID number</td>
+	</tr>
+	<tr>
+<td>APPLICATION_LASTID</td>
+<td>NUMBER</td>
+<td>Yes</td>
+<td>null</td>
+<td>9</td>
+<td>Application LASTID number (not the same as computer_lastid)</td>
+	</tr>
+	<tr>
+<td>APPLICATION_TYPE</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>10</td>
+<td>Applicate type: INPUT or OUTPUT</td>
+	</tr>
+	<tr>
+<td>ASSOCIATED_COMPUTER_LASTID</td>
+<td>NUMBER</td>
+<td>Yes</td>
+<td>null</td>
+<td>11</td>
+<td>Assoicated computer LASTID number</td>
+	</tr>
+	<tr>
+<td>ASSOCIATED_COMPUTER_HOSTNAME</td>
+<td>VARCHAR2(40 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>12</td>
+<td>Associated computer hostname</td>
+	</tr>
+	<tr>
+<td>ASSOCIATED_COMPUTER_ASSET_TAG</td>
+<td>VARCHAR2(40 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>13</td>
+<td>Associated computer asset tag number</td>
+	</tr>
+	<tr>
+<td>ASSOCIATED_APP_NAME</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>14</td>
+<td>Associated application name</td>
+	</tr>
+	<tr>
+<td>ASSOCIATED_APP_SLR</td>
+<td>VARCHAR2(43 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>15</td>
+<td>Associated application service level: GOLD, BRONSE, etc.</td>
+	</tr>
+	<tr>
+<td>ASSOCIATED_APP_ASSIGNMENT</td>
+<td>VARCHAR2(40 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>16</td>
+<td>Associated application assignment: PRODUCTION or PRE-PRODUCTION</td>
+	</tr>
+	<tr>
+<td>ASSOCIATED_APP_APPID</td>
+<td>VARCHAR2(40 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>17</td>
+<td>Assoicated application APPID number</td>
+	</tr>
+	<tr>
+<td>ASSOCIATED_APP_LASTID</td>
+<td>NUMBER</td>
+<td>Yes</td>
+<td>null</td>
+<td>18</td>
+<td>Assoicated application LAST number (not the same as computer_lastid)</td>
+	</tr>
+</table></div>

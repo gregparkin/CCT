@@ -1,0 +1,6832 @@
+Starting: make_computers.php at 02/23/17 18:18:45
+==========================================================================================================================
+hostname: lxomp47x
+
+Running: /db/oracle/product/12102_64/bin/sqlplus cct/candy4Kids @/opt/ibmtools/cct7/bin/sql/cct7_computers_part1.sql
+ 
+SQL*Plus: Release 12.1.0.2.0 Production on Thu Feb 23 11:18:45 2017 
+ 
+Copyright (c) 1982, 2014, Oracle. All rights reserved. 
+ 
+Last Successful login time: Thu Feb 23 2017 11:18:36 -06:00 
+ 
+Connected to: 
+Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production 
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options 
+ 
+SQL> 
+SQL> REM 
+SQL> REM cct7_computers_part1.sql 
+SQL> REM 
+SQL> 
+SQL> exec drop_table_if_exist('new_cct7_computers'); 
+BEGIN drop_table_if_exist('new_cct7_computers'); END; 
+ 
+ * 
+ERROR at line 1: 
+ORA-06550: line 1, column 7: 
+PLS-00201: identifier 'DROP_TABLE_IF_EXIST' must be declared 
+ORA-06550: line 1, column 7: 
+PL/SQL: Statement ignored 
+ 
+ 
+SQL> 
+SQL> exec drop_table_if_exist('AM_COMPUTERS'); 
+BEGIN drop_table_if_exist('AM_COMPUTERS'); END; 
+ 
+ * 
+ERROR at line 1: 
+ORA-06550: line 1, column 7: 
+PLS-00201: identifier 'DROP_TABLE_IF_EXIST' must be declared 
+ORA-06550: line 1, column 7: 
+PL/SQL: Statement ignored 
+ 
+ 
+SQL> exec drop_table_if_exist('AM_CONTRACTS'); 
+BEGIN drop_table_if_exist('AM_CONTRACTS'); END; 
+ 
+ * 
+ERROR at line 1: 
+ORA-06550: line 1, column 7: 
+PLS-00201: identifier 'DROP_TABLE_IF_EXIST' must be declared 
+ORA-06550: line 1, column 7: 
+PL/SQL: Statement ignored 
+ 
+ 
+SQL> exec drop_table_if_exist('AM_AP'); 
+BEGIN drop_table_if_exist('AM_AP'); END; 
+ 
+ * 
+ERROR at line 1: 
+ORA-06550: line 1, column 7: 
+PLS-00201: identifier 'DROP_TABLE_IF_EXIST' must be declared 
+ORA-06550: line 1, column 7: 
+PL/SQL: Statement ignored 
+ 
+ 
+SQL> exec drop_table_if_exist('AM_A7'); 
+BEGIN drop_table_if_exist('AM_A7'); END; 
+ 
+ * 
+ERROR at line 1: 
+ORA-06550: line 1, column 7: 
+PLS-00201: identifier 'DROP_TABLE_IF_EXIST' must be declared 
+ORA-06550: line 1, column 7: 
+PL/SQL: Statement ignored 
+ 
+ 
+SQL> exec drop_table_if_exist('AM_C9'); 
+BEGIN drop_table_if_exist('AM_C9'); END; 
+ 
+ * 
+ERROR at line 1: 
+ORA-06550: line 1, column 7: 
+PLS-00201: identifier 'DROP_TABLE_IF_EXIST' must be declared 
+ORA-06550: line 1, column 7: 
+PL/SQL: Statement ignored 
+ 
+ 
+SQL> exec drop_table_if_exist('AM_PR'); 
+BEGIN drop_table_if_exist('AM_PR'); END; 
+ 
+ * 
+ERROR at line 1: 
+ORA-06550: line 1, column 7: 
+PLS-00201: identifier 'DROP_TABLE_IF_EXIST' must be declared 
+ORA-06550: line 1, column 7: 
+PL/SQL: Statement ignored 
+ 
+ 
+SQL> 
+SQL> create table AM_COMPUTERS as select * from cs_qwestibm_computers@itast; 
+create table AM_COMPUTERS as select * from cs_qwestibm_computers@itast 
+ * 
+ERROR at line 1: 
+ORA-00955: name is already used by an existing object 
+ 
+ 
+SQL> create table AM_CONTRACTS as select * from cs_qwestibm_igscontracts@itast; 
+create table AM_CONTRACTS as select * from cs_qwestibm_igscontracts@itast 
+ * 
+ERROR at line 1: 
+ORA-00955: name is already used by an existing object 
+ 
+ 
+SQL> 
+SQL> create table AM_AP as select * from amAstProjDesc@itast; 
+create table AM_AP as select * from amAstProjDesc@itast 
+ * 
+ERROR at line 1: 
+ORA-00955: name is already used by an existing object 
+ 
+ 
+SQL> create table AM_A7 as select * from amAstCntrDesc@itast; 
+create table AM_A7 as select * from amAstCntrDesc@itast 
+ * 
+ERROR at line 1: 
+ORA-00955: name is already used by an existing object 
+ 
+ 
+SQL> create table AM_C9 as select * from amContract@itast; 
+create table AM_C9 as select * from amContract@itast 
+ * 
+ERROR at line 1: 
+ORA-00955: name is already used by an existing object 
+ 
+ 
+SQL> create table AM_PR as select * from amProject@itast; 
+create table AM_PR as select * from amProject@itast 
+ * 
+ERROR at line 1: 
+ORA-00955: name is already used by an existing object 
+ 
+ 
+SQL> 
+SQL> create index idx_AM_COMPUTERS_1 on AM_COMPUTERS ( a1_lastid ); 
+create index idx_AM_COMPUTERS_1 on AM_COMPUTERS ( a1_lastid ) 
+ * 
+ERROR at line 1: 
+ORA-00955: name is already used by an existing object 
+ 
+ 
+SQL> 
+SQL> create index idx_AM_CONTRACTS_1 on AM_CONTRACTS ( removed_date ); 
+create index idx_AM_CONTRACTS_1 on AM_CONTRACTS ( removed_date ) 
+ * 
+ERROR at line 1: 
+ORA-00955: name is already used by an existing object 
+ 
+ 
+SQL> 
+SQL> create index idx_AM_AP_1 on AM_AP ( dremoved, lastid, lprojid ); 
+create index idx_AM_AP_1 on AM_AP ( dremoved, lastid, lprojid ) 
+ * 
+ERROR at line 1: 
+ORA-00955: name is already used by an existing object 
+ 
+ 
+SQL> create index idx_AM_AP_2 on AM_AP ( dremoved, lprojid ); 
+create index idx_AM_AP_2 on AM_AP ( dremoved, lprojid ) 
+ * 
+ERROR at line 1: 
+ORA-00955: name is already used by an existing object 
+ 
+ 
+SQL> 
+SQL> create index idx_AM_A7_1 on AM_A7 ( lastid ); 
+create index idx_AM_A7_1 on AM_A7 ( lastid ) 
+ * 
+ERROR at line 1: 
+ORA-00955: name is already used by an existing object 
+ 
+ 
+SQL> create index idx_AM_A7_2 on AM_A7 ( lastid, dplannedremov ); 
+create index idx_AM_A7_2 on AM_A7 ( lastid, dplannedremov ) 
+ * 
+ERROR at line 1: 
+ORA-00955: name is already used by an existing object 
+ 
+ 
+SQL> 
+SQL> create index idx_AM_C9_1 on AM_C9 ( nature, status ); 
+create index idx_AM_C9_1 on AM_C9 ( nature, status ) 
+ * 
+ERROR at line 1: 
+ORA-00955: name is already used by an existing object 
+ 
+ 
+SQL> 
+SQL> create index idx_AM_PR_1 on AM_PR ( lprojid, status ); 
+create index idx_AM_PR_1 on AM_PR ( lprojid, status ) 
+ * 
+ERROR at line 1: 
+ORA-00955: name is already used by an existing object 
+ 
+ 
+SQL> create index idx_AM_PR_2 on AM_PR ( lprojid, title ); 
+create index idx_AM_PR_2 on AM_PR ( lprojid, title ) 
+ * 
+ERROR at line 1: 
+ORA-00955: name is already used by an existing object 
+ 
+ 
+SQL> 
+SQL> create table new_cct7_computers as 
+ 2 select 
+ 3 a1_lastid AS lastid, 
+ 4 a1_dinstall AS install_date, 
+ 5 a1_field1 AS systemname, 
+ 6 c_name AS hostname, 
+ 7 a1_serialno AS serial_no, 
+ 8 a1_assettag AS asset_tag, 
+ 9 a1_status AS status, 
+ 10 CASE a1_seacqumethod 
+ 11 WHEN 0 THEN 'N' 
+ 12 ELSE 'Y' 
+ 13 END AS lease_purchase, 
+ 14 p_status_description AS status_description, 
+ 15 p_qw_platform AS platform, 
+ 16 c_computerdesc AS description, 
+ 17 c_computertype AS type, 
+ 18 c_cputype AS cpu_type, 
+ 19 c_lcpunumber AS cpu_count, 
+ 20 c_lcpuspeedmhz AS cpu_speed, 
+ 21 c_lmemorysizemb AS memory_mb, 
+ 22 c_operatingsystem AS operating_system, 
+ 23 c_tcpipaddress AS ip_address, 
+ 24 c_tcpipdomain AS domain, 
+ 25 c_tcpiphostname AS hostname_domain, 
+ 26 m_barcode AS model_no, 
+ 27 m_name AS model, 
+ 28 b_name AS model_mfg, 
+ 29 l6_name AS clli, 
+ 30 l6_fullname AS clli_fullname, 
+ 31 l6_address1 AS building, 
+ 32 l6_address2 AS address, 
+ 33 l6_city AS city, 
+ 34 l6_state AS state, 
+ 35 p_qw_floor_room AS floor_room, 
+ 36 p_qw_grid_loc AS grid_location, 
+ 37 model_category AS model_category, 
+ 38 parent_lastid AS complex_lastid, 
+ 39 parent_name AS complex_name, 
+ 40 parent_parent_name AS complex_parent_name, 
+ 41 child_computers AS complex_child_names, 
+ 42 CASE m_name 
+ 43 WHEN 'SERVICE GUARD CLUSTER SERVER' THEN 'Y' 
+ 44 ELSE 'N' 
+ 45 END AS is_service_guard 
+ 46 from 
+ 47 AM_COMPUTERS; 
+create table new_cct7_computers as 
+ * 
+ERROR at line 1: 
+ORA-00955: name is already used by an existing object 
+ 
+ 
+SQL> 
+SQL> alter table new_cct7_computers add ( 
+ 2 last_record_update DATE, 
+ 3 os_group_contact VARCHAR2(20), 
+ 4 complex_partitions NUMBER, 
+ 5 contract VARCHAR2(80), 
+ 6 contract_ref VARCHAR2(20), 
+ 7 contract_status VARCHAR2(43), 
+ 8 contract_status_type VARCHAR2(80), 
+ 9 contract_date DATE, 
+ 10 os_lite VARCHAR2(20), 
+ 11 is_gold_server VARCHAR2(1), 
+ 12 service_level_objective NUMBER(5,2), 
+ 13 service_level_score NUMBER(4,2), 
+ 14 service_level_colors VARCHAR2(80), 
+ 15 is_special_handling VARCHAR2(1), 
+ 16 timezone VARCHAR2(25), 
+ 17 is_dmz VARCHAR2(1), 
+ 18 applications VARCHAR2(4000), 
+ 19 osmaint_weekly VARCHAR2(4000), 
+ 20 osmaint_monthly VARCHAR2(4000), 
+ 21 osmaint_quarterly VARCHAR2(4000), 
+ 22 ewebars_title VARCHAR2(100), 
+ 23 ewebars_status VARCHAR2(80), 
+ 24 cio_group VARCHAR2(100), 
+ 25 managing_group VARCHAR2(40), 
+ 26 nature VARCHAR2(80), 
+ 27 is_complex VARCHAR2(1), 
+ 28 is_ibm_supported VARCHAR2(1), 
+ 29 csc_os_banners NUMBER, 
+ 30 csc_pase_banners NUMBER, 
+ 31 csc_dba_banners NUMBER, 
+ 32 csc_fyi_banners NUMBER, 
+ 33 disk_ecc_array_alloc_kb NUMBER, 
+ 34 disk_ecc_array_used_kb NUMBER, 
+ 35 disk_ecc_array_free_kb NUMBER, 
+ 36 disk_ecc_local_alloc_kb NUMBER, 
+ 37 disk_ecc_local_used_kb NUMBER, 
+ 38 disk_ecc_local_free_kb NUMBER, 
+ 39 backup_format VARCHAR2(10), 
+ 40 backup_nodename VARCHAR2(1000), 
+ 41 backup_program VARCHAR2(80), 
+ 42 backup_server VARCHAR2(1000), 
+ 43 netbackup VARCHAR2(80), 
+ 44 app_server_assn_sox_critical NUMBER, 
+ 45 db_server_assn_sox_critical NUMBER 
+ 46 ); 
+ last_record_update DATE, 
+ * 
+ERROR at line 2: 
+ORA-01430: column being added already exists in table 
+ 
+ 
+SQL> 
+SQL> create index idx_new_cct7_computers_1 on new_cct7_computers ( lastid ); 
+create index idx_new_cct7_computers_1 on new_cct7_computers ( lastid ) 
+ * 
+ERROR at line 1: 
+ORA-00955: name is already used by an existing object 
+ 
+ 
+SQL> create index idx_new_cct7_computers_2 on new_cct7_computers ( hostname ); 
+create index idx_new_cct7_computers_2 on new_cct7_computers ( hostname ) 
+ * 
+ERROR at line 1: 
+ORA-00955: name is already used by an existing object 
+ 
+ 
+SQL> create index idx_new_cct7_computers_3 on new_cct7_computers ( contract ); 
+create index idx_new_cct7_computers_3 on new_cct7_computers ( contract ) 
+ * 
+ERROR at line 1: 
+ORA-00955: name is already used by an existing object 
+ 
+ 
+SQL> create index idx_new_cct7_computers_4 on new_cct7_computers ( ip_address ); 
+create index idx_new_cct7_computers_4 on new_cct7_computers ( ip_address ) 
+ * 
+ERROR at line 1: 
+ORA-00955: name is already used by an existing object 
+ 
+ 
+SQL> create index idx_new_cct7_computers_5 on new_cct7_computers ( complex_lastid ); 
+create index idx_new_cct7_computers_5 on new_cct7_computers ( complex_lastid ) 
+ * 
+ERROR at line 1: 
+ORA-00955: name is already used by an existing object 
+ 
+ 
+SQL> create index idx_new_cct7_computers_6 on new_cct7_computers ( clli_fullname ); 
+create index idx_new_cct7_computers_6 on new_cct7_computers ( clli_fullname ) 
+ * 
+ERROR at line 1: 
+ORA-00955: name is already used by an existing object 
+ 
+ 
+SQL> create index idx_new_cct7_computers_7 on new_cct7_computers ( state ); 
+create index idx_new_cct7_computers_7 on new_cct7_computers ( state ) 
+ * 
+ERROR at line 1: 
+ORA-00955: name is already used by an existing object 
+ 
+ 
+SQL> create index idx_new_cct7_computers_8 on new_cct7_computers ( clli ); 
+create index idx_new_cct7_computers_8 on new_cct7_computers ( clli ) 
+ * 
+ERROR at line 1: 
+ORA-00955: name is already used by an existing object 
+ 
+ 
+SQL> create index idx_new_cct7_computers_9 on new_cct7_computers ( operating_system ); 
+create index idx_new_cct7_computers_9 on new_cct7_computers ( operating_system ) 
+ * 
+ERROR at line 1: 
+ORA-00955: name is already used by an existing object 
+ 
+ 
+SQL> create index idx_new_cct7_computers_10 on new_cct7_computers ( os_group_contact ); 
+create index idx_new_cct7_computers_10 on new_cct7_computers ( os_group_contact ) 
+ * 
+ERROR at line 1: 
+ORA-00955: name is already used by an existing object 
+ 
+ 
+SQL> 
+SQL> commit; 
+ 
+Commit complete. 
+ 
+SQL> quit; 
+Disconnected from Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production 
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options 
+
+Running: /db/oracle/product/12102_64/bin/sqlplus cct/candy4Kids @/opt/ibmtools/cct7/bin/sql/cct7_computers_part2.sql
+ 
+SQL*Plus: Release 12.1.0.2.0 Production on Thu Feb 23 11:18:46 2017 
+ 
+Copyright (c) 1982, 2014, Oracle. All rights reserved. 
+ 
+Last Successful login time: Thu Feb 23 2017 11:18:45 -06:00 
+ 
+Connected to: 
+Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production 
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options 
+ 
+SQL> 
+SQL> REM 
+SQL> REM cct7_computers_part2.sql 
+SQL> REM 
+SQL> 
+SQL> REM 
+SQL> REM Initialize with some default information before we populate what we can with 
+SQL> REM the PL/SQL code below. 
+SQL> REM 
+SQL> update new_cct7_computers set 
+ 2 last_record_update = SYSDATE, 
+ 3 complex_partitions = 0, 
+ 4 is_complex = 'N', 
+ 5 is_ibm_supported = 'N', 
+ 6 is_dmz = 'N', 
+ 7 is_gold_server = 'N', 
+ 8 is_service_guard = 'N', 
+ 9 is_special_handling = 'N', 
+ 10 timezone = 'GMT', 
+ 11 osmaint_weekly = 'TUE,THU 02:00 180', 
+ 12 osmaint_monthly = '2 SUN 00:00 240', 
+ 13 osmaint_quarterly = 'FEB,MAY,AUG,NOV 3 SAT 22:00 1440', 
+ 14 service_level_objective = 0, 
+ 15 service_level_score = 0, 
+ 16 csc_os_banners = 0, 
+ 17 csc_pase_banners = 0, 
+ 18 csc_dba_banners = 0, 
+ 19 csc_fyi_banners = 0, 
+ 20 disk_ecc_array_alloc_kb = 0, 
+ 21 disk_ecc_array_used_kb = 0, 
+ 22 disk_ecc_array_free_kb = 0, 
+ 23 disk_ecc_local_alloc_kb = 0, 
+ 24 disk_ecc_local_used_kb = 0, 
+ 25 disk_ecc_local_free_kb = 0, 
+ 26 app_server_assn_sox_critical = 0, 
+ 27 db_server_assn_sox_critical = 0; 
+ 
+94217 rows updated. 
+ 
+SQL> 
+SQL> REM 
+SQL> REM computer_contract VARCHAR2(80), 
+SQL> REM computer_contract_ref VARCHAR2(20), 
+SQL> REM computer_contract_status VARCHAR2(43), 
+SQL> REM computer_contract_status_type VARCHAR2(80), 
+SQL> REM computer_contract_date DATE, 
+SQL> REM 
+SQL> DECLARE 
+ 2 v_server_lastid number; 
+ 3 v_ibm_contract varchar2(80); 
+ 4 v_ibm_ref varchar2(20); 
+ 5 v_qw_contract_status varchar2(43); 
+ 6 v_status varchar2(80); 
+ 7 v_include_date date; 
+ 8 
+ 9 CURSOR c_contracts IS 
+ 10 select 
+ 11 server_lastid, 
+ 12 ibm_contract, 
+ 13 ibm_ref, 
+ 14 qw_contract_status, 
+ 15 status, 
+ 16 include_date 
+ 17 from 
+ 18 AM_CONTRACTS 
+ 19 where 
+ 20 removed_date is null; 
+ 21 
+ 22 BEGIN 
+ 23 OPEN c_contracts; 
+ 24 LOOP 
+ 25 FETCH c_contracts INTO 
+ 26 v_server_lastid, 
+ 27 v_ibm_contract, 
+ 28 v_ibm_ref, 
+ 29 v_qw_contract_status, 
+ 30 v_status, 
+ 31 v_include_date; 
+ 32 
+ 33 EXIT WHEN c_contracts%NOTFOUND; 
+ 34 
+ 35 update new_cct7_computers set 
+ 36 contract = v_ibm_contract, 
+ 37 contract_ref = v_ibm_ref, 
+ 38 contract_status = v_qw_contract_status, 
+ 39 contract_status_type = v_status, 
+ 40 contract_date = v_include_date 
+ 41 where lastid = v_server_lastid; 
+ 42 
+ 43 END LOOP; 
+ 44 
+ 45 CLOSE c_contracts; 
+ 46 END; 
+ 47 / 
+ 
+PL/SQL procedure successfully completed. 
+ 
+SQL> 
+SQL> commit; 
+ 
+Commit complete. 
+ 
+SQL> quit; 
+Disconnected from Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production 
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options 
+
+Running: /db/oracle/product/12102_64/bin/sqlplus cct/candy4Kids @/opt/ibmtools/cct7/bin/sql/cct7_computers_part3.sql
+ 
+SQL*Plus: Release 12.1.0.2.0 Production on Thu Feb 23 11:18:49 2017 
+ 
+Copyright (c) 1982, 2014, Oracle. All rights reserved. 
+ 
+Last Successful login time: Thu Feb 23 2017 11:18:46 -06:00 
+ 
+Connected to: 
+Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production 
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options 
+ 
+SQL> 
+SQL> REM 
+SQL> REM cct7_computers_part3.sql 
+SQL> REM 
+SQL> 
+SQL> REM 
+SQL> REM cio_group 
+SQL> REM managing_group 
+SQL> REM nature 
+SQL> REM 
+SQL> DECLARE 
+ 2 V_AP_LPROJID NUMBER; 
+ 3 V_AP_DREMOVED DATE; 
+ 4 V_AP_LASTID NUMBER; 
+ 5 V_PR_LPROJID NUMBER; 
+ 6 V_PR_REF VARCHAR2(40); 
+ 7 V_PR_STATUS VARCHAR2(80); 
+ 8 V_PR_TITLE VARCHAR2(100); 
+ 9 
+ 10 CURSOR c_xxx IS 
+ 11 SELECT DISTINCT 
+ 12 ap.LPROJID, 
+ 13 ap.DREMOVED, 
+ 14 ap.LASTID, 
+ 15 PR.LPROJID, 
+ 16 PR.REF, 
+ 17 PR.STATUS, 
+ 18 PR.TITLE 
+ 19 FROM 
+ 20 AM_AP ap, 
+ 21 AM_A7 a7, 
+ 22 AM_C9 c9, 
+ 23 AM_PR pr 
+ 24 WHERE 
+ 25 A7.DPLANNEDREMOV is NULL 
+ 26 AND C9.NATURE like '%SUPPORT' 
+ 27 AND C9.STATUS = 'SERVER' 
+ 28 AND A7.LASTID = AP.LASTID 
+ 29 AND AP.DREMOVED IS NULL 
+ 30 AND AP.LPROJID = PR.LPROJID 
+ 31 AND PR.STATUS = 'SUPPORT'; 
+ 32 
+ 33 BEGIN 
+ 34 DBMS_OUTPUT.PUT_LINE('Merged: amAstProjDesc and amProject'); 
+ 35 OPEN c_xxx; 
+ 36 LOOP 
+ 37 FETCH c_xxx INTO 
+ 38 V_AP_LPROJID, 
+ 39 V_AP_DREMOVED, 
+ 40 V_AP_LASTID, 
+ 41 V_PR_LPROJID, 
+ 42 V_PR_REF, 
+ 43 V_PR_STATUS, 
+ 44 V_PR_TITLE; 
+ 45 
+ 46 EXIT WHEN c_xxx%NOTFOUND; 
+ 47 
+ 48 update new_cct7_computers set 
+ 49 cio_group = V_PR_TITLE, 
+ 50 managing_group = V_PR_REF, 
+ 51 nature = 'SUPPORT' 
+ 52 where lastid = V_AP_LASTID; 
+ 53 
+ 54 END LOOP; 
+ 55 
+ 56 CLOSE c_xxx; 
+ 57 END; 
+ 58 / 
+ 
+PL/SQL procedure successfully completed. 
+ 
+SQL> 
+SQL> COMMIT; 
+ 
+Commit complete. 
+ 
+SQL> quit; 
+Disconnected from Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production 
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options 
+
+Running: /db/oracle/product/12102_64/bin/sqlplus cct/candy4Kids @/opt/ibmtools/cct7/bin/sql/cct7_computers_part4.sql
+ 
+SQL*Plus: Release 12.1.0.2.0 Production on Thu Feb 23 11:18:51 2017 
+ 
+Copyright (c) 1982, 2014, Oracle. All rights reserved. 
+ 
+Last Successful login time: Thu Feb 23 2017 11:18:49 -06:00 
+ 
+Connected to: 
+Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production 
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options 
+ 
+SQL> 
+SQL> REM 
+SQL> REM cct7_computers_part4.sql 
+SQL> REM 
+SQL> 
+SQL> REM 
+SQL> REM is_complex 
+SQL> REM 
+SQL> DECLARE 
+ 2 v_complex_lastid NUMBER; 
+ 3 
+ 4 CURSOR c_xxx IS 
+ 5 SELECT DISTINCT complex_lastid from new_cct7_computers where complex_lastid > 0; 
+ 6 
+ 7 BEGIN 
+ 8 DBMS_OUTPUT.PUT_LINE('Setting: is_complex '); 
+ 9 OPEN c_xxx; 
+ 10 LOOP 
+ 11 FETCH c_xxx INTO 
+ 12 v_complex_lastid; 
+ 13 
+ 14 EXIT WHEN c_xxx%NOTFOUND; 
+ 15 
+ 16 update new_cct7_computers set 
+ 17 is_complex = 'Y' 
+ 18 where lastid = v_complex_lastid; 
+ 19 
+ 20 END LOOP; 
+ 21 
+ 22 CLOSE c_xxx; 
+ 23 END; 
+ 24 / 
+ 
+PL/SQL procedure successfully completed. 
+ 
+SQL> 
+SQL> COMMIT; 
+ 
+Commit complete. 
+ 
+SQL> 
+SQL> REM 
+SQL> REM is_ibm_supported 
+SQL> REM 
+SQL> DECLARE 
+ 2 v_lastid NUMBER; 
+ 3 
+ 4 CURSOR c_asset IS 
+ 5 SELECT 
+ 6 lastid 
+ 7 FROM 
+ 8 new_cct7_computers 
+ 9 WHERE 
+ 10 contract like 'IGS%'; 
+ 11 
+ 12 BEGIN 
+ 13 DBMS_OUTPUT.PUT_LINE('Setting asset_par_ibm_supported flag'); 
+ 14 OPEN c_asset; 
+ 15 LOOP 
+ 16 FETCH c_asset INTO v_lastid; 
+ 17 EXIT WHEN c_asset%NOTFOUND; 
+ 18 
+ 19 update new_cct7_computers set is_ibm_supported = 'Y' where lastid = v_lastid; 
+ 20 END LOOP; 
+ 21 
+ 22 CLOSE c_asset; 
+ 23 END; 
+ 24 / 
+ 
+PL/SQL procedure successfully completed. 
+ 
+SQL> 
+SQL> COMMIT; 
+ 
+Commit complete. 
+ 
+SQL> 
+SQL> REM 
+SQL> REM is_dmz 
+SQL> REM 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '150.159.%'; 
+ 
+10 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '155.70.%'; 
+ 
+1058 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '192.65.140.%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '192.104.175.%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '192.104.176.%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '192.104.177.%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '192.104.178.%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '192.104.179.%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '192.104.180.%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '198.91.0%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '198.91.1%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '198.186.195.%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '198.186.196.%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '198.186.197.%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '198.186.198.%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '199.117.49.32%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '199.117.49.33%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '199.117.49.34%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '199.117.49.35%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '199.117.49.36%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '199.117.49.37%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '199.117.49.38%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '199.117.49.39%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '199.117.49.40%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '199.117.49.41%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '199.117.49.42%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '199.117.49.43%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '199.117.49.44%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '199.117.49.45%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '199.117.49.46%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '199.117.49.47%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '199.117.49.48%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '199.117.49.49%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '199.117.49.50%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '199.117.49.51%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '199.117.49.52%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '199.117.49.53%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '199.117.49.54%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '199.117.49.55%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '199.117.49.56%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '199.117.49.57%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '199.117.49.58%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '199.117.49.59%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '199.117.49.60%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '199.117.49.61%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '199.117.49.62%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '199.117.49.63%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '199.120.190.%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set is_dmz='Y' where ip_address like '199.168.%'; 
+ 
+13 rows updated. 
+ 
+SQL> 
+SQL> COMMIT; 
+ 
+Commit complete. 
+ 
+SQL> 
+SQL> REM 
+SQL> REM Get SOX information 
+SQL> REM 
+SQL> 
+SQL> update new_cct7_computers set 
+ 2 app_server_assn_sox_critical = 1 
+ 3 where 
+ 4 lower(hostname) IN 
+ 5 (select distinct lower(hostnm) from pt.cv_qwestibm_maltoserver@itast where app_server_assn_sox_critical = 1); 
+ 
+149 rows updated. 
+ 
+SQL> 
+SQL> update new_cct7_computers set 
+ 2 db_server_assn_sox_critical = 1 
+ 3 where 
+ 4 lower(hostname) IN 
+ 5 (select distinct lower(hostname) from pt.cv_qwestibm_mdl_to_server@itast where db_server_assn_sox_critical = 1); 
+ 
+73 rows updated. 
+ 
+SQL> 
+SQL> COMMIT; 
+ 
+Commit complete. 
+ 
+SQL> 
+SQL> quit; 
+Disconnected from Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production 
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options 
+
+Running: /db/oracle/product/12102_64/bin/sqlplus cct/candy4Kids @/opt/ibmtools/cct7/bin/sql/cct7_computers_part5.sql
+ 
+SQL*Plus: Release 12.1.0.2.0 Production on Thu Feb 23 11:18:55 2017 
+ 
+Copyright (c) 1982, 2014, Oracle. All rights reserved. 
+ 
+Last Successful login time: Thu Feb 23 2017 11:18:51 -06:00 
+ 
+Connected to: 
+Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production 
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options 
+ 
+SQL> 
+SQL> REM 
+SQL> REM cct7_computers_part5.sql 
+SQL> REM 
+SQL> 
+SQL> REM 
+SQL> REM ewebars_title 
+SQL> REM ewebars_status 
+SQL> REM 
+SQL> REM (PR.title like '%EWEBARS%' or 
+SQL> REM PR.title = 'BACKUP' or 
+SQL> REM PR.title = 'BACKUP AND HARDWARE MAINT ONLY' or 
+SQL> REM PR.title = 'BACKUP MONITORING AND HARDWARE MAINT' or 
+SQL> REM PR.title = 'BACKUP ONLY'); 
+SQL> REM 
+SQL> DECLARE 
+ 2 v_lastid NUMBER; 
+ 3 v_title VARCHAR2(100); 
+ 4 v_status VARCHAR2(80); 
+ 5 
+ 6 CURSOR c_amproject IS 
+ 7 SELECT distinct 
+ 8 ap.lastid, 
+ 9 PR.title, 
+ 10 PR.status 
+ 11 from 
+ 12 AM_AP ap, 
+ 13 AM_PR pr 
+ 14 where 
+ 15 ap.dRemoved is null and 
+ 16 ap.lProjID = PR.lProjID and 
+ 17 pr.title is not null and 
+ 18 pr.status = 'SUPPORT'; 
+ 19 
+ 20 BEGIN 
+ 21 DBMS_OUTPUT.PUT_LINE('Updating EWEBARS information'); 
+ 22 OPEN c_amproject; 
+ 23 LOOP 
+ 24 FETCH c_amproject INTO 
+ 25 v_lastid, 
+ 26 v_title, 
+ 27 v_status; 
+ 28 
+ 29 EXIT WHEN c_amproject%NOTFOUND; 
+ 30 
+ 31 update new_cct7_computers set 
+ 32 ewebars_title = v_title, 
+ 33 ewebars_status = v_status 
+ 34 where 
+ 35 lastid = v_lastid; 
+ 36 
+ 37 END LOOP; 
+ 38 
+ 39 CLOSE c_amproject; 
+ 40 END; 
+ 41 / 
+ 
+PL/SQL procedure successfully completed. 
+ 
+SQL> 
+SQL> COMMIT; 
+ 
+Commit complete. 
+ 
+SQL> quit; 
+Disconnected from Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production 
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options 
+
+Running: /db/oracle/product/12102_64/bin/sqlplus cct/candy4Kids @/opt/ibmtools/cct7/bin/sql/cct7_computers_part6.sql
+ 
+SQL*Plus: Release 12.1.0.2.0 Production on Thu Feb 23 11:18:56 2017 
+ 
+Copyright (c) 1982, 2014, Oracle. All rights reserved. 
+ 
+Last Successful login time: Thu Feb 23 2017 11:18:55 -06:00 
+ 
+Connected to: 
+Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production 
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options 
+ 
+SQL> 
+SQL> REM 
+SQL> REM cct7_computers_part6.sql 
+SQL> REM 
+SQL> 
+SQL> REM 
+SQL> REM complex_partitions 
+SQL> REM 
+SQL> DECLARE 
+ 2 v_this_lastid NUMBER := 0; 
+ 3 v_this_lastid_parent NUMBER := 0; 
+ 4 v_save_lastid NUMBER := 0; 
+ 5 v_save_lastid_parent NUMBER := 0; 
+ 6 v_partitions NUMBER := 0; 
+ 7 v_par_count NUMBER := 0; 
+ 8 v_mac_count NUMBER := 0; 
+ 9 
+ 10 CURSOR c_asset IS 
+ 11 SELECT lastid, complex_lastid from new_cct7_computers 
+ 12 where complex_lastid > 0 order by complex_lastid; 
+ 13 
+ 14 BEGIN 
+ 15 OPEN c_asset; 
+ 16 LOOP 
+ 17 v_partitions := v_partitions + 1; 
+ 18 
+ 19 FETCH c_asset INTO v_this_lastid, v_this_lastid_parent; 
+ 20 
+ 21 EXIT WHEN c_asset%NOTFOUND; 
+ 22 
+ 23 v_par_count := v_par_count + 1; 
+ 24 
+ 25 IF v_save_lastid_parent = 0 THEN 
+ 26 
+ 27 v_save_lastid := v_this_lastid; 
+ 28 v_save_lastid_parent := v_this_lastid_parent; 
+ 29 v_partitions := 0; 
+ 30 
+ 31 ELSIF v_save_lastid_parent != v_this_lastid_parent THEN 
+ 32 
+ 33 v_mac_count := v_mac_count + 1; 
+ 34 update new_cct7_computers set 
+ 35 complex_partitions = v_partitions where lastid = v_save_lastid_parent; 
+ 36 
+ 37 DBMS_OUTPUT.PUT_LINE(CONCAT('V_PARITIONS=', v_partitions)); 
+ 38 v_partitions := 0; 
+ 39 v_save_lastid := v_this_lastid; 
+ 40 v_save_lastid_parent := v_this_lastid_parent; 
+ 41 
+ 42 END IF; 
+ 43 
+ 44 DBMS_OUTPUT.PUT_LINE(CONCAT('V_LASTID_PARENT=', v_this_lastid_parent)); 
+ 45 END LOOP; 
+ 46 
+ 47 IF v_partitions > 0 AND v_save_lastid_parent > 0 THEN 
+ 48 v_mac_count := v_mac_count + 1; 
+ 49 update new_cct7_computers set 
+ 50 complex_partitions = v_partitions where lastid = v_save_lastid_parent; 
+ 51 DBMS_OUTPUT.PUT_LINE(CONCAT('V_PARITIONS=', v_partitions)); 
+ 52 END IF; 
+ 53 
+ 54 CLOSE c_asset; 
+ 55 DBMS_OUTPUT.PUT_LINE(CONCAT('V_PAR_COUNT=', v_par_count)); 
+ 56 DBMS_OUTPUT.PUT_LINE(CONCAT('V_MAC_COUNT=', v_mac_count)); 
+ 57 END; 
+ 58 / 
+ 
+PL/SQL procedure successfully completed. 
+ 
+SQL> 
+SQL> select hostname, is_complex, complex_partitions from new_cct7_computers where complex_partitions > 0; 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HVOMP20X 
+Y 1 
+ 
+ECKCCS1ESXI11 
+Y 5 
+ 
+ECKCCS1ESXI12 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+ECOM-NE49 
+Y 2 
+ 
+ELDNP0073DM3 
+Y 2 
+ 
+ELDNP0073DM2 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+ELOMP4415DM3 
+Y 1 
+ 
+ELOMP4415DM2 
+Y 1 
+ 
+HHDNP29A 
+Y 5 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HHDNP86D 
+Y 1 
+ 
+HHDNP35F 
+Y 3 
+ 
+HHDNT31A 
+Y 5 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HHDNT31B 
+Y 2 
+ 
+CTOMAVS66 
+Y 1 
+ 
+HHOMT17N 
+Y 4 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+CTOMAVS61 
+Y 1 
+ 
+HHOMT95P 
+Y 3 
+ 
+HHOMP70V 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+CTOMAVS56 
+Y 1 
+ 
+CTOMAVS58 
+Y 1 
+ 
+HHOMP61P 
+Y 3 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+DDC-B420 
+Y 1 
+ 
+PHNCCS1ESXI09 
+Y 1 
+ 
+PHNCCS1ESXI01 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+PHNCCS1ESXI13 
+Y 1 
+ 
+PHNCCS1ESXI12 
+Y 2 
+ 
+SUDNP517 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+SUDNP518 
+Y 2 
+ 
+SUDNP520 
+Y 2 
+ 
+SUDNP519 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+SUDNP534 
+Y 1 
+ 
+SUDNP535 
+Y 1 
+ 
+SUOMP23K 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+SUOMP852 
+Y 2 
+ 
+PAZPEESXVS502 
+Y 3 
+ 
+PAZPEESXVS501 
+Y 3 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+PHNCCS1B 
+Y 5 
+ 
+PHNCCS1A 
+Y 16 
+ 
+PHNXAZUIS25 
+Y 4 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+PHNXAZUIS24 
+Y 2 
+ 
+IBMDP11CG 
+Y 4 
+ 
+IBMDMV9_CLUSTER1 
+Y 11 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HCMAX01A 
+Y 11 
+ 
+HCMAX03A 
+Y 12 
+ 
+HCMAX02A 
+Y 12 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HPMDHANAP042 
+Y 4 
+ 
+NCMDX091 
+Y 2 
+ 
+NCMDX089 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+NCMDX104 
+Y 2 
+ 
+NCMDX103 
+Y 2 
+ 
+NCMDX100 
+Y 3 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+NCMDX099 
+Y 3 
+ 
+HCMDXVY6K 
+Y 6 
+ 
+HCMDXVY6B 
+Y 6 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+PMDCHSD64B503 
+Y 5 
+ 
+PMDCHSD64B502 
+Y 9 
+ 
+PMDCAP520503 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+PMDCAP550501 
+Y 1 
+ 
+PMDCAP770501 
+Y 1 
+ 
+PMDCAP795501 
+Y 35 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+PMDCAP880502 
+Y 5 
+ 
+CTL1 
+Y 10 
+ 
+PCOCEESXVS501 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+NADNPHA01N02 
+Y 1 
+ 
+ELDNP0073 
+Y 5 
+ 
+ICDNX690 
+Y 3 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+ICDNX758 
+Y 1 
+ 
+ICDNX759 
+Y 5 
+ 
+ICDNX992 
+Y 3 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+ICDNX652 
+Y 7 
+ 
+ICDNX897 
+Y 1 
+ 
+ICDNX855 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+ICDNX857 
+Y 4 
+ 
+ICDNX819 
+Y 4 
+ 
+ILBC1000 
+Y 14 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+ICDNX66B 
+Y 1 
+ 
+ICDNX61A 
+Y 3 
+ 
+ICDNX60A 
+Y 3 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+ICDNX64A 
+Y 4 
+ 
+ICDNX47A 
+Y 3 
+ 
+ICDNX723 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+ILBC3002 
+Y 1 
+ 
+HCDNX27B 
+Y 4 
+ 
+ILBC3000 
+Y 9 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+SUDNX64J 
+Y 22 
+ 
+SUDNX91H 
+Y 22 
+ 
+HCDNX17F 
+Y 12 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HCDNX37F 
+Y 14 
+ 
+HCDNX95D 
+Y 10 
+ 
+HCDNX81E 
+Y 12 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HCDNX36A 
+Y 9 
+ 
+HCDNX38C 
+Y 8 
+ 
+HCDNX82B 
+Y 12 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HCDNX92B 
+Y 8 
+ 
+HCDNX28E 
+Y 21 
+ 
+HCDNX02E 
+Y 9 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HCDNX01E 
+Y 15 
+ 
+HCDNX68C 
+Y 12 
+ 
+HCDNX13B 
+Y 10 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HCDNX44B 
+Y 9 
+ 
+HCDNX62C 
+Y 6 
+ 
+HCDNX29C 
+Y 12 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HCDNX95A 
+Y 11 
+ 
+HCDNX92J 
+Y 14 
+ 
+HCDNX18J 
+Y 16 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HCDNX17J 
+Y 16 
+ 
+HCDNX16J 
+Y 20 
+ 
+HCDNX69H 
+Y 7 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HCDNX91J 
+Y 19 
+ 
+HCDNX91F 
+Y 12 
+ 
+HCDNX72F 
+Y 8 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HCDNX71F 
+Y 10 
+ 
+HCDNX59F 
+Y 14 
+ 
+HCDNX58F 
+Y 10 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HCDNX12A 
+Y 11 
+ 
+HCDNX11A 
+Y 10 
+ 
+HCDNX38E 
+Y 16 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HCDNX37E 
+Y 16 
+ 
+HCDNX36E 
+Y 18 
+ 
+HCDNX35E 
+Y 19 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HCDNX39E 
+Y 12 
+ 
+HCDNX29E 
+Y 21 
+ 
+HCDNX26E 
+Y 10 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HCDNX36D 
+Y 14 
+ 
+HCDNX35D 
+Y 16 
+ 
+HCDNX958 
+Y 11 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HCDNX993 
+Y 9 
+ 
+NCDNX62M 
+Y 3 
+ 
+NCDNX61M 
+Y 4 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+NCDNX73M 
+Y 2 
+ 
+NCDNX172 
+Y 2 
+ 
+NCDNX171 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+NCDNX06N 
+Y 3 
+ 
+DDC-NETSEC 
+Y 2 
+ 
+NSM-DDC-NETSEC 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+SZDNT67K 
+Y 1 
+ 
+NMAQ1-M5-CO 
+Y 1 
+ 
+NMAQ2-M5-CO 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+SUDNX81H 
+Y 1 
+ 
+SUDNX51C 
+Y 1 
+ 
+LXDNPACM3EB 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+LXDNPACM3EA 
+Y 2 
+ 
+LXDNPACM2PA 
+Y 4 
+ 
+LXDNPACM1EB 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+SUDNX533 
+Y 3 
+ 
+SUDNX532 
+Y 3 
+ 
+SUDNB492 
+Y 3 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+SUDNX758 
+Y 3 
+ 
+SUDNX514 
+Y 5 
+ 
+SUDNX515 
+Y 4 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+SZDNP42B 
+Y 1 
+ 
+SUDNP935 
+Y 1 
+ 
+DDCAETL1 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+TDCAETL1 
+Y 1 
+ 
+AIDNX498 
+Y 4 
+ 
+NMAQ1-M3-CO 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+NMAQ2-M2-CO 
+Y 1 
+ 
+NMAQ1-M1-CO 
+Y 1 
+ 
+NMAQ2-M1-CO 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+NMAQ2-M3-CO 
+Y 1 
+ 
+SZDNP37A 
+Y 3 
+ 
+SZDNT003 
+Y 9 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+SZDNT002 
+Y 8 
+ 
+SUDNP65G 
+Y 2 
+ 
+SUDNP63G 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+SUDNP62G 
+Y 1 
+ 
+SZDNP63F 
+Y 2 
+ 
+SZDNP06B 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+SZDND84A 
+Y 1 
+ 
+SUDNP82G 
+Y 1 
+ 
+ACMSPMSEDB2 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+SUDNT56C 
+Y 1 
+ 
+HPDNX297 
+Y 1 
+ 
+HPDNX289 
+Y 3 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+NMATST-M4-CO 
+Y 1 
+ 
+NMAQ2-M4-CO 
+Y 1 
+ 
+SUDNP52G 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+SUDNP51G 
+Y 1 
+ 
+SUDNP53G 
+Y 1 
+ 
+SUDNP66G 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+SUDNP67G 
+Y 1 
+ 
+SZDNP006 
+Y 5 
+ 
+SZDNP005 
+Y 7 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+SZDNP004 
+Y 7 
+ 
+HPDNP59D 
+Y 2 
+ 
+SZDNP29D 
+Y 3 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+AIDNX589 
+Y 4 
+ 
+DNVRDNS02X 
+Y 1 
+ 
+DNS01X 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+PDDCLPLAAS501 
+Y 1 
+ 
+LXDNPAES2XQ01-AES 
+Y 4 
+ 
+LXDNPAES2XE01-AES 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+LXDNPAES1SQ01-AES 
+Y 4 
+ 
+LXDNPAES1SE01-AES 
+Y 2 
+ 
+LXDNPAES2XD01-AES 
+Y 4 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+SUDNX43J 
+Y 1 
+ 
+SUDNX44J 
+Y 1 
+ 
+LXDNPAAMMAS01 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+LXDNPACM4EA 
+Y 2 
+ 
+LXDNPAAMMSS01 
+Y 2 
+ 
+LXDNPACM4EB 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+NSMDENT4P137 
+Y 4 
+ 
+NSMDENT4P134 
+Y 4 
+ 
+LXDNPAES4XQ02-AES 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+LXDNPAES4XQ01-AES 
+Y 2 
+ 
+CCELABUCS1 
+Y 13 
+ 
+XBANLAB 
+Y 5 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+CARPXIN01B 
+Y 1 
+ 
+CTIADVS01 
+Y 2 
+ 
+PALAU 
+Y 7 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+NASDEV05 
+Y 1 
+ 
+LTN10K-1 
+Y 2 
+ 
+PCOLEESXVS501 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+LXLTTACM4PB 
+Y 2 
+ 
+LXLTTACM4PA 
+Y 2 
+ 
+LXLTTAAMMSS01 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+LXLTTAAMMAS02 
+Y 2 
+ 
+LXLTTAES4XQ02 
+Y 2 
+ 
+LXLTTAES4XQ01 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+CTIDBVS01 
+Y 3 
+ 
+ELMNP1378 
+Y 3 
+ 
+PMNMEESXVS502 
+Y 4 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+ELOMP0434 
+Y 5 
+ 
+NAOMPHA02N02 
+Y 1 
+ 
+ELOMP1501 
+Y 6 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+ELOMP4415 
+Y 12 
+ 
+ICOMX56I 
+Y 4 
+ 
+ICOMX18E 
+Y 3 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+ICOMX53E 
+Y 6 
+ 
+ICOMX01E 
+Y 1 
+ 
+ICOMX02E 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+ICOMX93J 
+Y 12 
+ 
+ICOMX92J 
+Y 4 
+ 
+ICOMX26J 
+Y 3 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+ICOMX25J 
+Y 6 
+ 
+ICOMX06L 
+Y 1 
+ 
+HCOMX89W 
+Y 10 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HCOMX08M 
+Y 11 
+ 
+HCOMX17P 
+Y 16 
+ 
+HCOMX28N 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+SUOMX84R 
+Y 22 
+ 
+HCOMX70P 
+Y 9 
+ 
+HCOMX69P 
+Y 9 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HCOMX07Q 
+Y 12 
+ 
+HCOMX06Q 
+Y 12 
+ 
+HCOMX16Q 
+Y 13 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HCOMX05Q 
+Y 14 
+ 
+HCOMX92P 
+Y 12 
+ 
+HCOMX79L 
+Y 13 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HCOMX80M 
+Y 16 
+ 
+HCOMX79M 
+Y 10 
+ 
+HCOMX52M 
+Y 12 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HCOMX07M 
+Y 8 
+ 
+HCOMX09M 
+Y 8 
+ 
+HCOMX30P 
+Y 13 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HCOMX26N 
+Y 6 
+ 
+HCOMX64L 
+Y 11 
+ 
+HCOMX65L 
+Y 11 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HCOMX23N 
+Y 6 
+ 
+HCOMX15N 
+Y 18 
+ 
+HCOMX53M 
+Y 12 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HCOMX43S 
+Y 20 
+ 
+HCOMX44S 
+Y 20 
+ 
+HCOMX45S 
+Y 18 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HCOMX11S 
+Y 21 
+ 
+HCOMX04R 
+Y 10 
+ 
+HCOMX60U 
+Y 6 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HCOMX83R 
+Y 14 
+ 
+HCOMX53Q 
+Y 8 
+ 
+HCOMX52Q 
+Y 8 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HCOMX13S 
+Y 18 
+ 
+HCOMX58P 
+Y 19 
+ 
+HCOMX56P 
+Y 18 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HCOMX57P 
+Y 20 
+ 
+HCOMX55P 
+Y 20 
+ 
+HCOMX51P 
+Y 12 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HCOMX68N 
+Y 15 
+ 
+HCOMX60T 
+Y 21 
+ 
+HCOMX59T 
+Y 18 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HCOMX58T 
+Y 19 
+ 
+HCOMX11U 
+Y 19 
+ 
+HCOMX10U 
+Y 19 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HCOMX72K 
+Y 11 
+ 
+HCOMX90K 
+Y 4 
+ 
+HCOMX91K 
+Y 6 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+NCOMX08 
+Y 1 
+ 
+NCOMX07 
+Y 1 
+ 
+NCOMX06 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+NCOMX04 
+Y 3 
+ 
+NCOMX03 
+Y 2 
+ 
+NCOMX02 
+Y 3 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+PSB 2.0 OMH CONTROL POD 
+Y 4 
+ 
+ODC-NETSEC 
+Y 2 
+ 
+SZOMT34R 
+Y 3 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+NMAE1-M5-NE 
+Y 1 
+ 
+SUOMX77R 
+Y 1 
+ 
+SUOMX76R 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+SUOMX91Q 
+Y 1 
+ 
+SUOMX22N 
+Y 1 
+ 
+SUOMX97M 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+CTODARCAP002 
+Y 1 
+ 
+LXOMPACM3PB 
+Y 2 
+ 
+LXOMPACM3PA 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+LXOMPACM2EB 
+Y 2 
+ 
+LXOMPACM2EA 
+Y 2 
+ 
+LXOMPACM1EA 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+SUOMT87C 
+Y 1 
+ 
+CPTESTX06 
+Y 3 
+ 
+ECOM-NE64 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+SUOMT00A 
+Y 1 
+ 
+SUOMP551 
+Y 1 
+ 
+ECOM-NE65 
+Y 3 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+SUOMP745 
+Y 2 
+ 
+ECOM-NE70 
+Y 1 
+ 
+SUOMP746 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+SUOMX100 
+Y 2 
+ 
+SUOMX62H 
+Y 3 
+ 
+ECOM-NEX49 
+Y 3 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+CAIMS-NE1 
+Y 1 
+ 
+SUOMT25C 
+Y 1 
+ 
+AIOMX34C 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+AIOMX28C 
+Y 2 
+ 
+CONP-NE2 
+Y 1 
+ 
+NMAE1-M1-NE 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+NMAE1-M3-NE 
+Y 1 
+ 
+NMAE2-M1-NE 
+Y 1 
+ 
+NMAE2-M2-NE 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+NMAE1-M2-NE 
+Y 1 
+ 
+SZOMT30K 
+Y 3 
+ 
+SZOMT31K 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+SZOMT81J 
+Y 1 
+ 
+SZOMT79J 
+Y 5 
+ 
+SZOMP58J 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+SZOMP57J 
+Y 2 
+ 
+SUOMP51L 
+Y 1 
+ 
+SUOMP50L 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+SUOMP49L 
+Y 1 
+ 
+HPOMP03E 
+Y 1 
+ 
+SUOMP53H 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+SUOMP20C 
+Y 1 
+ 
+SUOMP21C 
+Y 1 
+ 
+SUOMX700 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+MLM-P1NGXOMA01 
+Y 1 
+ 
+SUOMA34I 
+Y 1 
+ 
+HPOMX557 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HPOMX552 
+Y 2 
+ 
+NMAE1-M4-NE 
+Y 1 
+ 
+NMAE2-M4-NE 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+POCSAS01 
+Y 1 
+ 
+SUOMP08H 
+Y 1 
+ 
+SUOMX24K 
+Y 4 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+SUOMX22K 
+Y 4 
+ 
+SUOMP40H 
+Y 1 
+ 
+SUOMP39H 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+SZOMP84J 
+Y 4 
+ 
+SZOMP82J 
+Y 6 
+ 
+SZOMP85J 
+Y 7 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+LMOSWNE2 
+Y 2 
+ 
+SZOMP52N 
+Y 5 
+ 
+DNS01X-OHS 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+LXOMPAES3XE01-AES 
+Y 6 
+ 
+LXOMPAES2SQ01-AES 
+Y 2 
+ 
+AIOMX43T 
+Y 5 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+AIOMX87S 
+Y 5 
+ 
+SZOMT14T 
+Y 6 
+ 
+LXOMPAES4XA01 
+Y 4 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+CTOMABPS03 
+Y 1 
+ 
+LXOMPACM4PB 
+Y 2 
+ 
+SUOMX40T 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+SCOMT68V 
+Y 1 
+ 
+LXOMPAES4XQ02-AES 
+Y 2 
+ 
+LXOMPAES4XQ01-AES 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+CTL4 
+Y 12 
+ 
+CTL3 
+Y 11 
+ 
+LXOMPAES3XS01-AES 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+CTNMAVS01 
+Y 1 
+ 
+CTSDSVS01 
+Y 1 
+ 
+ELSEP4030 
+Y 3 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+PWASEESXVS502 
+Y 2 
+ 
+ELSLP4962 
+Y 3 
+ 
+CTUTSVS01 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+SEACCSVM01P 
+Y 56 
+ 
+APA380ESX3 
+Y 1 
+ 
+APA-DMGR-01 
+Y 4 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+APA-SYSUTILS-02 
+Y 2 
+ 
+APA-DWEB-01 
+Y 2 
+ 
+APA-DMON1-01 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+APA5220A 
+Y 6 
+ 
+PSB 2.0 HLR CONTROL POD 
+Y 4 
+ 
+HLR-ME-BXWX-01-OLD 
+Y 3 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+DNVRCOHRS28 
+Y 4 
+ 
+DNVRCOHRS25 
+Y 4 
+ 
+HRV1TKGPDR2M 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HRV1TKGPDR1M 
+Y 1 
+ 
+HLR-QNMS-01-GLOBAL 
+Y 11 
+ 
+HLR-BRIXE2E-EXTRACT-01 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HLR-BRIXE2E-WEBAPI-01 
+Y 1 
+ 
+HLR-BRIXE2E-WEB01 
+Y 1 
+ 
+HLR-BRIXE2E-DB-01 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HLR-BRIXE2E-CON-02 
+Y 1 
+ 
+HLR-BRIXE2E-CON-01 
+Y 1 
+ 
+HLR-BRIXE2E-COL-04 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HLR-BRIXE2E-COL-02 
+Y 1 
+ 
+HLR-BRIXE2E-COL-01 
+Y 1 
+ 
+HLR-BRIXE2E-API-01 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+STGBEAPP01 
+Y 2 
+ 
+VAAPP02 
+Y 1 
+ 
+VAAPP01 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+VAAPP03 
+Y 1 
+ 
+ITFCCS1B 
+Y 6 
+ 
+DBLCCS1A 
+Y 7 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+ITFCCS1A 
+Y 6 
+ 
+DUB-NAVIS-REP 
+Y 2 
+ 
+IBLWB135X 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+IBLWB135W 
+Y 2 
+ 
+ELLWP6221 
+Y 4 
+ 
+ELLWP0167 
+Y 9 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HCLWX644 
+Y 9 
+ 
+HCLWX612 
+Y 9 
+ 
+HCLWX675 
+Y 10 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HCLWX668 
+Y 7 
+ 
+HCLWX690 
+Y 7 
+ 
+HCLWX552 
+Y 11 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HCLWX566 
+Y 9 
+ 
+HCLWX565 
+Y 12 
+ 
+HCLWX640 
+Y 12 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+MLM-P1NGXCOL01 
+Y 1 
+ 
+DMPSDEV2 
+Y 1 
+ 
+DMPSDEV1 
+Y 3 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+SUNRAY 
+Y 1 
+ 
+TRACK 
+Y 6 
+ 
+TACACS 
+Y 6 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+ARL-QNMS-01-GLOBAL 
+Y 3 
+ 
+ARL-CARIDEN-01 
+Y 1 
+ 
+CTVAAVS01 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+BURCCSVM01P 
+Y 89 
+ 
+ECKCCS1B 
+Y 4 
+ 
+DNVRCODP04UCS1 
+Y 3 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+CERILGPTS1-GLOBAL 
+Y 1 
+ 
+CER-ME-BXWX-01-OLD 
+Y 3 
+ 
+CER-QNMS-01-GLOBAL 
+Y 10 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+CER-BRIXWORKS-01 
+Y 2 
+ 
+PWAGEESXVS501 
+Y 4 
+ 
+IADT5A 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+IADT5B 
+Y 1 
+ 
+IAD-DWEB-01 
+Y 2 
+ 
+IAD5220B 
+Y 7 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+IAD380ESX7 
+Y 1 
+ 
+IAD380ESX6 
+Y 2 
+ 
+IADHNMSESX01 
+Y 6 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+ELPHP7367 
+Y 2 
+ 
+CARPR7HK1 
+Y 1 
+ 
+CARPHK01A 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+PARJEESXVS501 
+Y 4 
+ 
+CTFLMVS01 
+Y 1 
+ 
+PLAVEESXVS501 
+Y 3 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+PALDEESXVS501 
+Y 4 
+ 
+PILGEESXVS501 
+Y 3 
+ 
+CTTXKVS01 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+PGAHEESXVS501 
+Y 4 
+ 
+PLASEESXVS501 
+Y 3 
+ 
+PCOEEESXVS501 
+Y 4 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+CTNCWVS01 
+Y 1 
+ 
+CTOHMVS01 
+Y 2 
+ 
+CTNCRVS01 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+CTPACVS01 
+Y 2 
+ 
+PFLAEESXVS501 
+Y 4 
+ 
+CTNCFVS01 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+CTFLEVS01 
+Y 1 
+ 
+PCBCEESXVS501 
+Y 3 
+ 
+POHLEESXVS501 
+Y 3 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+WEBRT.ARL 
+Y 1 
+ 
+ARGO 
+Y 2 
+ 
+JHCYTN230A1211 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+JHCYTN230A1219 
+Y 2 
+ 
+JHCYTN230A1205 
+Y 1 
+ 
+JHCYTN230A335 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+NSMJCTN4P244 
+Y 3 
+ 
+PALPEESXVS501 
+Y 4 
+ 
+CTFLLVS01 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+PARHEESXVS501 
+Y 4 
+ 
+PTXMEESXVS501 
+Y 4 
+ 
+CTINPVS01 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+CTINDVS01 
+Y 1 
+ 
+LXSWTAAMMSS01 
+Y 2 
+ 
+LXSWTAAMMAS02 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+LXSWTAES1SS01 
+Y 2 
+ 
+PMOBEESXVS501 
+Y 4 
+ 
+ACDGDC 
+Y 4 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+NSMGDC 
+Y 1 
+ 
+LXGDPACM3EB 
+Y 2 
+ 
+LXGDPACM2EB 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+LXGDPACM1PB 
+Y 2 
+ 
+LXGDPSMG01 
+Y 2 
+ 
+LXGDPACM2EA 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+LXGDPAES3SQ01-AES 
+Y 2 
+ 
+LXGDPAES3SE01-AES 
+Y 2 
+ 
+LXGDPAES1XD01-AES 
+Y 4 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+PGDCAP550502 
+Y 1 
+ 
+PGDCAP570501 
+Y 2 
+ 
+LXGDPAAMMAS02 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+LXGDPAAMMAS01 
+Y 2 
+ 
+GRNRKST502 
+Y 1 
+ 
+LXGDPAES1SS01 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+PMOPEESXVS501 
+Y 3 
+ 
+PALHEESXVS501 
+Y 4 
+ 
+CTVACVS01 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+PMIPEESXVS501 
+Y 3 
+ 
+PWILEESXVS501 
+Y 3 
+ 
+CTMOTVS01 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+CTOMAVS57 
+Y 1 
+ 
+SUOMP25K 
+Y 1 
+ 
+HHDND30B 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+CPTEST06 
+Y 3 
+ 
+HHOMT22T 
+Y 3 
+ 
+PHNCCS1ESXI02 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+ECKCCS1ESXI01 
+Y 1 
+ 
+ECKCCS1ESXI02 
+Y 1 
+ 
+ELDNP0073DM4 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HHDNP85D 
+Y 1 
+ 
+HHOMP94Q 
+Y 2 
+ 
+PMDCBIA101 
+Y 25 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+NCMDX092 
+Y 2 
+ 
+NCMDX105 
+Y 2 
+ 
+PMDCHSD64B501 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+PMDCAP520501 
+Y 1 
+ 
+PMDCAP880501 
+Y 9 
+ 
+IBMDMV9_CLUSTER2 
+Y 6 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+PAZTEESXVS501 
+Y 1 
+ 
+ELDNP1689 
+Y 6 
+ 
+ELPHP1377 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+LXLTTAES4XA 
+Y 4 
+ 
+LXLTTAAMMAS01 
+Y 2 
+ 
+EMLKP1690 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+LXDNPAES4XA01 
+Y 4 
+ 
+LXDNPAAMMAS02 
+Y 2 
+ 
+LXDNP69J 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+SZDNT12H 
+Y 3 
+ 
+SZDNT30D 
+Y 9 
+ 
+SUDNX80H 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+SUDNX50C 
+Y 1 
+ 
+LXDNPACM1EA 
+Y 2 
+ 
+SUDNX544 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+NMAQ1-M2-CO 
+Y 1 
+ 
+SZDNP62F 
+Y 2 
+ 
+SZDND83A 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+SZDNT84K 
+Y 1 
+ 
+NMAQ3-M4-CO 
+Y 1 
+ 
+SUDNP767 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+SZDNP007 
+Y 6 
+ 
+ICDNX689 
+Y 1 
+ 
+ICDNX856 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+ICDNX823 
+Y 4 
+ 
+ICDNX48A 
+Y 3 
+ 
+ILBC2000 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HCDNX12G 
+Y 7 
+ 
+HCDNX69B 
+Y 8 
+ 
+HCDNX43B 
+Y 6 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HCDNX11C 
+Y 11 
+ 
+HCDNX92F 
+Y 12 
+ 
+HCDNX11G 
+Y 18 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HCDNX27E 
+Y 10 
+ 
+HCDNX37G 
+Y 17 
+ 
+INSDEN 
+Y 4 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+ELMNP7369 
+Y 3 
+ 
+PMNMEESXVS501 
+Y 2 
+ 
+HCOMX27N 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HCOMX74Q 
+Y 15 
+ 
+HCOMX10M 
+Y 6 
+ 
+HCOMX00M 
+Y 7 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HCOMX14N 
+Y 6 
+ 
+HCOMX12S 
+Y 22 
+ 
+HCOMX82R 
+Y 14 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HCOMX94K 
+Y 15 
+ 
+NCOMX05 
+Y 3 
+ 
+NCOMX01 
+Y 3 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+POCAETL1 
+Y 1 
+ 
+CONP-NE1 
+Y 1 
+ 
+SZOMT02J 
+Y 4 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+SZOMP17V 
+Y 1 
+ 
+SUOMX92Q 
+Y 1 
+ 
+SUOMX21N 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+LXOMPAES3XS02-AES 
+Y 2 
+ 
+LXOMPACM1EB 
+Y 2 
+ 
+SZOMA35I 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+LMOSENE2 
+Y 2 
+ 
+SUOMX853 
+Y 3 
+ 
+ECOM-NE69 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HPOMP74N 
+Y 2 
+ 
+SUOMP28T 
+Y 1 
+ 
+HVOMT50W 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+SVOMP98V 
+Y 1 
+ 
+LXOMPAES3XD01-AES 
+Y 4 
+ 
+CTL2 
+Y 11 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+SUOMX41T 
+Y 1 
+ 
+LXOMPAES3XQ02-AES 
+Y 2 
+ 
+ICOMX19E 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+ICOMX57E 
+Y 3 
+ 
+HCOMX88W 
+Y 10 
+ 
+CTNDBVS01 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+VAAPP04 
+Y 2 
+ 
+APAT5A 
+Y 1 
+ 
+HLRNTKGPSP1 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+DBLCCS1B 
+Y 7 
+ 
+HLR-BRIXE2E-COL-03 
+Y 1 
+ 
+CTORPVS01 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+PWASEESXVS501 
+Y 3 
+ 
+IAD-DMGR-01 
+Y 3 
+ 
+IAD-DMON1-01 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+IADHNMSESX02 
+Y 1 
+ 
+CTTNBVS01 
+Y 1 
+ 
+CARPR7CX 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+SEACCSDB05P 
+Y 4 
+ 
+CERILGPSP1-GLOBAL 
+Y 1 
+ 
+CER-SITEWIZ-01 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+CTMOJVS01 
+Y 2 
+ 
+ELLWP3832 
+Y 4 
+ 
+ICLWX343 
+Y 5 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HCLWX685 
+Y 8 
+ 
+HCLWX605 
+Y 9 
+ 
+SPLUNK 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+ARL-FRATM-STATS 
+Y 1 
+ 
+JUMP 
+Y 1 
+ 
+DNVRCODP04UCS2 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+CHCGILDT01FSA1 
+Y 1 
+ 
+CTFL1VS01 
+Y 1 
+ 
+LXSWTAAMMAS01 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+LXGDPACM3EA 
+Y 2 
+ 
+LXGDPAES1XE01-AES 
+Y 4 
+ 
+PGDCAP570502 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+GRNRKST501 
+Y 5 
+ 
+JHCYTN230A1207 
+Y 2 
+ 
+JHCYTN230A1221 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+JHCYTN230A332 
+Y 1 
+ 
+NSMJCTN4P243 
+Y 2 
+ 
+CTNCTVS01 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+SUOMX98M 
+Y 1 
+ 
+PMDCAP570503 
+Y 10 
+ 
+APA-SPLUNK-01 
+Y 3 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+IAD5220A 
+Y 7 
+ 
+NTSDDMC 
+Y 2 
+ 
+SUDNP536 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+PCOGEESXVS501 
+Y 1 
+ 
+CTNJCVS01 
+Y 1 
+ 
+NMAQ1-M4-CO 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+PMTKEESXVS501 
+Y 3 
+ 
+CTMLUVS02 
+Y 5 
+ 
+CTGAAVS01 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+CTTXLVS01 
+Y 1 
+ 
+SZOMT35R 
+Y 1 
+ 
+CTTXAVS01 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+SVOMT12W 
+Y 6 
+ 
+CTNVLVS01 
+Y 1 
+ 
+LXOMP26V 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+SUDNX49C 
+Y 1 
+ 
+CTOHIVS01 
+Y 1 
+ 
+SZOMP47H 
+Y 3 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+SUOMX920 
+Y 18 
+ 
+SUDNP516 
+Y 1 
+ 
+SUDNX531 
+Y 3 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+NMAQ3-M1-CO 
+Y 1 
+ 
+SUOMX852 
+Y 3 
+ 
+SUOMP954 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+SUOMP955 
+Y 1 
+ 
+PTCMEESXVS501 
+Y 3 
+ 
+SUOMP74H 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+CTFLFVS01 
+Y 1 
+ 
+SUOMP03H 
+Y 1 
+ 
+CTMOWVS01 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+HHDNP30A 
+Y 5 
+ 
+HHDNT72C 
+Y 2 
+ 
+PMDCAP795502 
+Y 31 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+PMOZEESXVS501 
+Y 3 
+ 
+PWAVEESXVS501 
+Y 2 
+ 
+SZDNT07B 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+AIOMX31C 
+Y 2 
+ 
+SUOMP853 
+Y 2 
+ 
+SZOMT03J 
+Y 3 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+PMOCEESXVS501 
+Y 4 
+ 
+HCLWX691 
+Y 7 
+ 
+HLR-BRIXE2E-DB-02 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+NAVAJO 
+Y 1 
+ 
+SUOMX699 
+Y 1 
+ 
+ECKCCS1A 
+Y 14 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+IADHNMSESX06 
+Y 1 
+ 
+LXGDPAAMMSS01 
+Y 2 
+ 
+PCOLEESXVS502 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+SYSLOG-GLOBAL 
+Y 2 
+ 
+PHNCCS1ESXI11 
+Y 5 
+ 
+SUDNP64G 
+Y 1 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+LXDNP75M 
+Y 1 
+ 
+LXGDPACM1PA 
+Y 2 
+ 
+LXOMPACM4PA 
+Y 2 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+LXOMPAES2SE01-AES 
+Y 2 
+ 
+CTTNJVS01 
+Y 2 
+ 
+SZOMT53N 
+Y 6 
+ 
+ 
+HOSTNAME 
+-------------------------------------------------------------------------------- 
+I COMPLEX_PARTITIONS 
+- ------------------ 
+SZDNT90K 
+Y 3 
+ 
+LXGDPAES1XQ01-AES 
+Y 4 
+ 
+SUOMX01D 
+Y 3 
+ 
+ 
+699 rows selected. 
+ 
+SQL> 
+SQL> commit; 
+ 
+Commit complete. 
+ 
+SQL> 
+SQL> REM 
+SQL> REM timezone 
+SQL> REM 
+SQL> update new_cct7_computers set timezone = 'IST' where clli_fullname like '/IND/%'; 
+ 
+2518 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'IST' where clli_fullname like '/INDIA/%'; 
+ 
+8 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'IST' where clli_fullname like '/USA/NO/CHENNAI%'; 
+ 
+1 row updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli_fullname like '/USA/NO/DENVER%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli_fullname like '/USA/CO/%'; 
+ 
+13999 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli_fullname like '/USA/NO/LITTLETON%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'EST' where clli_fullname like '/USA/DC/%'; 
+ 
+90 rows updated. 
+ 
+SQL> 
+SQL> update new_cct7_computers set timezone = 'CST' where state = 'AL'; 
+ 
+425 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'AKST' where state = 'AK'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where state = 'AZ'; 
+ 
+4824 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'CST' where state = 'AR'; 
+ 
+315 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'PST' where state = 'CA'; 
+ 
+1021 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where state = 'CO'; 
+ 
+14395 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'EST' where state = 'CT'; 
+ 
+42 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'EST' where state = 'DE'; 
+ 
+7 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'EST' where state = 'FL'; 
+ 
+4055 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'EST' where state = 'GA'; 
+ 
+292 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'HST' where state = 'HI'; 
+ 
+3 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where state = 'ID'; 
+ 
+1612 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'CST' where state = 'IL'; 
+ 
+527 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'EST' where state = 'IN'; 
+ 
+430 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'CST' where state = 'IA'; 
+ 
+1551 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'CST' where state = 'KS'; 
+ 
+2769 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'CST' where state = 'KY'; 
+ 
+14 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'CST' where state = 'LA'; 
+ 
+5091 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'EST' where state = 'ME'; 
+ 
+1 row updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'EST' where state = 'MD'; 
+ 
+63 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'EST' where state = 'MA'; 
+ 
+128 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'EST' where state = 'MI'; 
+ 
+152 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'CST' where state = 'MN'; 
+ 
+4482 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'CST' where state = 'MS'; 
+ 
+26 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'CST' where state = 'MO'; 
+ 
+2581 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where state = 'MT'; 
+ 
+245 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'CST' where state = 'NE'; 
+ 
+8160 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'PST' where state = 'NV'; 
+ 
+885 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'EST' where state = 'NH'; 
+ 
+12 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'EST' where state = 'NJ'; 
+ 
+566 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where state = 'NM'; 
+ 
+795 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'EST' where state = 'NY'; 
+ 
+201 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'EST' where state = 'NC'; 
+ 
+2718 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'CST' where state = 'ND'; 
+ 
+218 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'EST' where state = 'OH'; 
+ 
+2864 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'CST' where state = 'OK'; 
+ 
+49 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'PST' where state = 'OR'; 
+ 
+1327 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'EST' where state = 'PA'; 
+ 
+452 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'EST' where state = 'RI'; 
+ 
+5 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'EST' where state = 'SC'; 
+ 
+143 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'CST' where state = 'SD'; 
+ 
+291 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'CST' where state = 'TN'; 
+ 
+1034 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'CST' where state = 'TX'; 
+ 
+1426 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where state = 'UT'; 
+ 
+2254 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'EST' where state = 'VT'; 
+ 
+1 row updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'EST' where state = 'VA'; 
+ 
+3222 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'PST' where state = 'WA'; 
+ 
+3321 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'EST' where state = 'WV'; 
+ 
+6 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'CST' where state = 'WI'; 
+ 
+1166 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where state = 'WY'; 
+ 
+202 rows updated. 
+ 
+SQL> 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'ABRDSDCO'; 
+ 
+5 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'ALBQNMPC'; 
+ 
+127 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'CST' where clli = 'ANOKMNAN'; 
+ 
+108 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'EST' where clli = 'ARTNVAOI'; 
+ 
+363 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'EST' where clli = 'ATLNGAMA'; 
+ 
+12 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'CST' where clli = 'BELNNMAG'; 
+ 
+21 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'PST' where clli = 'BENDOR24'; 
+ 
+19 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'BLDRCOFI'; 
+ 
+82 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'PST' where clli = 'BLHMWA01'; 
+ 
+8 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'BLNGMTSH'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'PST' where clli = 'BMTNWA01'; 
+ 
+16 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'BOISIDMA'; 
+ 
+13 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'BOISIDSA'; 
+ 
+70 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'CST' where clli = 'BTNDIAAW'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'BUTTMT20'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'BZMNMTSH'; 
+ 
+15 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'CDCYUTMA'; 
+ 
+2 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'CST' where clli = 'CDRRIADT'; 
+ 
+40 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'CHYNWYCB'; 
+ 
+28 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'CLSPCOMA'; 
+ 
+112 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'CLSQCODE'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'CLWLIDSE'; 
+ 
+35 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'CODYWYSG'; 
+ 
+2 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'COTTONWOOD'; 
+ 
+1 row updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'CSGRAZ05'; 
+ 
+35 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'CSPRWYMA'; 
+ 
+17 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'EST' where clli = 'DBLNOHIB'; 
+ 
+1403 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'EST' where clli = 'DELTOHLC'; 
+ 
+1 row updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'CST' where clli = 'DESMIAHS'; 
+ 
+8 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'DNVRCOAR'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'DNVRCODP'; 
+ 
+5523 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'DNVRCOMA'; 
+ 
+563 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'DNVRCOMC'; 
+ 
+882 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'DNVRCOMD'; 
+ 
+19 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'DNVRCOSC'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'CST' where clli = 'DTLKMNDO'; 
+ 
+6 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'DURNCOGA'; 
+ 
+22 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'EDWDNM01'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'CST' where clli = 'ELZBNJVG'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'ENWDCOEC'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'PST' where clli = 'EUGNOR53'; 
+ 
+22 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'FLGSAZBG'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'FRTNNMMZ'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'FTCLCOBK'; 
+ 
+2 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'CST' where clli = 'GDISNENW'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'GDJTCOER'; 
+ 
+34 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'GLOBAZ05'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'GLSPCOBX'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'GLTTWYSA'; 
+ 
+9 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'GRELCOCR'; 
+ 
+2 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'GRFLMTMA'; 
+ 
+8 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'GRNBCOMA'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'GRNTNMBA'; 
+ 
+5 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'HLNAMTGX'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'PST' where clli = 'HMTNOR70'; 
+ 
+6 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'PST' where clli = 'ISQHWA60'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'JCSNMSBI'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'EST' where clli = 'JRCYNJ67'; 
+ 
+1 row updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'LARMWYBS'; 
+ 
+7 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'PST' where clli = 'LGVWWA02'; 
+ 
+10 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'LKWDCO27'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'LKWDCOTC'; 
+ 
+20 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'EST' where clli = 'LSANCARC'; 
+ 
+3 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'LSCRNMMA'; 
+ 
+15 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'PST' where clli = 'LSTNIDSH'; 
+ 
+6 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'LTTNCOML'; 
+ 
+3538 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'EST' where clli = 'LWCTOHAP'; 
+ 
+395 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'CST' where clli = 'LXTNNENW'; 
+ 
+6 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'PST' where clli = 'MDFDOR74'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'CST' where clli = 'MNDNNDSA'; 
+ 
+13 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'CST' where clli = 'MPLSMN13'; 
+ 
+451 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'CST' where clli = 'MPLSMNDT'; 
+ 
+971 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'PST' where clli = 'MSLKWA60'; 
+ 
+13 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'MSSLMTBS'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'MTRSCOAP'; 
+ 
+9 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'OGDNUTMA'; 
+ 
+15 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'PST' where clli = 'OLYMWACT'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'CST' where clli = 'OMAHNE78'; 
+ 
+7 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'CST' where clli = 'OMAHNEKG'; 
+ 
+6730 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'PCTLIDCP'; 
+ 
+22 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'PHNXAZ30'; 
+ 
+1762 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST-AZ' where clli = 'PHNXAZ30'; 
+ 
+1762 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'PHNXAZFP'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'PHNXAZFT'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'CST' where clli = 'PLMOMNAC'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'PROVUTMA'; 
+ 
+15 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'PRSCAZEW'; 
+ 
+38 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'PST' where clli = 'PTLDOR69'; 
+ 
+14 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'PST' where clli = 'PTLDOR74'; 
+ 
+106 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'PST' where clli = 'PTLDORCS'; 
+ 
+1 row updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'PUBLCOMZ'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'CST' where clli = 'RCFDMN03'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'RCSPWYCB'; 
+ 
+9 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'RPCYSDCO'; 
+ 
+10 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'PST' where clli = 'RSBGOR70'; 
+ 
+1 row updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'RSWLNMMA'; 
+ 
+5 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'RVTNWYSA'; 
+ 
+4 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'PST' where clli = 'SALMOR58'; 
+ 
+52 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'SLKCUT75'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'SLKCUTCB'; 
+ 
+190 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'SLTHCOAF'; 
+ 
+10 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'SNFENMSC'; 
+ 
+63 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'PST' where clli = 'SPKNWA28'; 
+ 
+92 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'SRVSAZ03'; 
+ 
+23 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'CST' where clli = 'STCDMNHP'; 
+ 
+1 row updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'STGRUTIG'; 
+ 
+30 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'CST' where clli = 'STPLMNMK'; 
+ 
+745 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'STSPCOMA'; 
+ 
+2 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'PST' where clli = 'STTLWA60'; 
+ 
+115 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'PST' where clli = 'STTLWA72'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'PST' where clli = 'STTLWABP'; 
+ 
+641 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'PST' where clli = 'STTLWAEL'; 
+ 
+204 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'CST' where clli = 'SXCYIAJM'; 
+ 
+73 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'CST' where clli = 'SXFLSDCO'; 
+ 
+193 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'PST' where clli = 'TACMWASO'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'TAOSNMAE'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'TAOSNMMZ'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'TCSNAZLF'; 
+ 
+57 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'TEMPAZCC'; 
+ 
+159 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'TEMPAZEV'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'THTNCO18'; 
+ 
+6 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'THTNCOAI'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'TWFLIDSH'; 
+ 
+19 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'PST' where clli = 'VANCWAQB'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'PST' where clli = 'WLWLWA01'; 
+ 
+2 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'PST' where clli = 'YAKMWA02'; 
+ 
+18 rows updated. 
+ 
+SQL> update new_cct7_computers set timezone = 'MST' where clli = 'YUMAAZ05'; 
+ 
+0 rows updated. 
+ 
+SQL> 
+SQL> COMMIT; 
+ 
+Commit complete. 
+ 
+SQL> 
+SQL> REM 
+SQL> REM Print Duplicates 
+SQL> REM 
+SQL> select 
+ 2 lastid, 
+ 3 asset_tag 
+ 4 from 
+ 5 new_cct7_computers A 
+ 6 where 
+ 7 rowid > (select min(rowid) from new_cct7_computers B WHERE B.lastid = A.lastid and B.asset_tag = A.asset_tag); 
+ 
+no rows selected 
+ 
+SQL> 
+SQL> REM 
+SQL> REM Remove Duplicates 
+SQL> REM 
+SQL> delete from 
+ 2 new_cct7_computers a 
+ 3 where 
+ 4 a.rowid > any (select b.rowid from new_cct7_computers b where a.lastid = b.lastid and a.asset_tag = b.asset_tag); 
+ 
+0 rows deleted. 
+ 
+SQL> 
+SQL> commit; 
+ 
+Commit complete. 
+ 
+SQL> 
+SQL> REM 
+SQL> REM os_lite 
+SQL> REM 
+SQL> update new_cct7_computers set os_lite='AIX' where upper(operating_system) like '%AIX%'; 
+ 
+202 rows updated. 
+ 
+SQL> update new_cct7_computers set os_lite='BSD' where upper(operating_system) like '%BSD%'; 
+ 
+403 rows updated. 
+ 
+SQL> update new_cct7_computers set os_lite='CISCO' where upper(operating_system) like '%CISCO%'; 
+ 
+70 rows updated. 
+ 
+SQL> update new_cct7_computers set os_lite='DYNIXptx' where upper(operating_system) like '%DYNIX%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set os_lite='HPUX' where upper(operating_system) like '%HP%'; 
+ 
+542 rows updated. 
+ 
+SQL> update new_cct7_computers set os_lite='HPUX' where upper(operating_system) like '%STRATUS%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set os_lite='Linux' where upper(operating_system) like '%LINUX%'; 
+ 
+6419 rows updated. 
+ 
+SQL> update new_cct7_computers set os_lite='OPENVMS' where upper(operating_system) like '%OPENVMS%'; 
+ 
+5 rows updated. 
+ 
+SQL> update new_cct7_computers set os_lite='RADWARE' where upper(operating_system) like '%RADWARE%'; 
+ 
+2 rows updated. 
+ 
+SQL> update new_cct7_computers set os_lite='SCO' where upper(operating_system) like '%SCO%'; 
+ 
+70 rows updated. 
+ 
+SQL> update new_cct7_computers set os_lite='SMPDCOSx' where upper(operating_system) like '%DCOS%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set os_lite='SunOS' where upper(operating_system) like '%SOLARIS%'; 
+ 
+2030 rows updated. 
+ 
+SQL> update new_cct7_computers set os_lite='SunOS' where upper(operating_system) like '%SUN%'; 
+ 
+58 rows updated. 
+ 
+SQL> update new_cct7_computers set os_lite='SunOS' where upper(operating_system) like '%SUN%'; 
+ 
+58 rows updated. 
+ 
+SQL> update new_cct7_computers set os_lite='UNISYS' where upper(operating_system) like '%UNISYS%'; 
+ 
+1 row updated. 
+ 
+SQL> update new_cct7_computers set os_lite='UNIXWARE' where upper(operating_system) like '%UNIXWARE%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set os_lite='UNKNOWN' where upper(operating_system) like '%UNKNOWN%'; 
+ 
+96 rows updated. 
+ 
+SQL> update new_cct7_computers set os_lite='VAX' where upper(operating_system) like '%VAX%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set os_lite='VMWARE' where upper(operating_system) like '%VMWARE%'; 
+ 
+1070 rows updated. 
+ 
+SQL> update new_cct7_computers set os_lite='VOS' where upper(operating_system) like '%VOS%'; 
+ 
+46 rows updated. 
+ 
+SQL> update new_cct7_computers set os_lite='WindowsNT' where upper(operating_system) like '%WINDOWS%'; 
+ 
+74957 rows updated. 
+ 
+SQL> REM update new_cct7_computers set os_lite='WindowsNT' where upper(operating_system) like '%NT%'; E(NT)ERPRISE 
+SQL> update new_cct7_computers set os_lite='WindowsXP' where upper(operating_system) like '%XP%'; 
+ 
+2627 rows updated. 
+ 
+SQL> update new_cct7_computers set os_lite='Windows2000' where upper(operating_system) like '%2000%'; 
+ 
+37 rows updated. 
+ 
+SQL> update new_cct7_computers set os_lite='Windows2003' where upper(operating_system) like '%2003%'; 
+ 
+1313 rows updated. 
+ 
+SQL> update new_cct7_computers set os_lite='Windows2008' where upper(operating_system) like '%2008%'; 
+ 
+3615 rows updated. 
+ 
+SQL> update new_cct7_computers set os_lite='Windows2000' where upper(operating_system) like '%WIN 2K%'; 
+ 
+0 rows updated. 
+ 
+SQL> 
+SQL> update new_cct7_computers set os_lite='AIX_COMPLEX' where upper(operating_system) = 'NO OS - THIS COMPLEX HOSTS AIX NPARS'; 
+ 
+8 rows updated. 
+ 
+SQL> update new_cct7_computers set os_lite='HP_COMPLEX' where upper(operating_system) = 'NO OS - THIS COMPLEX HOSTS HP-UX NPARS'; 
+ 
+15 rows updated. 
+ 
+SQL> update new_cct7_computers set os_lite='SUN_COMPLEX' where upper(operating_system) = 'NO OS - THIS COMPLEX HOSTS SOLARIS NPARS'; 
+ 
+38 rows updated. 
+ 
+SQL> 
+SQL> update new_cct7_computers set operating_system='HPUX', os_lite='HPUX' where operating_system is null and hostname like 'HP%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set operating_system='CISCO', os_lite='CISCO' where operating_system is null and hostname like 'LTX%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set operating_system='Linux', os_lite='Linux' where operating_system is null and hostname like 'LX%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set operating_system='SunOS', os_lite='SunOS' where operating_system is null and hostname like 'SU%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set operating_system='VMWARE', os_lite='VMWARE' where operating_system is null and hostname like 'QT%'; 
+ 
+0 rows updated. 
+ 
+SQL> update new_cct7_computers set operating_system='VOS', os_lite='VOS' where operating_system is null and hostname like 'NMA%'; 
+ 
+0 rows updated. 
+ 
+SQL> 
+SQL> COMMIT; 
+ 
+Commit complete. 
+ 
+SQL> quit; 
+Disconnected from Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production 
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options 
+
+Running: /db/oracle/product/12102_64/bin/sqlplus cct/candy4Kids @/opt/ibmtools/cct7/bin/sql/cct7_computers_part7.sql
+ 
+SQL*Plus: Release 12.1.0.2.0 Production on Thu Feb 23 11:18:59 2017 
+ 
+Copyright (c) 1982, 2014, Oracle. All rights reserved. 
+ 
+Last Successful login time: Thu Feb 23 2017 11:18:56 -06:00 
+ 
+Connected to: 
+Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production 
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options 
+ 
+SQL> 
+SQL> REM 
+SQL> REM cct7_computers_part7.sql 
+SQL> REM 
+SQL> 
+SQL> REM 
+SQL> REM os_group_contact 
+SQL> REM 
+SQL> DECLARE 
+ 2 v_lastid NUMBER; 
+ 3 v_contact VARCHAR2(20); 
+ 4 
+ 5 CURSOR c_cct_csc IS 
+ 6 SELECT 
+ 7 lastid, 
+ 8 cct_csc_userid_1 
+ 9 from 
+ 10 cct7_csc 
+ 11 WHERE 
+ 12 cct_csc_group_name = '! Operating System Support' and 
+ 13 cct_csc_userid_1 is not null; 
+ 14 
+ 15 BEGIN 
+ 16 OPEN c_cct_csc; 
+ 17 LOOP 
+ 18 FETCH c_cct_csc INTO 
+ 19 v_lastid, 
+ 20 v_contact; 
+ 21 
+ 22 EXIT WHEN c_cct_csc%NOTFOUND; 
+ 23 
+ 24 update new_cct7_computers set 
+ 25 os_group_contact = v_contact 
+ 26 where 
+ 27 lastid = v_lastid; 
+ 28 
+ 29 END LOOP; 
+ 30 
+ 31 CLOSE c_cct_csc; 
+ 32 END; 
+ 33 / 
+ 
+PL/SQL procedure successfully completed. 
+ 
+SQL> 
+SQL> COMMIT; 
+ 
+Commit complete. 
+ 
+SQL> 
+SQL> REM 
+SQL> REM csc_os_banners 
+SQL> REM 
+SQL> REM '! Operating System Support' - OS - APPROVER 
+SQL> REM 
+SQL> DECLARE 
+ 2 v_lastid NUMBER; 
+ 3 v_banners NUMBER; 
+ 4 
+ 5 CURSOR c_csc IS 
+ 6 select 
+ 7 lastid, 
+ 8 count(*) as banners 
+ 9 from 
+ 10 cct7_csc 
+ 11 where 
+ 12 cct_csc_group_name = '! Operating System Support' 
+ 13 group by 
+ 14 lastid; 
+ 15 
+ 16 BEGIN 
+ 17 OPEN c_csc; 
+ 18 LOOP 
+ 19 FETCH c_csc INTO v_lastid, v_banners; 
+ 20 
+ 21 EXIT WHEN c_csc%NOTFOUND; 
+ 22 
+ 23 update new_cct7_computers set 
+ 24 csc_os_banners = v_banners 
+ 25 where 
+ 26 lastid = v_lastid; 
+ 27 
+ 28 END LOOP; 
+ 29 
+ 30 CLOSE c_csc; 
+ 31 END; 
+ 32 / 
+ 
+PL/SQL procedure successfully completed. 
+ 
+SQL> 
+SQL> COMMIT; 
+ 
+Commit complete. 
+ 
+SQL> 
+SQL> REM 
+SQL> REM csc_pase_banners 
+SQL> REM 
+SQL> REM 'Application Support' - PASE - APPROVER 
+SQL> REM 
+SQL> DECLARE 
+ 2 v_lastid NUMBER; 
+ 3 v_banners NUMBER; 
+ 4 
+ 5 CURSOR c_csc IS 
+ 6 select 
+ 7 lastid, 
+ 8 count(*) as banners 
+ 9 from 
+ 10 cct7_csc 
+ 11 where 
+ 12 cct_csc_group_name = 'Applications or Databases Desiring Notification (Not Hosted on this Server)' or 
+ 13 cct_csc_group_name = 'Application Support' or 
+ 14 cct_csc_group_name = 'Application Utilities, Middleware, Legacy DB, Other (Hosted on this Server)' or 
+ 15 cct_csc_group_name = 'Infrastructure' 
+ 16 group by 
+ 17 lastid; 
+ 18 
+ 19 BEGIN 
+ 20 OPEN c_csc; 
+ 21 LOOP 
+ 22 FETCH c_csc INTO v_lastid, v_banners; 
+ 23 
+ 24 EXIT WHEN c_csc%NOTFOUND; 
+ 25 
+ 26 update new_cct7_computers set 
+ 27 csc_pase_banners = v_banners 
+ 28 where 
+ 29 lastid = v_lastid; 
+ 30 
+ 31 END LOOP; 
+ 32 
+ 33 CLOSE c_csc; 
+ 34 END; 
+ 35 / 
+ 
+PL/SQL procedure successfully completed. 
+ 
+SQL> 
+SQL> COMMIT; 
+ 
+Commit complete. 
+ 
+SQL> 
+SQL> REM 
+SQL> REM csc_dba_banners 
+SQL> REM 
+SQL> REM '! Database Support' - DBA - APPROVER 
+SQL> REM 
+SQL> DECLARE 
+ 2 v_lastid NUMBER; 
+ 3 v_banners NUMBER; 
+ 4 
+ 5 CURSOR c_csc IS 
+ 6 select 
+ 7 lastid, 
+ 8 count(*) as banners 
+ 9 from 
+ 10 cct7_csc 
+ 11 where 
+ 12 cct_csc_group_name = '! Database Support' 
+ 13 group by 
+ 14 lastid; 
+ 15 
+ 16 BEGIN 
+ 17 OPEN c_csc; 
+ 18 LOOP 
+ 19 FETCH c_csc INTO v_lastid, v_banners; 
+ 20 
+ 21 EXIT WHEN c_csc%NOTFOUND; 
+ 22 
+ 23 update new_cct7_computers set 
+ 24 csc_dba_banners = v_banners 
+ 25 where 
+ 26 lastid = v_lastid; 
+ 27 
+ 28 END LOOP; 
+ 29 
+ 30 CLOSE c_csc; 
+ 31 END; 
+ 32 / 
+ 
+PL/SQL procedure successfully completed. 
+ 
+SQL> 
+SQL> COMMIT; 
+ 
+Commit complete. 
+ 
+SQL> 
+SQL> REM 
+SQL> REM csc_fyi_banners 
+SQL> REM 
+SQL> REM 'Development Support' - PASE - FYI 
+SQL> REM '! Development Support' - PASE - FYI 
+SQL> REM 'Application Utilities, Middleware, Legacy DB, Other (Hosted on this Server)' - PASE - FYI 
+SQL> REM 'Applications or Databases Desiring Notification (Not Hosted on this Server)' - PASE - FYI 
+SQL> REM 'Applications Owning Database (DB Hosted on this Server, Owning App Is Not)' - PASE - FYI 
+SQL> REM 
+SQL> DECLARE 
+ 2 v_lastid NUMBER; 
+ 3 v_banners NUMBER; 
+ 4 
+ 5 CURSOR c_csc IS 
+ 6 select 
+ 7 lastid, 
+ 8 count(*) as banners 
+ 9 from 
+ 10 cct7_csc 
+ 11 where 
+ 12 cct_csc_group_name = 'Development Support' or 
+ 13 cct_csc_group_name = '! Development Support' or 
+ 14 cct_csc_group_name = 'Application Utilities, Middleware, Legacy DB, Other (Hosted on this Server)' or 
+ 15 cct_csc_group_name = 'Applications or Databases Desiring Notification (Not Hosted on this Server)' or 
+ 16 cct_csc_group_name = 'Applications Owning Database (DB Hosted on this Server, Owning App Is Not)' 
+ 17 group by 
+ 18 lastid; 
+ 19 
+ 20 BEGIN 
+ 21 OPEN c_csc; 
+ 22 LOOP 
+ 23 FETCH c_csc INTO v_lastid, v_banners; 
+ 24 
+ 25 EXIT WHEN c_csc%NOTFOUND; 
+ 26 
+ 27 update new_cct7_computers set 
+ 28 csc_fyi_banners = v_banners 
+ 29 where 
+ 30 lastid = v_lastid; 
+ 31 
+ 32 END LOOP; 
+ 33 
+ 34 CLOSE c_csc; 
+ 35 END; 
+ 36 / 
+ 
+PL/SQL procedure successfully completed. 
+ 
+SQL> 
+SQL> COMMIT; 
+ 
+Commit complete. 
+ 
+SQL> quit; 
+Disconnected from Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production 
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options 
+
+Running: /db/oracle/product/12102_64/bin/sqlplus cct/candy4Kids @/opt/ibmtools/cct7/bin/sql/cct7_computers_part8.sql
+ 
+SQL*Plus: Release 12.1.0.2.0 Production on Thu Feb 23 11:19:01 2017 
+ 
+Copyright (c) 1982, 2014, Oracle. All rights reserved. 
+ 
+Last Successful login time: Thu Feb 23 2017 11:18:59 -06:00 
+ 
+Connected to: 
+Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production 
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options 
+ 
+SQL> 
+SQL> REM 
+SQL> REM cct7_computers_part8.sql 
+SQL> REM 
+SQL> 
+SQL> REM 
+SQL> REM disk_ecc_array_alloc_kb NUMBER, 
+SQL> REM disk_ecc_array_used_kb NUMBER, 
+SQL> REM disk_ecc_array_free_kb NUMBER, 
+SQL> REM disk_ecc_local_alloc_kb NUMBER, 
+SQL> REM disk_ecc_local_used_kb NUMBER, 
+SQL> REM disk_ecc_local_free_kb NUMBER, 
+SQL> REM backup_format VARCHAR2(10), 
+SQL> REM backup_nodename VARCHAR2(1000), 
+SQL> REM backup_program VARCHAR2(80), 
+SQL> REM backup_server VARCHAR2(1000), 
+SQL> REM netbackup VARCHAR2(80) 
+SQL> REM 
+SQL> DECLARE 
+ 2 v_lastid NUMBER; 
+ 3 v_disk_ecc_array_alloc_kb NUMBER; 
+ 4 v_disk_ecc_array_used_kb NUMBER; 
+ 5 v_disk_ecc_array_free_kb NUMBER; 
+ 6 v_disk_ecc_local_alloc_kb NUMBER; 
+ 7 v_disk_ecc_local_used_kb NUMBER; 
+ 8 v_disk_ecc_local_free_kb NUMBER; 
+ 9 v_backup_format VARCHAR2(10); 
+ 10 v_backup_nodename VARCHAR2(1000); 
+ 11 v_backup_program VARCHAR2(80); 
+ 12 v_backup_server VARCHAR2(1000); 
+ 13 v_netbackup VARCHAR2(80); 
+ 14 
+ 15 CURSOR c_data_collect IS 
+ 16 select 
+ 17 lastid, 
+ 18 disk_ecc_array_alloc_kb, 
+ 19 disk_ecc_array_used_kb, 
+ 20 disk_ecc_array_free_kb, 
+ 21 disk_ecc_local_alloc_kb, 
+ 22 disk_ecc_local_used_kb, 
+ 23 disk_ecc_local_free_kb, 
+ 24 backup_format, 
+ 25 backup_nodename, 
+ 26 backup_program, 
+ 27 backup_server, 
+ 28 netbackup 
+ 29 from 
+ 30 orion.host; 
+ 31 
+ 32 BEGIN 
+ 33 OPEN c_data_collect; 
+ 34 LOOP 
+ 35 FETCH c_data_collect INTO 
+ 36 v_lastid, 
+ 37 v_disk_ecc_array_alloc_kb, 
+ 38 v_disk_ecc_array_used_kb, 
+ 39 v_disk_ecc_array_free_kb, 
+ 40 v_disk_ecc_local_alloc_kb, 
+ 41 v_disk_ecc_local_used_kb, 
+ 42 v_disk_ecc_local_free_kb, 
+ 43 v_backup_format, 
+ 44 v_backup_nodename, 
+ 45 v_backup_program, 
+ 46 v_backup_server, 
+ 47 v_netbackup; 
+ 48 
+ 49 EXIT WHEN c_data_collect%NOTFOUND; 
+ 50 
+ 51 update new_cct7_computers set 
+ 52 disk_ecc_array_alloc_kb = v_disk_ecc_array_alloc_kb, 
+ 53 disk_ecc_array_used_kb = v_disk_ecc_array_used_kb, 
+ 54 disk_ecc_array_free_kb = v_disk_ecc_array_free_kb, 
+ 55 disk_ecc_local_alloc_kb = v_disk_ecc_local_alloc_kb, 
+ 56 disk_ecc_local_used_kb = v_disk_ecc_local_used_kb, 
+ 57 disk_ecc_local_free_kb = v_disk_ecc_local_free_kb, 
+ 58 backup_format = v_backup_format, 
+ 59 backup_nodename = v_backup_nodename, 
+ 60 backup_program = v_backup_program, 
+ 61 backup_server = v_backup_server, 
+ 62 netbackup = v_netbackup 
+ 63 where 
+ 64 lastid = v_lastid; 
+ 65 
+ 66 END LOOP; 
+ 67 
+ 68 CLOSE c_data_collect; 
+ 69 END; 
+ 70 / 
+ orion.host; 
+ * 
+ERROR at line 30: 
+ORA-06550: line 30, column 9: 
+PL/SQL: ORA-00942: table or view does not exist 
+ORA-06550: line 16, column 2: 
+PL/SQL: SQL Statement ignored 
+ 
+ 
+SQL> 
+SQL> COMMIT; 
+ 
+Commit complete. 
+ 
+SQL> quit; 
+Disconnected from Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production 
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options 
+
+Running: /db/oracle/product/12102_64/bin/sqlplus cct/candy4Kids @/opt/ibmtools/cct7/bin/sql/cct7_computers_part9.sql
+ 
+SQL*Plus: Release 12.1.0.2.0 Production on Thu Feb 23 11:19:01 2017 
+ 
+Copyright (c) 1982, 2014, Oracle. All rights reserved. 
+ 
+Last Successful login time: Thu Feb 23 2017 11:19:01 -06:00 
+ 
+Connected to: 
+Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production 
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options 
+ 
+SQL> 
+SQL> REM 
+SQL> REM cct7_computers_part9.sql 
+SQL> REM 
+SQL> 
+SQL> REM 
+SQL> REM applications 
+SQL> REM service_level_objective 
+SQL> REM service_level_score 
+SQL> REM service_level_colors 
+SQL> REM 
+SQL> DECLARE 
+ 2 v_x NUMBER; 
+ 3 v_string VARCHAR2(4000); 
+ 4 v_lastid NUMBER; 
+ 5 v_app_acronym VARCHAR2(4000); 
+ 6 v_sl_objective NUMBER(5,2); 
+ 7 v_sl_score NUMBER(4,2); 
+ 8 v_sl_color VARCHAR2(20); 
+ 9 v_gold VARCHAR2(10); 
+ 10 v_silver VARCHAR2(10); 
+ 11 v_bronze VARCHAR2(10); 
+ 12 v_blue VARCHAR2(10); 
+ 13 v_bcr VARCHAR2(80); 
+ 14 
+ 15 CURSOR c_csc IS 
+ 16 select 
+ 17 cct_app_acronym, 
+ 18 cct_sl_objective, 
+ 19 cct_sl_score, 
+ 20 cct_sl_color 
+ 21 from 
+ 22 cct7_csc 
+ 23 where 
+ 24 cct_app_acronym is not null and 
+ 25 upper(cct_app_acronym) != 'NONE' and 
+ 26 lastid = v_lastid 
+ 27 order by 
+ 28 cct_app_acronym; 
+ 29 
+ 30 CURSOR c_ac IS 
+ 31 select 
+ 32 lastid as a1_lastid 
+ 33 from 
+ 34 new_cct7_computers; 
+ 35 
+ 36 BEGIN 
+ 37 OPEN c_ac; 
+ 38 LOOP 
+ 39 FETCH c_ac INTO v_lastid; 
+ 40 
+ 41 EXIT WHEN c_ac%NOTFOUND; 
+ 42 
+ 43 v_string := ''; 
+ 44 v_gold := ''; 
+ 45 v_silver := ''; 
+ 46 v_bronze := ''; 
+ 47 v_blue := ''; 
+ 48 v_bcr := ''; 
+ 49 
+ 50 OPEN c_csc; 
+ 51 LOOP 
+ 52 FETCH c_csc INTO 
+ 53 v_app_acronym, 
+ 54 v_sl_objective, 
+ 55 v_sl_score, 
+ 56 v_sl_color; 
+ 57 
+ 58 EXIT WHEN c_csc%NOTFOUND; 
+ 59 
+ 60 IF LENGTH(v_app_acronym) > 0 THEN 
+ 61 IF LENGTH(v_string) > 0 and LENGTH(v_string) < 3900 THEN 
+ 62 v_string := v_string || ', ' || v_app_acronym; 
+ 63 ELSE 
+ 64 v_string := v_app_acronym; 
+ 65 END IF; 
+ 66 
+ 67 IF v_sl_color = 'GOLD' THEN 
+ 68 v_gold := 'GOLD'; 
+ 69 END IF; 
+ 70 
+ 71 IF v_sl_color = 'BRONZE' or v_sl_color = 'Bronze' THEN 
+ 72 v_bronze := 'BRONZE'; 
+ 73 END IF; 
+ 74 
+ 75 IF v_sl_color = 'BLUE' THEN 
+ 76 v_blue := 'BLUE'; 
+ 77 END IF; 
+ 78 
+ 79 IF v_sl_color = 'SILVER' THEN 
+ 80 v_silver := 'SILVER'; 
+ 81 END IF; 
+ 82 END IF; 
+ 83 
+ 84 END LOOP; 
+ 85 
+ 86 IF LENGTH(v_gold) > 0 THEN 
+ 87 v_bcr := 'GOLD'; 
+ 88 END IF; 
+ 89 
+ 90 IF LENGTH(v_silver) > 0 THEN 
+ 91 IF LENGTH(v_bcr) > 0 THEN 
+ 92 v_bcr := v_bcr || ',SILVER'; 
+ 93 ELSE 
+ 94 v_bcr := 'SILVER'; 
+ 95 END IF; 
+ 96 END IF; 
+ 97 
+ 98 IF LENGTH(v_bronze) > 0 THEN 
+ 99 IF LENGTH(v_bcr) > 0 THEN 
+100 v_bcr := v_bcr || ',BRONZE'; 
+101 ELSE 
+102 v_bcr := 'BRONZE'; 
+103 END IF; 
+104 END IF; 
+105 
+106 IF LENGTH(v_blue) > 0 THEN 
+107 IF LENGTH(v_bcr) > 0 THEN 
+108 v_bcr := v_bcr || ',BLUE'; 
+109 ELSE 
+110 v_bcr := 'BLUE'; 
+111 END IF; 
+112 END IF; 
+113 
+114 update new_cct7_computers set 
+115 applications = v_string, 
+116 service_level_objective = v_sl_objective, 
+117 service_level_score = v_sl_score, 
+118 service_level_colors = v_bcr 
+119 where lastid = v_lastid; 
+120 
+121 CLOSE c_csc; 
+122 
+123 END LOOP; 
+124 
+125 CLOSE c_ac; 
+126 END; 
+127 / 
+ 
+PL/SQL procedure successfully completed. 
+ 
+SQL> 
+SQL> COMMIT; 
+ 
+Commit complete. 
+ 
+SQL> 
+SQL> REM 
+SQL> REM is_gold_server 
+SQL> REM 
+SQL> update new_cct7_computers set is_gold_server = 'Y' where service_level_colors like '%GOLD%'; 
+ 
+3452 rows updated. 
+ 
+SQL> 
+SQL> COMMIT; 
+ 
+Commit complete. 
+ 
+SQL> 
+SQL> REM 
+SQL> REM osmaint_weekly 
+SQL> REM osmaint_monthly 
+SQL> REM osmaint_quarterly 
+SQL> REM is_special_handling 
+SQL> REM 
+SQL> 
+SQL> REM 
+SQL> REM Defaults: 
+SQL> REM 
+SQL> update new_cct7_computers set osmaint_weekly = 'TUE,THU 02:00 180'; 
+ 
+94217 rows updated. 
+ 
+SQL> update new_cct7_computers set osmaint_monthly = '2 SUN 00:00 240'; 
+ 
+94217 rows updated. 
+ 
+SQL> update new_cct7_computers set osmaint_quarterly = 'FEB,MAY,AUG,NOV 3 SAT 22:00 1440'; 
+ 
+94217 rows updated. 
+ 
+SQL> update new_cct7_computers set is_special_handling = 'N'; 
+ 
+94217 rows updated. 
+ 
+SQL> 
+SQL> DECLARE 
+ 2 v_lastid NUMBER; 
+ 3 v_osmaint_weekly VARCHAR2(4000); 
+ 4 v_osmaint_monthly VARCHAR2(4000); 
+ 5 v_osmaint_quarterly VARCHAR2(4000); 
+ 6 v_special_handling VARCHAR2(10); 
+ 7 
+ 8 CURSOR c_xxx IS 
+ 9 select distinct 
+ 10 lastid, 
+ 11 trim(cct_csc_osmaint_weekly), 
+ 12 trim(cct_csc_osmaint_monthly), 
+ 13 trim(cct_csc_osmaint_quarterly), 
+ 14 cct_special_handling 
+ 15 from 
+ 16 cct7_csc; 
+ 17 
+ 18 BEGIN 
+ 19 OPEN c_xxx; 
+ 20 LOOP 
+ 21 FETCH c_xxx INTO 
+ 22 v_lastid, 
+ 23 v_osmaint_weekly, 
+ 24 v_osmaint_monthly, 
+ 25 v_osmaint_quarterly, 
+ 26 v_special_handling; 
+ 27 
+ 28 EXIT WHEN c_xxx%NOTFOUND; 
+ 29 
+ 30 IF v_special_handling = '1' 
+ 31 THEN 
+ 32 update new_cct7_computers set is_special_handling = 'Y' where lastid = v_lastid; 
+ 33 ELSE 
+ 34 update new_cct7_computers set is_special_handling = 'N' where lastid = v_lastid; 
+ 35 END IF; 
+ 36 
+ 37 IF length(v_osmaint_weekly) > 0 
+ 38 THEN 
+ 39 update new_cct7_computers set osmaint_weekly = v_osmaint_weekly where lastid = v_lastid; 
+ 40 END IF; 
+ 41 
+ 42 IF length(v_osmaint_monthly) > 0 
+ 43 THEN 
+ 44 update new_cct7_computers set osmaint_monthly = v_osmaint_monthly where lastid = v_lastid; 
+ 45 END IF; 
+ 46 
+ 47 IF length(v_osmaint_quarterly) > 0 
+ 48 THEN 
+ 49 update new_cct7_computers set osmaint_quarterly = v_osmaint_quarterly where lastid = v_lastid; 
+ 50 END IF; 
+ 51 
+ 52 END LOOP; 
+ 53 
+ 54 CLOSE c_xxx; 
+ 55 END; 
+ 56 / 
+ 
+PL/SQL procedure successfully completed. 
+ 
+SQL> 
+SQL> COMMIT; 
+ 
+Commit complete. 
+ 
+SQL> quit; 
+Disconnected from Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production 
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options 
+
+Running: /db/oracle/product/12102_64/bin/sqlplus cct/candy4Kids @/opt/ibmtools/cct7/bin/sql/cct7_computers_part10.sql
+ 
+SQL*Plus: Release 12.1.0.2.0 Production on Thu Feb 23 11:19:10 2017 
+ 
+Copyright (c) 1982, 2014, Oracle. All rights reserved. 
+ 
+Last Successful login time: Thu Feb 23 2017 11:19:01 -06:00 
+ 
+Connected to: 
+Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production 
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options 
+ 
+SQL> 
+SQL> REM 
+SQL> REM cct7_computers_part10.sql 
+SQL> REM 
+SQL> 
+SQL> select count(*) as total from new_cct7_computers; 
+ 
+ TOTAL 
+---------- 
+ 94217 
+ 
+SQL> select count(*) as weekly from new_cct7_computers where osmaint_weekly is null; 
+ 
+ WEEKLY 
+---------- 
+ 0 
+ 
+SQL> select count(*) as monthly from new_cct7_computers where osmaint_monthly is null; 
+ 
+ MONTHLY 
+---------- 
+ 0 
+ 
+SQL> select count(*) as quarterly from new_cct7_computers where osmaint_quarterly is null; 
+ 
+ QUARTERLY 
+---------- 
+ 0 
+ 
+SQL> 
+SQL> exec drop_table_if_exist('computers_today'); 
+BEGIN drop_table_if_exist('computers_today'); END; 
+ 
+ * 
+ERROR at line 1: 
+ORA-06550: line 1, column 7: 
+PLS-00201: identifier 'DROP_TABLE_IF_EXIST' must be declared 
+ORA-06550: line 1, column 7: 
+PL/SQL: Statement ignored 
+ 
+ 
+SQL> 
+SQL> create table computers_today as 
+ 2 select 
+ 3 lastid as computer_lastid, 
+ 4 last_record_update as computer_last_update, 
+ 5 install_date as computer_install_date, 
+ 6 lower(systemname) as computer_systemname, 
+ 7 lower(hostname) as computer_hostname, 
+ 8 operating_system as computer_operating_system, 
+ 9 os_lite as computer_os_lite, 
+ 10 status as computer_status, 
+ 11 status_description as computer_status_description, 
+ 12 description as computer_description, 
+ 13 nature as computer_nature, 
+ 14 platform as computer_platform, 
+ 15 type as computer_type, 
+ 16 clli as computer_clli, 
+ 17 clli_fullname as computer_clli_fullname, 
+ 18 timezone as computer_timezone, 
+ 19 building as computer_building, 
+ 20 address as computer_address, 
+ 21 city as computer_city, 
+ 22 state as computer_state, 
+ 23 floor_room as computer_floor_room, 
+ 24 grid_location as computer_grid_location, 
+ 25 lease_purchase as computer_lease_purchase, 
+ 26 serial_no as computer_serial_no, 
+ 27 asset_tag as computer_asset_tag, 
+ 28 model_category as computer_model_category, 
+ 29 model_no as computer_model_no, 
+ 30 model as computer_model, 
+ 31 model_mfg as computer_model_mfg, 
+ 32 cpu_type as computer_cpu_type, 
+ 33 cpu_count as computer_cpu_count, 
+ 34 cpu_speed as computer_cpu_speed, 
+ 35 memory_mb as computer_memory_mb, 
+ 36 ip_address as computer_ip_address, 
+ 37 lower(domain) as computer_domain, 
+ 38 lower(hostname_domain) as computer_hostname_domain, 
+ 39 is_dmz as computer_dmz, 
+ 40 ewebars_title as computer_ewebars_title, 
+ 41 ewebars_status as computer_ewebars_status, 
+ 42 backup_format as computer_backup_format, 
+ 43 lower(backup_nodename) as computer_backup_nodename, 
+ 44 backup_program as computer_backup_program, 
+ 45 lower(backup_server) as computer_backup_server, 
+ 46 netbackup as computer_netbackup, 
+ 47 is_complex as computer_complex, 
+ 48 complex_lastid as computer_complex_lastid, 
+ 49 lower(complex_name) as computer_complex_name, 
+ 50 lower(complex_parent_name) as computer_complex_parent_name, 
+ 51 lower(complex_child_names) as computer_complex_child_names, 
+ 52 complex_partitions as computer_complex_partitions, 
+ 53 is_service_guard as computer_service_guard, 
+ 54 os_group_contact as computer_os_group_contact, 
+ 55 cio_group as computer_cio_group, 
+ 56 managing_group as computer_managing_group, 
+ 57 contract as computer_contract, 
+ 58 contract_ref as computer_contract_ref, 
+ 59 contract_status as computer_contract_status, 
+ 60 contract_status_type as computer_contract_status_type, 
+ 61 contract_date as computer_contract_date, 
+ 62 is_ibm_supported as computer_ibm_supported, 
+ 63 is_gold_server as computer_gold_server, 
+ 64 service_level_objective as computer_slevel_objective, 
+ 65 service_level_score as computer_slevel_score, 
+ 66 service_level_colors as computer_slevel_colors, 
+ 67 is_special_handling as computer_special_handling, 
+ 68 applications as computer_applications, 
+ 69 osmaint_weekly as computer_osmaint_weekly, 
+ 70 osmaint_monthly as computer_osmaint_monthly, 
+ 71 osmaint_quarterly as computer_osmaint_quarterly, 
+ 72 csc_os_banners as computer_csc_os_banners, 
+ 73 csc_pase_banners as computer_csc_pase_banners, 
+ 74 csc_dba_banners as computer_csc_dba_banners, 
+ 75 csc_fyi_banners as computer_csc_fyi_banners, 
+ 76 disk_ecc_array_alloc_kb as computer_disk_array_alloc_kb, 
+ 77 disk_ecc_array_used_kb as computer_disk_array_used_kb, 
+ 78 disk_ecc_array_free_kb as computer_disk_array_free_kb, 
+ 79 disk_ecc_local_alloc_kb as computer_disk_local_alloc_kb, 
+ 80 disk_ecc_local_used_kb as computer_disk_local_used_kb, 
+ 81 disk_ecc_local_free_kb as computer_disk_local_free_kb, 
+ 82 app_server_assn_sox_critical as app_server_assn_sox_critical, 
+ 83 db_server_assn_sox_critical as db_server_assn_sox_critical 
+ 84 from 
+ 85 new_cct7_computers; 
+ 
+Table created. 
+ 
+SQL> 
+SQL> COMMIT; 
+ 
+Commit complete. 
+ 
+SQL> 
+SQL> COMMENT ON TABLE computers_today IS 'Computer Information from: Asset Center, CSC and Data Collect'; 
+ 
+Comment created. 
+ 
+SQL> 
+SQL> comment on column computers_today.computer_lastid IS '233494988'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_last_update IS '15-FEB-13'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_install_date IS '30-JUN-08'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_systemname IS 'HVDNP16E'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_hostname IS 'hvdnp16e'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_operating_system IS 'HP-UX B.11.31'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_os_lite IS 'HPUX'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_status IS 'PRODUCTION'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_status_description IS 'In Use'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_description IS 'Locally Administered MAC Address ia64 hp server Integrity Virtual Machine'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_nature IS 'SUPPORT'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_platform IS 'MIDRANGE'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_type IS 'SERVER'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_clli IS 'DNVRCODP'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_clli_fullname IS '/USA/CO/DENVER/DNVCODP/'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_timezone IS 'MST'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_building IS 'DENVER BUILDING LOC'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_address IS '5325 ZUNI ST'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_city IS 'DENVER'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_state IS 'CO'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_floor_room IS '2'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_grid_location IS 'D-14'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_lease_purchase IS '0'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_serial_no IS 'USE7507MWL'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_asset_tag IS 'SYSGEN0787081606'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_model_category IS '/HARDWARE/COMPUTERS/VPAR/'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_model_no IS 'M389973'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_model IS 'HP VIRTUAL MACHINE'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_model_mfg IS 'HEWLETT PACKARD'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_cpu_type IS 'Itanium 9100 Series'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_cpu_count IS '0'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_cpu_speed IS '1670'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_memory_mb IS '4089'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_ip_address IS '151.119.98.174'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_domain IS 'qintra.com'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_hostname_domain IS 'hvdnp16e.qintra.com'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_dmz IS 'N'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_ewebars_title IS 'IBM-UNIX SUPPORT'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_ewebars_status IS 'SUPPORT'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_backup_format IS 'TSM'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_backup_nodename IS 'ahvdnp16eh'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_backup_program IS 'TSM'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_backup_server IS 'aidnb07g.qintra.com'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_netbackup IS '(null)'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_complex IS 'N'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_complex_lastid IS '225693687'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_complex_name IS 'hhdnp85d'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_complex_parent_name IS 'hcdnx11a'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_complex_child_names IS '(null)'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_complex_partitions IS '0'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_service_guard IS 'N'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_os_group_contact IS 'mits-all'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_cio_group IS 'IBM-UNIX SUPPORT'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_managing_group IS 'IBM-UNIX'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_contract IS 'IGS FULL CONTRACT UNIX-PROD'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_contract_ref IS 'C028602'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_contract_status IS '(null)'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_contract_status_type IS 'SERVER'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_contract_date IS '01-OCT-12'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_ibm_supported IS 'Y'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_gold_server IS 'Y'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_slevel_objective IS '98'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_slevel_score IS '44.3'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_slevel_colors IS 'GOLD'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_special_handling IS 'N'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_applications IS 'NBA'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_osmaint_weekly IS 'MON,TUE,WED,THU,FRI,SAT,SUN 2200 480'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_osmaint_monthly IS '3 SUN 01:00 240'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_osmaint_quarterly IS 'FEB,MAY,AUG,NOV 3 FRI 22:00 720'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_csc_os_banners IS '1'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_csc_pase_banners IS '1'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_csc_dba_banners IS '0'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_csc_fyi_banners IS '0'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_disk_array_alloc_kb IS '0'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_disk_array_used_kb IS '0'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_disk_array_free_kb IS '0'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_disk_local_alloc_kb IS '0'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_disk_local_used_kb IS '0'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.computer_disk_local_free_kb IS '0'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.app_server_assn_sox_critical IS 'SOX application critical flag'; 
+ 
+Comment created. 
+ 
+SQL> comment on column computers_today.db_server_assn_sox_critical IS 'SOX database critical flag'; 
+ 
+Comment created. 
+ 
+SQL> 
+SQL> REM FIX for MITS-ALL 
+SQL> 
+SQL> update computers_today set 
+ 2 computer_cio_group='IBM-UNIX SUPPORT', 
+ 3 computer_managing_group='IBM-UNIX', 
+ 4 computer_os_group_contact='mits-all' 
+ 5 where computer_os_group_contact != 'sm-unix' and (computer_cio_group = 'IBM-UNIX SUPPORT' or computer_cio_group = 'MITS-ALL'); 
+ 
+4299 rows updated. 
+ 
+SQL> 
+SQL> update computers_today set 
+ 2 computer_cio_group='SERVER-MANAGEMENT-UNIX', 
+ 3 computer_managing_group='SMU' 
+ 4 where computer_os_group_contact = 'sm-unix'; 
+ 
+16 rows updated. 
+ 
+SQL> 
+SQL> update computers_today set computer_last_update = SYSDATE; 
+ 
+94217 rows updated. 
+ 
+SQL> 
+SQL> commit; 
+ 
+Commit complete. 
+ 
+SQL> quit; 
+Disconnected from Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production 
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options 
+
+Running: /db/oracle/product/12102_64/bin/sqlplus cct/candy4Kids @/opt/ibmtools/cct7/bin/sql/cct7_computers_part11.sql
+ 
+SQL*Plus: Release 12.1.0.2.0 Production on Thu Feb 23 11:19:13 2017 
+ 
+Copyright (c) 1982, 2014, Oracle. All rights reserved. 
+ 
+Last Successful login time: Thu Feb 23 2017 11:19:10 -06:00 
+ 
+Connected to: 
+Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production 
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options 
+ 
+SQL> 
+SQL> REM 
+SQL> REM cct7_computers_part11.sql 
+SQL> REM 
+SQL> 
+SQL> REM 
+SQL> REM Remove the backup copies of asset and computers 
+SQL> REM 
+SQL> exec drop_table_if_exist('cct7_computers_backup'); 
+BEGIN drop_table_if_exist('cct7_computers_backup'); END; 
+ 
+ * 
+ERROR at line 1: 
+ORA-06550: line 1, column 7: 
+PLS-00201: identifier 'DROP_TABLE_IF_EXIST' must be declared 
+ORA-06550: line 1, column 7: 
+PL/SQL: Statement ignored 
+ 
+ 
+SQL> 
+SQL> REM 
+SQL> REM From here on down we want to terminate the script if the following 
+SQL> REM two SQLPL code blocks RAISE_APPLICATION_ERROR 
+SQL> REM 
+SQL> REM whenever sqlerror exit sql.sqlcode 
+SQL> 
+SQL> REM 
+SQL> REM Copy the new computers_today to computers if computers_today exists and 
+SQL> REM has more than 1 record. Otherwise, keep the original computers. 
+SQL> REM 
+SQL> DECLARE 
+ 2 v_count NUMBER; 
+ 3 v_rows NUMBER; 
+ 4 
+ 5 CURSOR c_xx1 IS 
+ 6 select 
+ 7 count(*) 
+ 8 from 
+ 9 dba_tables 
+ 10 where 
+ 11 lower(table_name) = 'computers_today'; 
+ 12 
+ 13 CURSOR c_xx2 IS 
+ 14 select 
+ 15 count(*) 
+ 16 from 
+ 17 computers_today; 
+ 18 
+ 19 BEGIN 
+ 20 OPEN c_xx1; 
+ 21 FETCH c_xx1 INTO v_count; 
+ 22 dbms_output.put_line(v_count); 
+ 23 CLOSE c_xx1; 
+ 24 
+ 25 if v_count > 0 then 
+ 26 OPEN c_xx2; 
+ 27 FETCH c_xx2 INTO v_rows; 
+ 28 CLOSE c_xx2; 
+ 29 if v_rows > 0 then 
+ 30 dbms_output.put_line('computers_today exists and has more than 1 rows'); 
+ 31 execute immediate 'rename cct7_computers to cct7_computers_backup'; 
+ 32 execute immediate 'rename computers_today to cct7_computers'; 
+ 33 end if; 
+ 34 end if; 
+ 35 END; 
+ 36 / 
+DECLARE 
+* 
+ERROR at line 1: 
+ORA-00955: name is already used by an existing object 
+ORA-06512: at line 31 
+ 
+ 
+SQL> 
+SQL> REM 
+SQL> REM Drop the indexes from cct7_computers_backup 
+SQL> REM 
+SQL> exec drop_index_if_exist('idx_cct7_computers_1'); 
+BEGIN drop_index_if_exist('idx_cct7_computers_1'); END; 
+ 
+ * 
+ERROR at line 1: 
+ORA-06550: line 1, column 7: 
+PLS-00201: identifier 'DROP_INDEX_IF_EXIST' must be declared 
+ORA-06550: line 1, column 7: 
+PL/SQL: Statement ignored 
+ 
+ 
+SQL> exec drop_index_if_exist('idx_cct7_computers_2'); 
+BEGIN drop_index_if_exist('idx_cct7_computers_2'); END; 
+ 
+ * 
+ERROR at line 1: 
+ORA-06550: line 1, column 7: 
+PLS-00201: identifier 'DROP_INDEX_IF_EXIST' must be declared 
+ORA-06550: line 1, column 7: 
+PL/SQL: Statement ignored 
+ 
+ 
+SQL> exec drop_index_if_exist('idx_cct7_computers_3'); 
+BEGIN drop_index_if_exist('idx_cct7_computers_3'); END; 
+ 
+ * 
+ERROR at line 1: 
+ORA-06550: line 1, column 7: 
+PLS-00201: identifier 'DROP_INDEX_IF_EXIST' must be declared 
+ORA-06550: line 1, column 7: 
+PL/SQL: Statement ignored 
+ 
+ 
+SQL> exec drop_index_if_exist('idx_cct7_computers_4'); 
+BEGIN drop_index_if_exist('idx_cct7_computers_4'); END; 
+ 
+ * 
+ERROR at line 1: 
+ORA-06550: line 1, column 7: 
+PLS-00201: identifier 'DROP_INDEX_IF_EXIST' must be declared 
+ORA-06550: line 1, column 7: 
+PL/SQL: Statement ignored 
+ 
+ 
+SQL> exec drop_index_if_exist('idx_cct7_computers_5'); 
+BEGIN drop_index_if_exist('idx_cct7_computers_5'); END; 
+ 
+ * 
+ERROR at line 1: 
+ORA-06550: line 1, column 7: 
+PLS-00201: identifier 'DROP_INDEX_IF_EXIST' must be declared 
+ORA-06550: line 1, column 7: 
+PL/SQL: Statement ignored 
+ 
+ 
+SQL> exec drop_index_if_exist('idx_cct7_computers_6'); 
+BEGIN drop_index_if_exist('idx_cct7_computers_6'); END; 
+ 
+ * 
+ERROR at line 1: 
+ORA-06550: line 1, column 7: 
+PLS-00201: identifier 'DROP_INDEX_IF_EXIST' must be declared 
+ORA-06550: line 1, column 7: 
+PL/SQL: Statement ignored 
+ 
+ 
+SQL> exec drop_index_if_exist('idx_cct7_computers_7'); 
+BEGIN drop_index_if_exist('idx_cct7_computers_7'); END; 
+ 
+ * 
+ERROR at line 1: 
+ORA-06550: line 1, column 7: 
+PLS-00201: identifier 'DROP_INDEX_IF_EXIST' must be declared 
+ORA-06550: line 1, column 7: 
+PL/SQL: Statement ignored 
+ 
+ 
+SQL> exec drop_index_if_exist('idx_cct7_computers_8'); 
+BEGIN drop_index_if_exist('idx_cct7_computers_8'); END; 
+ 
+ * 
+ERROR at line 1: 
+ORA-06550: line 1, column 7: 
+PLS-00201: identifier 'DROP_INDEX_IF_EXIST' must be declared 
+ORA-06550: line 1, column 7: 
+PL/SQL: Statement ignored 
+ 
+ 
+SQL> exec drop_index_if_exist('idx_cct7_computers_9'); 
+BEGIN drop_index_if_exist('idx_cct7_computers_9'); END; 
+ 
+ * 
+ERROR at line 1: 
+ORA-06550: line 1, column 7: 
+PLS-00201: identifier 'DROP_INDEX_IF_EXIST' must be declared 
+ORA-06550: line 1, column 7: 
+PL/SQL: Statement ignored 
+ 
+ 
+SQL> exec drop_index_if_exist('idx_cct7_computers_10'); 
+BEGIN drop_index_if_exist('idx_cct7_computers_10'); END; 
+ 
+ * 
+ERROR at line 1: 
+ORA-06550: line 1, column 7: 
+PLS-00201: identifier 'DROP_INDEX_IF_EXIST' must be declared 
+ORA-06550: line 1, column 7: 
+PL/SQL: Statement ignored 
+ 
+ 
+SQL> 
+SQL> REM 
+SQL> REM Create new indexes for cct7_computers 
+SQL> REM 
+SQL> create index idx_cct7_computers_1 on cct7_computers ( computer_lastid ); 
+create index idx_cct7_computers_1 on cct7_computers ( computer_lastid ) 
+ * 
+ERROR at line 1: 
+ORA-00955: name is already used by an existing object 
+ 
+ 
+SQL> create index idx_cct7_computers_2 on cct7_computers ( computer_hostname ); 
+create index idx_cct7_computers_2 on cct7_computers ( computer_hostname ) 
+ * 
+ERROR at line 1: 
+ORA-00955: name is already used by an existing object 
+ 
+ 
+SQL> create index idx_cct7_computers_3 on cct7_computers ( computer_contract ); 
+create index idx_cct7_computers_3 on cct7_computers ( computer_contract ) 
+ * 
+ERROR at line 1: 
+ORA-00955: name is already used by an existing object 
+ 
+ 
+SQL> create index idx_cct7_computers_4 on cct7_computers ( computer_ip_address ); 
+create index idx_cct7_computers_4 on cct7_computers ( computer_ip_address ) 
+ * 
+ERROR at line 1: 
+ORA-00955: name is already used by an existing object 
+ 
+ 
+SQL> create index idx_cct7_computers_5 on cct7_computers ( computer_complex_lastid ); 
+create index idx_cct7_computers_5 on cct7_computers ( computer_complex_lastid ) 
+ * 
+ERROR at line 1: 
+ORA-00955: name is already used by an existing object 
+ 
+ 
+SQL> create index idx_cct7_computers_6 on cct7_computers ( computer_clli_fullname ); 
+create index idx_cct7_computers_6 on cct7_computers ( computer_clli_fullname ) 
+ * 
+ERROR at line 1: 
+ORA-00955: name is already used by an existing object 
+ 
+ 
+SQL> create index idx_cct7_computers_7 on cct7_computers ( computer_state ); 
+create index idx_cct7_computers_7 on cct7_computers ( computer_state ) 
+ * 
+ERROR at line 1: 
+ORA-00955: name is already used by an existing object 
+ 
+ 
+SQL> create index idx_cct7_computers_8 on cct7_computers ( computer_clli ); 
+create index idx_cct7_computers_8 on cct7_computers ( computer_clli ) 
+ * 
+ERROR at line 1: 
+ORA-00955: name is already used by an existing object 
+ 
+ 
+SQL> create index idx_cct7_computers_9 on cct7_computers ( computer_operating_system ); 
+create index idx_cct7_computers_9 on cct7_computers ( computer_operating_system ) 
+ * 
+ERROR at line 1: 
+ORA-00955: name is already used by an existing object 
+ 
+ 
+SQL> create index idx_cct7_computers_10 on cct7_computers ( computer_os_group_contact ); 
+create index idx_cct7_computers_10 on cct7_computers ( computer_os_group_contact ) 
+ * 
+ERROR at line 1: 
+ORA-00955: name is already used by an existing object 
+ 
+ 
+SQL> 
+SQL> REM 
+SQL> REM Cleanup temp files 
+SQL> REM 
+SQL> 
+SQL> exec drop_table_if_exist('new_cct7_computers'); 
+BEGIN drop_table_if_exist('new_cct7_computers'); END; 
+ 
+ * 
+ERROR at line 1: 
+ORA-06550: line 1, column 7: 
+PLS-00201: identifier 'DROP_TABLE_IF_EXIST' must be declared 
+ORA-06550: line 1, column 7: 
+PL/SQL: Statement ignored 
+ 
+ 
+SQL> exec drop_table_if_exist('AM_COMPUTERS'); 
+BEGIN drop_table_if_exist('AM_COMPUTERS'); END; 
+ 
+ * 
+ERROR at line 1: 
+ORA-06550: line 1, column 7: 
+PLS-00201: identifier 'DROP_TABLE_IF_EXIST' must be declared 
+ORA-06550: line 1, column 7: 
+PL/SQL: Statement ignored 
+ 
+ 
+SQL> exec drop_table_if_exist('AM_CONTRACTS'); 
+BEGIN drop_table_if_exist('AM_CONTRACTS'); END; 
+ 
+ * 
+ERROR at line 1: 
+ORA-06550: line 1, column 7: 
+PLS-00201: identifier 'DROP_TABLE_IF_EXIST' must be declared 
+ORA-06550: line 1, column 7: 
+PL/SQL: Statement ignored 
+ 
+ 
+SQL> exec drop_table_if_exist('AM_AP'); 
+BEGIN drop_table_if_exist('AM_AP'); END; 
+ 
+ * 
+ERROR at line 1: 
+ORA-06550: line 1, column 7: 
+PLS-00201: identifier 'DROP_TABLE_IF_EXIST' must be declared 
+ORA-06550: line 1, column 7: 
+PL/SQL: Statement ignored 
+ 
+ 
+SQL> exec drop_table_if_exist('AM_A7'); 
+BEGIN drop_table_if_exist('AM_A7'); END; 
+ 
+ * 
+ERROR at line 1: 
+ORA-06550: line 1, column 7: 
+PLS-00201: identifier 'DROP_TABLE_IF_EXIST' must be declared 
+ORA-06550: line 1, column 7: 
+PL/SQL: Statement ignored 
+ 
+ 
+SQL> exec drop_table_if_exist('AM_C9'); 
+BEGIN drop_table_if_exist('AM_C9'); END; 
+ 
+ * 
+ERROR at line 1: 
+ORA-06550: line 1, column 7: 
+PLS-00201: identifier 'DROP_TABLE_IF_EXIST' must be declared 
+ORA-06550: line 1, column 7: 
+PL/SQL: Statement ignored 
+ 
+ 
+SQL> exec drop_table_if_exist('AM_PR'); 
+BEGIN drop_table_if_exist('AM_PR'); END; 
+ 
+ * 
+ERROR at line 1: 
+ORA-06550: line 1, column 7: 
+PLS-00201: identifier 'DROP_TABLE_IF_EXIST' must be declared 
+ORA-06550: line 1, column 7: 
+PL/SQL: Statement ignored 
+ 
+ 
+SQL> 
+SQL> commit; 
+ 
+Commit complete. 
+ 
+SQL> select count(*) as record_count from cct7_computers; 
+ 
+RECORD_COUNT 
+------------ 
+ 94217 
+ 
+SQL> quit; 
+Disconnected from Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production 
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options 
+
+All done!
+?>
+==========================================================================================================================
+ Program: make_computers.php
+   START: 02/23/17 18:18:45
+     END: 02/23/17 18:19:14
+Duration: 00:00:29

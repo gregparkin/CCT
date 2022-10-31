@@ -1,0 +1,23 @@
+#!/bin/bash
+#
+# AUTHOR: Greg Parkin
+#
+# Kill run away apache processes
+#
+
+for i in `ls -d /proc/[0-9]*`
+do
+	if [ -f $i/stat ]
+	then
+		pid=`/bin/awk '{if ($2 == "(apache)" && $23 > 800000000) { print $1 }}' $i/stat`
+		if [ "$pid" != "" ]
+		then
+			# echo "Killing $pid because of load average: `awk '{print $1}' /proc/loadavg`"
+			# kill -9 $pid
+			echo "`date` - process $pid load average: `awk '{print $1}' /proc/loadavg`"
+		fi
+	fi
+done
+
+
+

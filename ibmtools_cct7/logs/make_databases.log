@@ -1,0 +1,127 @@
+Starting: make_databases.php at 02/23/17 18:19:53
+==========================================================================================================================
+hostname: lxomp47x
+
+Running: /db/oracle/product/12102_64/bin/sqlplus cct/candy4Kids @/opt/ibmtools/cct7/bin/sql/cct7_databases.sql
+ 
+SQL*Plus: Release 12.1.0.2.0 Production on Thu Feb 23 11:19:53 2017 
+ 
+Copyright (c) 1982, 2014, Oracle. All rights reserved. 
+ 
+Last Successful login time: Thu Feb 23 2017 11:19:53 -06:00 
+ 
+Connected to: 
+Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production 
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options 
+ 
+SQL> 
+SQL> exec drop_table_if_exist('cct7_databases'); 
+BEGIN drop_table_if_exist('cct7_databases'); END; 
+ 
+ * 
+ERROR at line 1: 
+ORA-06550: line 1, column 7: 
+PLS-00201: identifier 'DROP_TABLE_IF_EXIST' must be declared 
+ORA-06550: line 1, column 7: 
+PL/SQL: Statement ignored 
+ 
+ 
+SQL> 
+SQL> create table cct7_databases as 
+ 2 select 
+ 3 c.a1_lastid as computer_lastid, 
+ 4 lower(b.hostname) as computer_hostname, 
+ 5 b.host_assettag as computer_asset_tag, 
+ 6 b.host_serialno as computer_serial_no, 
+ 7 a.lastid as database_lastid, 
+ 8 a.assettag as database_asset_tag, 
+ 9 a.seassignment as database_seassignment, 
+ 10 a.database_name as database_name, 
+ 11 b.connection_type as database_connection_type, 
+ 12 b.db_failover_priority as database_failover_priority, 
+ 13 a.instance_name as database_instance, 
+ 14 a.service_name as database_service, 
+ 15 a.db_type as database_type, 
+ 16 a.db_version as database_version, 
+ 17 lower(a.mdl_poc) as database_mdl_poc, 
+ 18 a.patch_install as database_patch_install, 
+ 19 a.patch_level as database_patch_level, 
+ 20 a.dbfamilygroupkey as database_family_group_key, 
+ 21 a.portfoliocomment as database_comment, 
+ 22 lower(a.dba_manager) as database_manager_cuid, 
+ 23 lower(a.prod_dba_manager) as database_prod_manager_cuid, 
+ 24 a.database_arrangement as database_arrangement, 
+ 25 a.non_standard_support as database_non_standard_support, 
+ 26 a.assignment_changed_dt as database_assign_change_date, 
+ 27 a.no_owning_appl_reason as no_owning_appl_reason, 
+ 28 a.asset_system as asset_system 
+ 29 from 
+ 30 cs_qwestibm_mdl@itast a, 
+ 31 cs_qwestibm_mdl_to_server@itast b, 
+ 32 cs_qwestibm_computers@itast c 
+ 33 where 
+ 34 a.lastid = b.lastid and 
+ 35 c.a1_field1 = b.hostname; 
+create table cct7_databases as 
+ * 
+ERROR at line 1: 
+ORA-00955: name is already used by an existing object 
+ 
+ 
+SQL> 
+SQL> create index idx_cct7_databases1 on cct7_databases ( computer_lastid ); 
+create index idx_cct7_databases1 on cct7_databases ( computer_lastid ) 
+ * 
+ERROR at line 1: 
+ORA-00955: name is already used by an existing object 
+ 
+ 
+SQL> create index idx_cct7_databases2 on cct7_databases ( computer_hostname ); 
+create index idx_cct7_databases2 on cct7_databases ( computer_hostname ) 
+ * 
+ERROR at line 1: 
+ORA-00955: name is already used by an existing object 
+ 
+ 
+SQL> create index idx_cct7_databases3 on cct7_databases ( computer_asset_tag ); 
+create index idx_cct7_databases3 on cct7_databases ( computer_asset_tag ) 
+ * 
+ERROR at line 1: 
+ORA-00955: name is already used by an existing object 
+ 
+ 
+SQL> create index idx_cct7_databases4 on cct7_databases ( computer_serial_no ); 
+create index idx_cct7_databases4 on cct7_databases ( computer_serial_no ) 
+ * 
+ERROR at line 1: 
+ORA-00955: name is already used by an existing object 
+ 
+ 
+SQL> create index idx_cct7_databases5 on cct7_databases ( database_name ); 
+create index idx_cct7_databases5 on cct7_databases ( database_name ) 
+ * 
+ERROR at line 1: 
+ORA-00955: name is already used by an existing object 
+ 
+ 
+SQL> 
+SQL> commit; 
+ 
+Commit complete. 
+ 
+SQL> select count(*) as record_count from cct7_databases; 
+ 
+RECORD_COUNT 
+------------ 
+ 12234 
+ 
+SQL> quit; 
+Disconnected from Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production 
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options 
+
+All done!
+==========================================================================================================================
+ Program: make_databases.php
+   START: 02/23/17 18:19:53
+     END: 02/23/17 18:19:55
+Duration: 00:00:02

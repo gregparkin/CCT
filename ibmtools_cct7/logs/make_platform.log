@@ -1,0 +1,51 @@
+Starting: make_platform.php at 02/23/17 18:19:55
+==========================================================================================================================
+hostname: lxomp47x
+
+Running: /db/oracle/product/12102_64/bin/sqlplus cct/candy4Kids @/opt/ibmtools/cct7/bin/sql/cct7_platform.sql
+ 
+SQL*Plus: Release 12.1.0.2.0 Production on Thu Feb 23 11:19:55 2017 
+ 
+Copyright (c) 1982, 2014, Oracle. All rights reserved. 
+ 
+Last Successful login time: Thu Feb 23 2017 11:19:55 -06:00 
+ 
+Connected to: 
+Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production 
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options 
+ 
+SQL> 
+SQL> delete from cct7_platform; 
+ 
+13 rows deleted. 
+ 
+SQL> 
+SQL> insert into cct7_platform ( computer_platform ) 
+ 2 select distinct 
+ 3 computer_platform 
+ 4 from 
+ 5 cct7_computers; 
+ 
+13 rows created. 
+ 
+SQL> 
+SQL> commit; 
+ 
+Commit complete. 
+ 
+SQL> select count(*) as record_count from cct7_platform; 
+ 
+RECORD_COUNT 
+------------ 
+ 13 
+ 
+SQL> quit; 
+Disconnected from Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production 
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options 
+
+All done!
+==========================================================================================================================
+ Program: make_platform.php
+   START: 02/23/17 18:19:55
+     END: 02/23/17 18:19:55
+Duration: 00:00:00

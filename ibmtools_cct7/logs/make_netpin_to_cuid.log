@@ -1,0 +1,16 @@
+Starting: make_netpin_to_cuid.php at 02/23/17 18:19:55
+==========================================================================================================================
+
+Notice: Undefined index: SERVER_NAME in /opt/ibmtools/www/cct7/classes/oracle.php on line 220
+
+Warning: oci_connect(): OCIEnvNlsCreate() failed. There is something wrong with your system - please check that ORACLE_HOME and LD_LIBRARY_PATH are set and point to the right directories in /opt/ibmtools/www/cct7/classes/oracle.php on line 697
+
+Warning: oci_connect(): Error while trying to retrieve text for error ORA-01804
+ in /opt/ibmtools/www/cct7/classes/oracle.php on line 697
+
+Fatal error:  in /opt/ibmtools/www/cct7/classes/oracle.php on line 705
+==========================================================================================================================
+ Program: make_netpin_to_cuid.php
+   START: 02/23/17 18:19:55
+     END: 02/23/17 18:19:55
+Duration: 00:00:00

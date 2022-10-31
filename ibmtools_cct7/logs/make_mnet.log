@@ -1,0 +1,537 @@
+Starting: make_mnet.php at 02/23/17 18:18:28
+==========================================================================================================================
+hostname: lxomp47x
+
+Running: /db/oracle/product/12102_64/bin/sqlplus cct/candy4Kids @/opt/ibmtools/cct7/bin/sql/cct7_mnet.sql
+ 
+SQL*Plus: Release 12.1.0.2.0 Production on Thu Feb 23 11:18:28 2017 
+ 
+Copyright (c) 1982, 2014, Oracle. All rights reserved. 
+ 
+Last Successful login time: Thu Feb 23 2017 11:17:55 -06:00 
+ 
+Connected to: 
+Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production 
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options 
+ 
+SQL> 
+SQL> REM 
+SQL> REM This will die in step 9 if cct7_mnet does not already exist. So create a dummy table if you need too. 
+SQL> REM 
+SQL> 
+SQL> REM 
+SQL> REM cct7_mnet.sql 
+SQL> REM 
+SQL> 
+SQL> REM 
+SQL> REM 1. Drop tables and indexes if they exist 
+SQL> REM 
+SQL> exec drop_table_if_exist('new_cct7_mnet'); 
+BEGIN drop_table_if_exist('new_cct7_mnet'); END; 
+ 
+ * 
+ERROR at line 1: 
+ORA-06550: line 1, column 7: 
+PLS-00201: identifier 'DROP_TABLE_IF_EXIST' must be declared 
+ORA-06550: line 1, column 7: 
+PL/SQL: Statement ignored 
+ 
+ 
+SQL> exec drop_table_if_exist('cct7_mnet_backup'); 
+BEGIN drop_table_if_exist('cct7_mnet_backup'); END; 
+ 
+ * 
+ERROR at line 1: 
+ORA-06550: line 1, column 7: 
+PLS-00201: identifier 'DROP_TABLE_IF_EXIST' must be declared 
+ORA-06550: line 1, column 7: 
+PL/SQL: Statement ignored 
+ 
+ 
+SQL> 
+SQL> exec drop_index_if_exist('idx_cct7_mnet_1'); 
+BEGIN drop_index_if_exist('idx_cct7_mnet_1'); END; 
+ 
+ * 
+ERROR at line 1: 
+ORA-06550: line 1, column 7: 
+PLS-00201: identifier 'DROP_INDEX_IF_EXIST' must be declared 
+ORA-06550: line 1, column 7: 
+PL/SQL: Statement ignored 
+ 
+ 
+SQL> exec drop_index_if_exist('idx_cct7_mnet_2'); 
+BEGIN drop_index_if_exist('idx_cct7_mnet_2'); END; 
+ 
+ * 
+ERROR at line 1: 
+ORA-06550: line 1, column 7: 
+PLS-00201: identifier 'DROP_INDEX_IF_EXIST' must be declared 
+ORA-06550: line 1, column 7: 
+PL/SQL: Statement ignored 
+ 
+ 
+SQL> exec drop_index_if_exist('idx_cct7_mnet_3'); 
+BEGIN drop_index_if_exist('idx_cct7_mnet_3'); END; 
+ 
+ * 
+ERROR at line 1: 
+ORA-06550: line 1, column 7: 
+PLS-00201: identifier 'DROP_INDEX_IF_EXIST' must be declared 
+ORA-06550: line 1, column 7: 
+PL/SQL: Statement ignored 
+ 
+ 
+SQL> exec drop_index_if_exist('idx_cct7_mnet_4'); 
+BEGIN drop_index_if_exist('idx_cct7_mnet_4'); END; 
+ 
+ * 
+ERROR at line 1: 
+ORA-06550: line 1, column 7: 
+PLS-00201: identifier 'DROP_INDEX_IF_EXIST' must be declared 
+ORA-06550: line 1, column 7: 
+PL/SQL: Statement ignored 
+ 
+ 
+SQL> exec drop_index_if_exist('idx_cct7_mnet_5'); 
+BEGIN drop_index_if_exist('idx_cct7_mnet_5'); END; 
+ 
+ * 
+ERROR at line 1: 
+ORA-06550: line 1, column 7: 
+PLS-00201: identifier 'DROP_INDEX_IF_EXIST' must be declared 
+ORA-06550: line 1, column 7: 
+PL/SQL: Statement ignored 
+ 
+ 
+SQL> 
+SQL> REM 
+SQL> REM 2. Exit SQL script from on down if we encounter any errors 
+SQL> REM 
+SQL> whenever sqlerror exit sql.sqlcode 
+SQL> 
+SQL> REM 
+SQL> REM 3. Create new_cct7_mnet and copy v_new_cct7_mnet into it. 
+SQL> REM 
+SQL> create table new_cct7_mnet as 
+ 2 select 
+ 3 m.mnet_id, 
+ 4 m.cuid, 
+ 5 m.wrkstn_login, 
+ 6 m.last_name, 
+ 7 m.first_name, 
+ 8 m.nick_name, 
+ 9 m.middle, 
+ 10 replace(d.DUMMY,'X','FULLNAME') as fullname, 
+ 11 m.job_title, 
+ 12 m.smtp_addr, 
+ 13 m.work_phone, 
+ 14 m.pager, 
+ 15 m.street, 
+ 16 m.city, 
+ 17 m.state, 
+ 18 m.country_code, 
+ 19 m.dept_name, 
+ 20 m.company_name, 
+ 21 m.tier1, 
+ 22 m.tier2, 
+ 23 m.tier3, 
+ 24 m.status, 
+ 25 m.change_date, 
+ 26 m.mgr_cuid, 
+ 27 m.outsrc_mgr_cuid 
+ 28 from 
+ 29 ussdb_mnet@mnet m, 
+ 30 dual d; 
+ 
+Table created. 
+ 
+SQL> 
+SQL> REM 
+SQL> REM 4. Rename the column names to change v_asset to new_cct7_mnet. 
+SQL> REM 
+SQL> alter table new_cct7_mnet rename column cuid to mnet_cuid; 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_mnet rename column wrkstn_login to mnet_workstation_login; 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_mnet rename column last_name to mnet_last_name; 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_mnet rename column first_name to mnet_first_name; 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_mnet rename column nick_name to mnet_nick_name; 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_mnet rename column middle to mnet_middle; 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_mnet rename column fullname to mnet_name; 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_mnet rename column job_title to mnet_job_title; 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_mnet rename column smtp_addr to mnet_email; 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_mnet rename column work_phone to mnet_work_phone; 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_mnet rename column pager to mnet_pager; 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_mnet rename column street to mnet_street; 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_mnet rename column city to mnet_city; 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_mnet rename column state to mnet_state; 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_mnet rename column country_code to mnet_country; 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_mnet rename column dept_name to mnet_rc; 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_mnet rename column company_name to mnet_company; 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_mnet rename column tier1 to mnet_tier1; 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_mnet rename column tier2 to mnet_tier2; 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_mnet rename column tier3 to mnet_tier3; 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_mnet rename column status to mnet_status; 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_mnet rename column change_date to mnet_change_date; 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_mnet rename column mgr_cuid to mnet_ctl_cuid; 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_mnet rename column outsrc_mgr_cuid to mnet_mgr_cuid; 
+ 
+Table altered. 
+ 
+SQL> 
+SQL> 
+SQL> REM 
+SQL> REM 4a. Increase sizes 
+SQL> REM 
+SQL> alter table new_cct7_mnet modify ( mnet_cuid VARCHAR2(20) ); 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_mnet modify ( mnet_workstation_login VARCHAR2(20) ); 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_mnet modify ( mnet_last_name VARCHAR2(80) ); 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_mnet modify ( mnet_first_name VARCHAR2(80) ); 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_mnet modify ( mnet_nick_name VARCHAR2(80) ); 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_mnet modify ( mnet_middle VARCHAR2(20) ); 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_mnet modify ( mnet_name VARCHAR2(200) ); 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_mnet modify ( mnet_job_title VARCHAR2(80) ); 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_mnet modify ( mnet_email VARCHAR2(80) ); 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_mnet modify ( mnet_work_phone VARCHAR2(20) ); 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_mnet modify ( mnet_pager VARCHAR2(20) ); 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_mnet modify ( mnet_street VARCHAR2(80) ); 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_mnet modify ( mnet_city VARCHAR2(80) ); 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_mnet modify ( mnet_state VARCHAR2(10) ); 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_mnet modify ( mnet_country VARCHAR2(10) ); 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_mnet modify ( mnet_company VARCHAR2(80) ); 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_mnet modify ( mnet_status VARCHAR2(20) ); 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_mnet modify ( mnet_ctl_cuid VARCHAR2(15) ); 
+ 
+Table altered. 
+ 
+SQL> alter table new_cct7_mnet modify ( mnet_mgr_cuid VARCHAR2(15) ); 
+ 
+Table altered. 
+ 
+SQL> 
+SQL> REM 
+SQL> REM 5. Add some comments 
+SQL> REM 
+SQL> COMMENT ON TABLE new_cct7_mnet IS 'Copy of the MNET Database'; 
+ 
+Comment created. 
+ 
+SQL> COMMENT ON COLUMN new_cct7_mnet.mnet_cuid IS 'User ID'; 
+ 
+Comment created. 
+ 
+SQL> COMMENT ON COLUMN new_cct7_mnet.mnet_workstation_login IS 'CTL workstation login'; 
+ 
+Comment created. 
+ 
+SQL> COMMENT ON COLUMN new_cct7_mnet.mnet_last_name IS 'Last name'; 
+ 
+Comment created. 
+ 
+SQL> COMMENT ON COLUMN new_cct7_mnet.mnet_first_name IS 'First name'; 
+ 
+Comment created. 
+ 
+SQL> COMMENT ON COLUMN new_cct7_mnet.mnet_nick_name IS 'Nick name'; 
+ 
+Comment created. 
+ 
+SQL> COMMENT ON COLUMN new_cct7_mnet.mnet_middle IS 'Middle name'; 
+ 
+Comment created. 
+ 
+SQL> COMMENT ON COLUMN new_cct7_mnet.mnet_name IS 'Full name'; 
+ 
+Comment created. 
+ 
+SQL> COMMENT ON COLUMN new_cct7_mnet.mnet_job_title IS 'Job Title'; 
+ 
+Comment created. 
+ 
+SQL> COMMENT ON COLUMN new_cct7_mnet.mnet_email IS 'Email Address'; 
+ 
+Comment created. 
+ 
+SQL> COMMENT ON COLUMN new_cct7_mnet.mnet_work_phone IS 'Work phone number'; 
+ 
+Comment created. 
+ 
+SQL> COMMENT ON COLUMN new_cct7_mnet.mnet_pager IS 'Pager number'; 
+ 
+Comment created. 
+ 
+SQL> COMMENT ON COLUMN new_cct7_mnet.mnet_street IS 'Street address'; 
+ 
+Comment created. 
+ 
+SQL> COMMENT ON COLUMN new_cct7_mnet.mnet_city IS 'City'; 
+ 
+Comment created. 
+ 
+SQL> COMMENT ON COLUMN new_cct7_mnet.mnet_state IS 'State'; 
+ 
+Comment created. 
+ 
+SQL> COMMENT ON COLUMN new_cct7_mnet.mnet_country IS 'Country'; 
+ 
+Comment created. 
+ 
+SQL> COMMENT ON COLUMN new_cct7_mnet.mnet_rc IS 'QWEST RC Code'; 
+ 
+Comment created. 
+ 
+SQL> COMMENT ON COLUMN new_cct7_mnet.mnet_company IS 'Employee Company name'; 
+ 
+Comment created. 
+ 
+SQL> COMMENT ON COLUMN new_cct7_mnet.mnet_tier1 IS 'CenturyLink Support Tier1'; 
+ 
+Comment created. 
+ 
+SQL> COMMENT ON COLUMN new_cct7_mnet.mnet_tier2 IS 'CenturyLink Support Tier2'; 
+ 
+Comment created. 
+ 
+SQL> COMMENT ON COLUMN new_cct7_mnet.mnet_tier3 IS 'CenturyLink Support Tier3'; 
+ 
+Comment created. 
+ 
+SQL> COMMENT ON COLUMN new_cct7_mnet.mnet_status IS 'Employee Status'; 
+ 
+Comment created. 
+ 
+SQL> COMMENT ON COLUMN new_cct7_mnet.mnet_change_date IS 'Date Record last updated'; 
+ 
+Comment created. 
+ 
+SQL> COMMENT ON COLUMN new_cct7_mnet.mnet_ctl_cuid IS 'CenturyLink Sponsor Manager User ID'; 
+ 
+Comment created. 
+ 
+SQL> COMMENT ON COLUMN new_cct7_mnet.mnet_mgr_cuid IS 'Manager User ID'; 
+ 
+Comment created. 
+ 
+SQL> 
+SQL> REM 
+SQL> REM 6. Change all CUID's to lowercase 
+SQL> REM 
+SQL> update new_cct7_mnet set 
+ 2 mnet_cuid = lower(mnet_cuid), 
+ 3 mnet_workstation_login = lower(mnet_workstation_login), 
+ 4 mnet_ctl_cuid = lower(mnet_ctl_cuid), 
+ 5 mnet_mgr_cuid = lower(mnet_mgr_cuid); 
+ 
+95456 rows updated. 
+ 
+SQL> 
+SQL> REM 
+SQL> REM 7. Copy mnet_ctl_cuid into mnet_mgr_cuid if mnet_mgr_cuid is null 
+SQL> REM 
+SQL> update new_cct7_mnet set 
+ 2 mnet_mgr_cuid = mnet_ctl_cuid, 
+ 3 mnet_ctl_cuid = '' 
+ 4 where mnet_mgr_cuid is NULL; 
+ 
+91215 rows updated. 
+ 
+SQL> 
+SQL> create index idx_mnet_temp1 on new_cct7_mnet ( mnet_cuid ); 
+ 
+Index created. 
+ 
+SQL> 
+SQL> REM 
+SQL> REM 8. Populate mnet_name with the person's fullname 
+SQL> REM 
+SQL> DECLARE 
+ 2 v_mnet_cuid VARCHAR2(20); 
+ 3 v_mnet_nick_name VARCHAR2(80); 
+ 4 v_mnet_first_name VARCHAR2(80); 
+ 5 v_mnet_last_name VARCHAR2(80); 
+ 6 v_mnet_name VARCHAR2(200); 
+ 7 
+ 8 CURSOR c_xxx IS 
+ 9 select 
+ 10 mnet_cuid, 
+ 11 mnet_nick_name, 
+ 12 mnet_first_name, 
+ 13 mnet_last_name 
+ 14 from 
+ 15 new_cct7_mnet; 
+ 16 
+ 17 BEGIN 
+ 18 OPEN c_xxx; 
+ 19 LOOP 
+ 20 FETCH c_xxx INTO v_mnet_cuid, v_mnet_nick_name, v_mnet_first_name, v_mnet_last_name; 
+ 21 EXIT WHEN c_xxx%NOTFOUND; 
+ 22 
+ 23 IF LENGTH(v_mnet_nick_name) > 0 THEN 
+ 24 v_mnet_name := v_mnet_nick_name || ' ' || v_mnet_last_name; 
+ 25 ELSE 
+ 26 v_mnet_name := v_mnet_first_name || ' ' || v_mnet_last_name; 
+ 27 END IF; 
+ 28 
+ 29 UPDATE new_cct7_mnet SET 
+ 30 mnet_name = v_mnet_name 
+ 31 WHERE 
+ 32 mnet_cuid = v_mnet_cuid; 
+ 33 
+ 34 END LOOP; 
+ 35 
+ 36 CLOSE c_xxx; 
+ 37 COMMIT; 
+ 38 END; 
+ 39 / 
+ 
+PL/SQL procedure successfully completed. 
+ 
+SQL> 
+SQL> REM 
+SQL> REM 9. Add aliases that are no longer defined in MNET 
+SQL> REM iamcct - Mark S. Vassar 
+SQL> REM 
+SQL> update new_cct7_mnet set mnet_email = 'iamscct@CenturyLink.com' where mnet_cuid = 'iamcct'; 
+ 
+1 row updated. 
+ 
+SQL> 
+SQL> exec drop_index_if_exist('idx_mnet_temp1'); 
+BEGIN drop_index_if_exist('idx_mnet_temp1'); END; 
+ 
+ * 
+ERROR at line 1: 
+ORA-06550: line 1, column 7: 
+PLS-00201: identifier 'DROP_INDEX_IF_EXIST' must be declared 
+ORA-06550: line 1, column 7: 
+PL/SQL: Statement ignored 
+ 
+ 
+Disconnected from Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production 
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options 
+
+All done!
+==========================================================================================================================
+ Program: make_mnet.php
+   START: 02/23/17 18:18:28
+     END: 02/23/17 18:18:36
+Duration: 00:00:08

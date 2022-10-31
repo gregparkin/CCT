@@ -1,0 +1,54 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=Cp1252" />
+<script src="../dbdoc.js" type="text/javascript"></script>
+<link href="../dbdoc.css" type="text/css" rel="stylesheet">
+</head>
+<body class="object">
+<div id="header"><h2>CCT6_MASTER_APPROVERS</h2>
+<div class="tabs clearfix">
+
+<div class="tab" id="current"><div><a href="CCT6_MASTER_APPROVERS.html">Columns</a></div></div>
+<div class="tab"><div><a href="CCT6_MASTER_APPROVERS_Constraints.html">Constraints</a></div></div>
+<div class="tab"><div><a href="CCT6_MASTER_APPROVERS_Grants.html">Grants</a></div></div>
+<div class="tab"><div><a href="CCT6_MASTER_APPROVERS_Statistics.html">Statistics</a></div></div>
+<div class="tab"><div><a href="CCT6_MASTER_APPROVERS_Triggers.html">Triggers</a></div></div>
+<div class="tab"><div><a href="CCT6_MASTER_APPROVERS_Dependencies.html">Dependencies</a></div></div>
+<div class="tab"><div><a href="CCT6_MASTER_APPROVERS_Details.html">Details</a></div></div>
+<div class="tab"><div><a href="CCT6_MASTER_APPROVERS_Partitions.html">Partitions</a></div></div>
+<div class="tab"><div><a href="CCT6_MASTER_APPROVERS_Indexes.html">Indexes</a></div></div>
+</div></div><br/>
+<div class="tab-panes">
+<div id="Columns"> <table cellpadding="0" cellspacing="0" cellspacing="0" summary=""><tr>
+	<th>COLUMN_NAME</th>
+	<th>DATA_TYPE</th>
+	<th>NULLABLE</th>
+	<th>DATA_DEFAULT</th>
+	<th>COLUMN_ID</th>
+	<th>COMMENTS</th>
+</tr>
+	<tr>
+<td>COMPUTER_HOSTNAME</td>
+<td>VARCHAR2(255 BYTE)</td>
+<td>No</td>
+<td>null</td>
+<td>1</td>
+<td>PRIMARY KEY - Computer hostname that has the override</td>
+	</tr>
+	<tr>
+<td>APPROVER_CUID</td>
+<td>VARCHAR2(20 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>2</td>
+<td>CUID of person who has the override</td>
+	</tr>
+	<tr>
+<td>APPROVER_NAME</td>
+<td>VARCHAR2(200 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>3</td>
+<td>Name of person who has the override</td>
+	</tr>
+</table></div>

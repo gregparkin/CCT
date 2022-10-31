@@ -1,0 +1,9 @@
+USERID=cct/candy4Kids
+BUFFER=8192000
+FILE=import.pipe
+FROMUSER=cct
+TOUSER=cct
+LOG=receive_cct.log
+STATISTICS=NONE
+COMMIT=Y
+IGNORE=Y

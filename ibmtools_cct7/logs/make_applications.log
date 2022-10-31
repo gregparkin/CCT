@@ -1,0 +1,271 @@
+Starting: make_applications.php at 02/23/17 18:19:14
+==========================================================================================================================
+
+hostname: lxomp47x
+
+Running: /db/oracle/product/12102_64/bin/sqlplus cct/candy4Kids @/opt/ibmtools/cct7/bin/sql/cct7_applications.sql
+ 
+SQL*Plus: Release 12.1.0.2.0 Production on Thu Feb 23 11:19:14 2017 
+ 
+Copyright (c) 1982, 2014, Oracle. All rights reserved. 
+ 
+Last Successful login time: Thu Feb 23 2017 11:19:13 -06:00 
+ 
+Connected to: 
+Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production 
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options 
+ 
+SQL> 
+SQL> exec drop_table_if_exist('new_cct7_applications'); 
+BEGIN drop_table_if_exist('new_cct7_applications'); END; 
+ 
+ * 
+ERROR at line 1: 
+ORA-06550: line 1, column 7: 
+PLS-00201: identifier 'DROP_TABLE_IF_EXIST' must be declared 
+ORA-06550: line 1, column 7: 
+PL/SQL: Statement ignored 
+ 
+ 
+SQL> 
+SQL> create table new_cct7_applications 
+ 2 ( 
+ 3 computer_lastid NUMBER NOT NULL, 
+ 4 computer_hostname VARCHAR2(40), 
+ 5 computer_asset_tag VARCHAR2(40), 
+ 6 computer_componentid VARCHAR2(80), 
+ 7 application_instance VARCHAR2(80), 
+ 8 application_name VARCHAR2(80), 
+ 9 application_acronym VARCHAR2(35), 
+ 10 application_appid VARCHAR2(40), 
+ 11 application_lastid NUMBER, 
+ 12 application_type VARCHAR2(80), 
+ 13 associated_computer_lastid NUMBER, 
+ 14 associated_computer_hostname VARCHAR2(40), 
+ 15 associated_computer_asset_tag VARCHAR2(40), 
+ 16 associated_app_name VARCHAR2(80), 
+ 17 associated_app_slr VARCHAR2(43), 
+ 18 associated_app_assignment VARCHAR2(40), 
+ 19 associated_app_appid VARCHAR2(40), 
+ 20 associated_app_lastid NUMBER 
+ 21 ); 
+ 
+Table created. 
+ 
+SQL> 
+SQL> create index idx_new_cct7_applications1 on new_cct7_applications ( associated_app_appid ); 
+ 
+Index created. 
+ 
+SQL> 
+SQL> insert into new_cct7_applications 
+ 2 (computer_lastid, computer_hostname, computer_asset_tag, computer_componentid, 
+ 3 application_instance, application_name, application_acronym, application_appid, 
+ 4 application_type, associated_app_name, associated_app_slr, associated_app_assignment, 
+ 5 associated_app_appid, associated_app_lastid ) 
+ 6 select 
+ 7 a.server_lastid as computer_lastid, 
+ 8 a.hostnm as computer_hostname, 
+ 9 a.hostassettag as computer_asset_tag, 
+ 10 a.componentid as computer_componentid, 
+ 11 a.appinstance as application_instance, 
+ 12 a.appnm as application_name, 
+ 13 a.acronym as application_acronym, 
+ 14 a.appid as application_appid, 
+ 15 b.type as application_type, 
+ 16 b.associated_app_name as associated_app_name, 
+ 17 b.associated_app_slr as associated_app_slr, 
+ 18 case b.associated_app_assignment 
+ 19 when 0 then 'PRODUCTION' 
+ 20 when 6 then 'PRE-PRODUCTION' 
+ 21 else null 
+ 22 end as associated_app_assignment, 
+ 23 b.associated_app_appid as associated_app_appid, 
+ 24 b.associated_app_lastid as associated_app_lastid 
+ 25 from 
+ 26 cs_qwestibm_maltoserver@itast a, 
+ 27 cs_qwestibm_mal_apptoapp@itast b 
+ 28 where 
+ 29 a.appid = b.appid (+) 
+ 30 order by 
+ 31 a.hostnm, a.appnm; 
+ 
+184248 rows created. 
+ 
+SQL> 
+SQL> DECLARE 
+ 2 v_computer_lastid NUMBER; 
+ 3 v_computer_hostname VARCHAR2(40); 
+ 4 v_computer_asset_tag VARCHAR2(40); 
+ 5 v_application_appid VARCHAR2(40); 
+ 6 
+ 7 CURSOR c_xxx IS 
+ 8 select distinct 
+ 9 server_lastid as computer_lastid, 
+ 10 hostnm as computer_hostname, 
+ 11 hostassettag as computer_asset_tag, 
+ 12 appid as application_appid 
+ 13 from 
+ 14 cs_qwestibm_maltoserver@itast; 
+ 15 
+ 16 BEGIN 
+ 17 OPEN c_xxx; 
+ 18 LOOP 
+ 19 FETCH c_xxx INTO 
+ 20 v_computer_lastid, 
+ 21 v_computer_hostname, 
+ 22 v_computer_asset_tag, 
+ 23 v_application_appid; 
+ 24 
+ 25 EXIT WHEN c_xxx%NOTFOUND; 
+ 26 
+ 27 update new_cct7_applications set 
+ 28 associated_computer_lastid = v_computer_lastid, 
+ 29 associated_computer_hostname = v_computer_hostname, 
+ 30 associated_computer_asset_tag = v_computer_asset_tag 
+ 31 where 
+ 32 associated_app_appid = v_application_appid; 
+ 33 
+ 34 END LOOP; 
+ 35 
+ 36 CLOSE c_xxx; 
+ 37 END; 
+ 38 / 
+ 
+PL/SQL procedure successfully completed. 
+ 
+SQL> 
+SQL> drop table cct7_applications; 
+ 
+Table dropped. 
+ 
+SQL> 
+SQL> rename new_cct7_applications to cct7_applications; 
+ 
+Table renamed. 
+ 
+SQL> 
+SQL> drop index idx_new_cct7_applications1; 
+ 
+Index dropped. 
+ 
+SQL> 
+SQL> create index idx_cct7_applications1 on cct7_applications ( computer_lastid ); 
+ 
+Index created. 
+ 
+SQL> create index idx_cct7_applications2 on cct7_applications ( computer_hostname ); 
+ 
+Index created. 
+ 
+SQL> create index idx_cct7_applications3 on cct7_applications ( computer_asset_tag ); 
+ 
+Index created. 
+ 
+SQL> create index idx_cct7_applications4 on cct7_applications ( application_instance ); 
+ 
+Index created. 
+ 
+SQL> create index idx_cct7_applications5 on cct7_applications ( associated_app_appid ); 
+ 
+Index created. 
+ 
+SQL> 
+SQL> COMMENT ON TABLE cct7_applications IS 'Application List to Server plus upstream, downstream application information'; 
+ 
+Comment created. 
+ 
+SQL> 
+SQL> COMMENT ON COLUMN cct7_applications.computer_lastid IS 'Computer LASTID number'; 
+ 
+Comment created. 
+ 
+SQL> COMMENT ON COLUMN cct7_applications.computer_hostname IS 'Hostname that application resides on'; 
+ 
+Comment created. 
+ 
+SQL> COMMENT ON COLUMN cct7_applications.computer_asset_tag IS 'Server asset tag number'; 
+ 
+Comment created. 
+ 
+SQL> COMMENT ON COLUMN cct7_applications.computer_componentid IS 'Computer componentid (same as computer_hostname)'; 
+ 
+Comment created. 
+ 
+SQL> COMMENT ON COLUMN cct7_applications.application_instance IS 'Application instance'; 
+ 
+Comment created. 
+ 
+SQL> COMMENT ON COLUMN cct7_applications.application_name IS 'Application name'; 
+ 
+Comment created. 
+ 
+SQL> COMMENT ON COLUMN cct7_applications.application_acronym IS 'Application acronym'; 
+ 
+Comment created. 
+ 
+SQL> COMMENT ON COLUMN cct7_applications.application_appid IS 'Application APPID number'; 
+ 
+Comment created. 
+ 
+SQL> COMMENT ON COLUMN cct7_applications.application_lastid IS 'Application LASTID number (not the same as computer_lastid)'; 
+ 
+Comment created. 
+ 
+SQL> COMMENT ON COLUMN cct7_applications.application_type IS 'Applicate type: INPUT or OUTPUT'; 
+ 
+Comment created. 
+ 
+SQL> COMMENT ON COLUMN cct7_applications.associated_computer_lastid IS 'Assoicated computer LASTID number'; 
+ 
+Comment created. 
+ 
+SQL> COMMENT ON COLUMN cct7_applications.associated_computer_hostname IS 'Associated computer hostname'; 
+ 
+Comment created. 
+ 
+SQL> COMMENT ON COLUMN cct7_applications.associated_computer_asset_tag IS 'Associated computer asset tag number'; 
+ 
+Comment created. 
+ 
+SQL> COMMENT ON COLUMN cct7_applications.associated_app_name IS 'Associated application name'; 
+ 
+Comment created. 
+ 
+SQL> COMMENT ON COLUMN cct7_applications.associated_app_slr IS 'Associated application service level: GOLD, BRONSE, etc.'; 
+ 
+Comment created. 
+ 
+SQL> COMMENT ON COLUMN cct7_applications.associated_app_assignment IS 'Associated application assignment: PRODUCTION or PRE-PRODUCTION'; 
+ 
+Comment created. 
+ 
+SQL> COMMENT ON COLUMN cct7_applications.associated_app_appid IS 'Assoicated application APPID number'; 
+ 
+Comment created. 
+ 
+SQL> COMMENT ON COLUMN cct7_applications.associated_app_lastid IS 'Assoicated application LAST number (not the same as computer_lastid)'; 
+ 
+Comment created. 
+ 
+SQL> 
+SQL> commit; 
+ 
+Commit complete. 
+ 
+SQL> select count(*) as record_count from cct7_applications; 
+ 
+RECORD_COUNT 
+------------ 
+ 184248 
+ 
+SQL> quit; 
+Disconnected from Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production 
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options 
+
+All done!
+==========================================================================================================================
+ Program: make_applications.php
+   START: 02/23/17 18:19:14
+     END: 02/23/17 18:19:52
+Duration: 00:00:38

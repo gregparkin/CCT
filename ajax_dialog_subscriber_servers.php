@@ -1,0 +1,611 @@
+<?php
+/**
+ * ajax_dialog_subscriber_servers.php
+ *
+ * @package   PhpStorm
+ * @file      ajax_dialog_subscriber_servers.php
+ * @author    gparkin
+ * @date      7/1/16
+ * @version   7.0
+ *
+ * @brief     Called by the following dialogs:
+ *            - dialog_subscriber_servers_import.php
+ *
+ *
+ */
+
+set_include_path("/opt/ibmtools/www/cct7/classes");
+
+//
+// Class autoloader - Removes the need to add include and require statements
+//
+if (!function_exists('__autoload'))
+{
+    require_once('classes/autoloader.php');
+}
+
+if (session_id() == '')
+	session_start();
+
+if (isset($_SESSION['user_cuid']) && $_SESSION['user_cuid'] == 'gparkin')
+{
+	ini_set('xdebug.collect_vars',    '5');
+	ini_set('xdebug.collect_vars',    'on');
+	ini_set('xdebug.collect_params',  '4');
+	ini_set('xdebug.dump_globals',    'on');
+	ini_set('xdebug.dump.SERVER',     'REQUEST_URI');
+	ini_set('xdebug.show_local_vars', 'on');
+
+	//$path = '/usr/lib/pear';
+	//set_include_path(get_include_path() . PATH_SEPARATOR . $path);
+}
+else
+{
+	ini_set('display_errors', 'Off');
+}
+
+// Prevent caching.
+header('Cache-Control: no-cache, must-revalidate');
+header('Expires: Mon, 01 Jan 1996 00:00:00 GMT');
+
+// The JSON standard MIME header.
+header('Content-type: application/json');
+
+//
+// NOTE: It is very important that you do not turn on debugging without writing to a file for server side AJAX code. Any HTML
+//       comments coming from functions while writing JSON will show up in the JSON output and you will get a parsing error
+//       in the client side program.
+//
+$lib = new library();        // classes/library.php
+$lib->debug_start('ajax_dialog_subscriber_servers.html');
+date_default_timezone_set('America/Denver');
+
+// Read-only stream allows you to read raw data from the request body.
+$input = json_decode(file_get_contents("php://input"), FALSE);
+// $input = json_decode(json_encode($my_request), FALSE);
+
+$action                  = '';
+$list                    = '';
+$group_id                = 0;
+$computer_managing_group = Array();
+$computer_os_lite        = Array();
+$computer_status         = Array();
+$computer_contract       = Array();
+$state_and_city          = Array();
+$miscellaneous           = Array();
+$target_these_only       = '';
+$ip_starts_with          = '';
+$notification_type       = '';
+
+if (isset($input->{'action'}))
+	$action                   = $input->action;
+
+if (isset($input->{'group_id'}))
+	$group_id                 = $input->group_id;
+
+if (isset($input->{'computer_managing_group'}))
+    $computer_managing_group  = $input->computer_managing_group;
+
+if (isset($input->{'computer_os_lite'}))
+    $computer_os_lite         = $input->computer_os_lite;
+
+if (isset($input->{'computer_status'}))
+	$computer_status          = $input->computer_status;
+
+if (isset($input->{'computer_contract'}))
+	$computer_contract        = $input->computer_contract;
+
+if (isset($input->{'state_and_city'}))
+	$state_and_city           = $input->state_and_city;
+
+if (isset($input->{'miscellaneous '}))
+	$miscellaneous            = $input->miscellaneous;
+
+if (isset($input->{'target_these_only'}))
+	$target_these_only        = $input->target_these_only;
+
+if (isset($input->{'ip_starts_with'}))
+	$ip_starts_with           = $input->ip_starts_with;
+
+if (isset($input->{'notification_type'}))
+	$notification_type        = $input->notification_type;
+
+if (isset($input->{'list'}))
+	$list                     = $input->{'list'};
+
+$lib->debug1(__FILE__, __FUNCTION__, __LINE__,  "action = %s", $action);
+$lib->debug1(__FILE__, __FUNCTION__, __LINE__,   "list: ");
+$lib->debug_r1(__FILE__, __FUNCTION__, __LINE__, $list);
+$lib->debug1(__FILE__, __FUNCTION__, __LINE__,   "group_id = %s",      $group_id);
+$lib->debug1(__FILE__, __FUNCTION__, __LINE__,   "computer_managing_group: ");
+$lib->debug_r1(__FILE__, __FUNCTION__, __LINE__, $computer_managing_group);
+$lib->debug1(__FILE__, __FUNCTION__, __LINE__,   "computer_os_lite: ");
+$lib->debug_r1(__FILE__, __FUNCTION__, __LINE__, $computer_os_lite);
+$lib->debug1(__FILE__, __FUNCTION__, __LINE__,   "computer_status: ");
+$lib->debug_r1(__FILE__, __FUNCTION__, __LINE__, $computer_status);
+$lib->debug1(__FILE__, __FUNCTION__, __LINE__,   "computer_contract: ");
+$lib->debug_r1(__FILE__, __FUNCTION__, __LINE__, $computer_contract);
+$lib->debug1(__FILE__, __FUNCTION__, __LINE__,   "state_and_city: ");
+$lib->debug_r1(__FILE__, __FUNCTION__, __LINE__, $state_and_city);
+$lib->debug1(__FILE__, __FUNCTION__, __LINE__,   "miscellaneous: ");
+$lib->debug_r1(__FILE__, __FUNCTION__, __LINE__, $miscellaneous);
+$lib->debug1(__FILE__, __FUNCTION__, __LINE__,  "target_these_only = %s",  $target_these_only);
+$lib->debug1(__FILE__, __FUNCTION__, __LINE__,  "ip_starts_with = %s",     $ip_starts_with);
+$lib->debug1(__FILE__, __FUNCTION__, __LINE__,  "notification_type = %s",  $notification_type);
+
+$lib->debug1(  __FILE__, __FUNCTION__, __LINE__, "input: ");
+$lib->debug_r1(__FILE__, __FUNCTION__, __LINE__, $input);
+$lib->debug1(  __FILE__, __FUNCTION__, __LINE__, "_POST: ");
+$lib->debug_r1(__FILE__, __FUNCTION__, __LINE__, $_POST);
+$lib->debug1(  __FILE__, __FUNCTION__, __LINE__, "_GET: ");
+$lib->debug_r1(__FILE__, __FUNCTION__, __LINE__, $_GET);
+$lib->debug1(  __FILE__, __FUNCTION__, __LINE__, "_REQUEST: ");
+$lib->debug_r1(__FILE__, __FUNCTION__, __LINE__, $_REQUEST);
+$lib->debug1(  __FILE__, __FUNCTION__, __LINE__, "_SERVER: ");
+$lib->debug_r1(__FILE__, __FUNCTION__, __LINE__, $_SERVER);
+$lib->debug1(  __FILE__, __FUNCTION__, __LINE__, "_SESSION: ");
+$lib->debug_r1(__FILE__, __FUNCTION__, __LINE__, $_SESSION);
+
+$json = array();
+
+$ora = new oracle();
+
+/**
+ * @fn    import()
+ *
+ * @brief Add all servers identified by the user.
+ *
+ */
+function import()
+{
+	global $ora, $lib, $json;
+	global $group_id, $computer_managing_group, $computer_os_lite, $computer_status;
+	global $computer_contract, $state_and_city, $miscellaneous, $target_these_only;
+	global $ip_starts_with, $notification_type;
+
+	$current_hosts = array();
+
+	$query = sprintf("select * from cct7_subscriber_servers where group_id = '%s'", $group_id);
+
+	if ($ora->sql2($query) == false)
+	{
+		$json['ajax_status']  = 'FAILED';
+		$json['ajax_message'] = $ora->error;
+		echo json_encode($json);
+		exit();
+	}
+
+	while ($ora->fetch())
+	{
+		$lib->debug1(__FILE__, __FUNCTION__, __LINE__, "Current hostname: %s", $ora->computer_hostname);
+		$current_hosts[$ora->computer_hostname] = $ora->system_id;
+	}
+
+	$sys = new cct7_systems();
+
+	$sys->target_these_only       = $target_these_only;
+	$sys->computer_managing_group = $computer_managing_group;
+	$sys->computer_os_lite        = $computer_os_lite;
+	$sys->computer_status         = $computer_status;
+	$sys->computer_contract       = $computer_contract;
+	$sys->state_and_city          = $state_and_city;
+	$sys->miscellaneous           = $miscellaneous;
+	$sys->ip_starts_with          = $ip_starts_with;
+
+	$x = 0;
+
+	$lib->debug1(__FILE__, __FUNCTION__, __LINE__, "running getTheseOnly()");
+
+	if (($i = $sys->getTheseOnly()) == -1)
+	{
+		$lib->debug4(__FILE__, __FUNCTION__, __LINE__, "%s", $sys->error);
+		return false;
+	}
+
+	$x += $i;
+
+	$lib->debug1(__FILE__, __FUNCTION__, __LINE__, "running getAssetCenter()");
+
+	// 1: ajax_dialog_subscriber_servers.php 108: target_these_only = lxomp47x
+	if (($i = $sys->getAssetCenter()) == -1)
+	{
+		$lib->debug4(__FILE__, __FUNCTION__, __LINE__, "%s", $sys->error);
+		return false;
+	}
+
+	$x += $i;
+
+	if ($x == 0)
+	{
+		$json['ajax_status']  = 'FAILED';
+		$json['ajax_message'] = sprintf("Servers not found in asset manager.");
+		echo json_encode($json);
+		exit();
+	}
+
+	//
+	// Copy the servers currently in this list to our $sys (cct7_systems.php) object.
+	//
+	$query  = sprintf("select * from cct7_subscriber_servers where group_id = '%s'", $group_id);
+
+	if ($ora->sql2($query) == false)
+	{
+		$json['ajax_status']  = 'FAILED';
+		$json['ajax_message'] = $ora->error;
+		echo json_encode($json);
+		exit();
+	}
+
+	while ($ora->fetch())
+	{
+		$lib->debug1(__FILE__, __FUNCTION__, __LINE__,
+					 "Checking to see if %s is in our current_hostname list", $ora->computer_hostname);
+
+		if (array_key_exists($ora->computer_hostname, $current_hosts) == false)
+		{
+			$lib->debug1(__FILE__, __FUNCTION__, __LINE__,
+						 "%s not found in current_host list.", $ora->computer_hostname);
+
+			$sys->addHostname($ora->computer_hostname);
+		}
+	}
+
+	$count = 0;
+
+	//
+	// Add new servers to our subscriber list.
+	//
+	foreach ($sys->servers as $hostname => $lastid)
+	{
+		++$count;
+
+		$query  = "select ";
+		$query .= "  computer_lastid, ";
+		$query .= "  computer_hostname, ";
+		$query .= "  computer_ip_address, ";
+		$query .= "  computer_os_lite, ";
+		$query .= "  computer_status, ";
+		$query .= "  computer_managing_group ";
+		$query .= "from ";
+		$query .= "  cct7_computers ";
+		$query .= "where ";
+		$query .= "  computer_lastid = " . $lastid;
+
+		if ($ora->sql2($query) == false)
+		{
+			$json['ajax_status']  = 'FAILED';
+			$json['ajax_message'] = $ora->error;
+			echo json_encode($json);
+			exit();
+		}
+
+		if ($ora->fetch())
+		{
+			$lib->debug1(__FILE__, __FUNCTION__, __LINE__, "Inserting: %s", $ora->computer_hostname);
+
+			//
+			// Add this server record to cct7_list_systems
+			//
+			$system_id = $ora->next_seq("cct7_subscriber_serversseq");
+
+			// cct7_subscriber_servers
+			//
+			// server_id|NUMBER|0|NOT NULL|PK: Unique Record ID
+			// group_id|VARCHAR2|20||
+			// create_date|NUMBER|0||GMT creation date
+			// owner_cuid|VARCHAR2|20||Owner CUID
+			// owner_name|VARCHAR2|200||Owner NAME
+			// computer_lastid|NUMBER|0||Asset Manager computer record ID
+			// computer_hostname|VARCHAR2|255||Server Hostname
+			// computer_ip_address|VARCHAR2|64||Server IP Address
+			// computer_os_lite|VARCHAR2|20||Server Operating System
+			// computer_status|VARCHAR2|80||Server Status: PRODUCTION, DEVELOPMENT, etc.
+			// computer_managing_group|VARCHAR2|40||Server Managing Group name
+			// notification_type|VARCHAR2|20||Notification Type: APPROVER or FYI
+
+			$query  = "insert into cct7_subscriber_servers (";
+			$query .= "  server_id, ";
+			$query .= "  group_id, ";
+			$query .= "  create_date, ";
+			$query .= "  owner_cuid, ";
+			$query .= "  owner_name, ";
+			$query .= "  computer_lastid, ";
+			$query .= "  computer_hostname, ";
+			$query .= "  computer_ip_address, ";
+			$query .= "  computer_os_lite, ";
+			$query .= "  computer_status, ";
+			$query .= "  computer_managing_group, ";
+			$query .= "  notification_type ";
+			$query .= ") values ( ";
+			$query .= sprintf("%d, ",   $system_id);
+			$query .= sprintf("'%s', ", $group_id);
+			$query .= sprintf("%d, ",   $lib->now_to_gmt_utime());
+			$query .= sprintf("'%s', ", $_SESSION['user_cuid']);
+			$query .= sprintf("'%s', ", $_SESSION['user_name']);
+			$query .= sprintf("%d, ",   $ora->computer_lastid);
+			$query .= sprintf("'%s', ", $ora->computer_hostname);
+			$query .= sprintf("'%s', ", $ora->computer_ip_address);
+			$query .= sprintf("'%s', ", $ora->computer_os_lite);
+			$query .= sprintf("'%s', ", $ora->computer_status);
+			$query .= sprintf("'%s', ", $ora->computer_managing_group);
+			$query .= sprintf("'%s')", $notification_type);
+
+			if ($ora->sql2($query) == false)
+			{
+				$json['ajax_status']  = 'FAILED';
+				$json['ajax_message'] = $ora->error . " Unable to insert: " . $ora->computer_hostname;
+				echo json_encode($json);
+				exit();
+			}
+		}
+	}
+
+	$ora->commit();
+
+	$query = sprintf("select group_name from cct7_subscriber_groups where group_id = '%s'", $group_id);
+
+	if ($ora->sql2($query) == false)
+	{
+		$json['ajax_status']  = 'FAILED';
+		$json['ajax_message'] = $ora->error;
+		echo json_encode($json);
+		exit();
+	}
+
+	$group_name = '';
+
+	if ($ora->fetch() == true)
+	{
+		$group_name = $ora->group_name;
+	}
+
+	$json['ajax_status']  = 'SUCCESS';
+	$json['ajax_message'] = sprintf("%s - Total servers added: %d", $group_name, $count);
+	echo json_encode($json);
+	exit();
+}
+
+/**
+ * @fn    delete()
+ *
+ * @brief Remove all the servers identified in $list
+ *
+ */
+function delete()
+{
+	global $ora, $lib, $list, $json, $group_id;
+
+	$servers = '';
+
+	foreach ($list as $id)
+	{
+		$lib->debug1(__FILE__, __FUNCTION__, __LINE__, "foreach: server_id = %d", $id);
+
+		//
+		// Put together a list of servers we are removing.
+		//
+		$rc = $ora
+			->select()
+			->column('computer_hostname')
+			->from('cct7_subscriber_servers')
+			->where('int', 'server_id', '=', $id)
+			->execute();
+
+		if ($rc == false)
+		{
+			$lib->debug1(  __FILE__, __FUNCTION__, __LINE__, "%s - %s", $ora->sql_statement, $ora->dbErrMsg);
+			$json['ajax_status']  = 'FAILED';
+			$json['ajax_message'] = $ora->error;
+			echo json_encode($json);
+			exit();
+		}
+
+		$ora->fetch();
+
+		if (strlen($servers) > 0)
+		{
+			$servers .= ", " . $ora->computer_hostname;
+		}
+		else
+		{
+			$servers = $ora->computer_hostname;
+		}
+
+		//
+		// Delete this server from cct7_subscriber_servers.
+		//
+		$query = "delete from cct7_subscriber_servers where server_id = " . $id;
+
+		$lib->debug1(__FILE__, __FUNCTION__, __LINE__,   "%s", $query);
+
+		if ($ora->sql2($query) == false)
+		{
+			$lib->debug1(  __FILE__, __FUNCTION__, __LINE__, "%s - %s", $ora->sql_statement, $ora->dbErrMsg);
+			$json['ajax_status']  = 'FAILED';
+			$json['ajax_message'] = $ora->error;
+			echo json_encode($json);
+			exit();
+		}
+	}
+
+	$ora->commit();
+
+	$query = sprintf("select group_name from cct7_subscriber_groups where group_id = '%s'", $group_id);
+
+	if ($ora->sql2($query) == false)
+	{
+		$json['ajax_status']  = 'FAILED';
+		$json['ajax_message'] = $ora->error;
+		echo json_encode($json);
+		exit();
+	}
+
+	$group_name = '';
+
+	if ($ora->fetch() == true)
+	{
+		$group_name = $ora->group_name;
+	}
+
+	$json['ajax_status']  = 'SUCCESS';
+	$json['ajax_message'] = sprintf("%s - Servers removed: %s", $group_name, $servers);
+	echo json_encode($json);
+	exit();
+}
+
+/**
+ * @fn    delete_all()
+ *
+ * @brief Remove all the servers for this subscriber group_id
+ *
+ */
+function delete_all()
+{
+	global $lib, $ora, $group_id, $json;
+
+	$query = sprintf("select group_name from cct7_subscriber_groups where group_id = '%s'", $group_id);
+
+	if ($ora->sql2($query) == false)
+	{
+		$lib->debug1(  __FILE__, __FUNCTION__, __LINE__, "%s - %s", $ora->sql_statement, $ora->dbErrMsg);
+		$json['ajax_status']  = 'FAILED';
+		$json['ajax_message'] = $ora->error;
+		echo json_encode($json);
+		exit();
+	}
+
+	$ora->fetch();
+
+	$group_name = $ora->group_name;
+
+	$lib->debug1(__FILE__, __FUNCTION__, __LINE__, "action = delete_all");
+
+	$query = "delete from cct7_subscriber_servers where group_id = '" . $group_id . "'";
+
+	$lib->debug1(__FILE__, __FUNCTION__, __LINE__,   "%s", $query);
+
+	if ($ora->sql2($query) == false)
+	{
+		$lib->debug1(  __FILE__, __FUNCTION__, __LINE__, "%s - %s", $ora->sql_statement, $ora->dbErrMsg);
+		$json['ajax_status']  = 'FAILED';
+		$json['ajax_message'] = $ora->error;
+		echo json_encode($json);
+		exit();
+	}
+
+	$ora->commit();
+
+	$json['ajax_status']  = 'SUCCESS';
+	$json['ajax_message'] = sprintf("%s - All servers have been removed.", $group_name);
+	echo json_encode($json);
+	exit();
+}
+
+function set_notification_type($notification_type)
+{
+	global $ora, $lib, $list, $json, $group_id;
+
+	$servers = '';
+
+	foreach ($list as $id)
+	{
+		$lib->debug1(__FILE__, __FUNCTION__, __LINE__, "foreach: server_id = %d", $id);
+
+		//
+		// Put together a list of servers we are removing.
+		//
+		$rc = $ora
+			->select()
+			->column('computer_hostname')
+			->from('cct7_subscriber_servers')
+			->where('int', 'server_id', '=', $id)
+			->execute();
+
+		if ($rc == false)
+		{
+			$lib->debug1(  __FILE__, __FUNCTION__, __LINE__, "%s - %s", $ora->sql_statement, $ora->dbErrMsg);
+			$json['ajax_status']  = 'FAILED';
+			$json['ajax_message'] = $ora->error;
+			echo json_encode($json);
+			exit();
+		}
+
+		$ora->fetch();
+
+		$lib->debug1(__FILE__, __FUNCTION__, __LINE__, "hostname: %s", $ora->computer_hostname);
+
+		if (strlen($servers) > 0)
+		{
+			$servers .= ", " . $ora->computer_hostname;
+		}
+		else
+		{
+			$servers = $ora->computer_hostname;
+		}
+
+		$query  = "update cct7_subscriber_servers set ";
+		$query .= "  notification_type = '" . $notification_type . "' ";
+		$query .= "where server_id = " . $id;
+
+		if ($ora->sql2($query) == false)
+		{
+			$lib->debug1(  __FILE__, __FUNCTION__, __LINE__, "%s - %s", $ora->sql_statement, $ora->dbErrMsg);
+			$json['ajax_status']  = 'FAILED';
+			$json['ajax_message'] = $ora->error;
+			echo json_encode($json);
+			exit();
+		}
+	}
+
+	$ora->commit();
+
+	$query = sprintf("select group_name from cct7_subscriber_groups where group_id = '%s'", $group_id);
+
+	if ($ora->sql2($query) == false)
+	{
+		$json['ajax_status']  = 'FAILED';
+		$json['ajax_message'] = $ora->error;
+		echo json_encode($json);
+		exit();
+	}
+
+	$group_name = '';
+
+	if ($ora->fetch() == true)
+	{
+		$group_name = $ora->group_name;
+	}
+
+	$json['ajax_status']  = 'SUCCESS';
+	$json['ajax_message'] = sprintf("%s - Servers notification type changed to %s: %s",
+									$group_name, $notification_type, $servers);
+	echo json_encode($json);
+	exit();
+}
+
+switch ($action)
+{
+	case 'import':
+		import();
+		break;
+	case 'delete':
+		delete();
+		break;
+	case 'delete_all':
+		delete_all();
+		break;
+	case 'set_approver':
+		set_notification_type('APPROVER');
+		break;
+	case 'set_fyi':
+		set_notification_type('FYI');
+		break;
+	default:
+		$lib->debug1(  __FILE__, __FUNCTION__, __LINE__, "Invalid action: %s", $action);
+		$json['ajax_status']  = 'FAILED';
+		$json['ajax_message'] = 'Invalid action: ' . $action;
+		echo json_encode($json);
+		exit();
+}
+
+

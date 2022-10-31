@@ -1,0 +1,126 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=Cp1252" />
+<script src="../dbdoc.js" type="text/javascript"></script>
+<link href="../dbdoc.css" type="text/css" rel="stylesheet">
+</head>
+<body class="object">
+<div id="header"><h2>CCT6_EVENT_LOG</h2>
+<div class="tabs clearfix">
+
+<div class="tab" id="current"><div><a href="CCT6_EVENT_LOG.html">Columns</a></div></div>
+<div class="tab"><div><a href="CCT6_EVENT_LOG_Constraints.html">Constraints</a></div></div>
+<div class="tab"><div><a href="CCT6_EVENT_LOG_Grants.html">Grants</a></div></div>
+<div class="tab"><div><a href="CCT6_EVENT_LOG_Statistics.html">Statistics</a></div></div>
+<div class="tab"><div><a href="CCT6_EVENT_LOG_Triggers.html">Triggers</a></div></div>
+<div class="tab"><div><a href="CCT6_EVENT_LOG_Dependencies.html">Dependencies</a></div></div>
+<div class="tab"><div><a href="CCT6_EVENT_LOG_Details.html">Details</a></div></div>
+<div class="tab"><div><a href="CCT6_EVENT_LOG_Partitions.html">Partitions</a></div></div>
+<div class="tab"><div><a href="CCT6_EVENT_LOG_Indexes.html">Indexes</a></div></div>
+</div></div><br/>
+<div class="tab-panes">
+<div id="Columns"> <table cellpadding="0" cellspacing="0" cellspacing="0" summary=""><tr>
+	<th>COLUMN_NAME</th>
+	<th>DATA_TYPE</th>
+	<th>NULLABLE</th>
+	<th>DATA_DEFAULT</th>
+	<th>COLUMN_ID</th>
+	<th>COMMENTS</th>
+</tr>
+	<tr>
+<td>SYSTEM_ID</td>
+<td>NUMBER</td>
+<td>Yes</td>
+<td>null</td>
+<td>1</td>
+<td>FOREIGN KEY - cct6_systems.system_id - CASCADE DELETE</td>
+	</tr>
+	<tr>
+<td>USER_CUID</td>
+<td>VARCHAR2(20 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>2</td>
+<td>User cuid</td>
+	</tr>
+	<tr>
+<td>USER_NAME</td>
+<td>VARCHAR2(200 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>3</td>
+<td>User name</td>
+	</tr>
+	<tr>
+<td>USER_EMAIL</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>4</td>
+<td>User email address</td>
+	</tr>
+	<tr>
+<td>USER_COMPANY</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>5</td>
+<td>User company name</td>
+	</tr>
+	<tr>
+<td>MANAGER_CUID</td>
+<td>VARCHAR2(20 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>6</td>
+<td>Manager cuid</td>
+	</tr>
+	<tr>
+<td>MANAGER_NAME</td>
+<td>VARCHAR2(200 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>7</td>
+<td>Manager name</td>
+	</tr>
+	<tr>
+<td>MANAGER_EMAIL</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>8</td>
+<td>Manager email address</td>
+	</tr>
+	<tr>
+<td>MANAGER_COMPANY</td>
+<td>VARCHAR2(80 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>9</td>
+<td>Manager company name</td>
+	</tr>
+	<tr>
+<td>EVENT_DATE</td>
+<td>DATE</td>
+<td>Yes</td>
+<td>null</td>
+<td>10</td>
+<td>Date of the event</td>
+	</tr>
+	<tr>
+<td>EVENT_TYPE</td>
+<td>VARCHAR2(20 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>11</td>
+<td>Event type</td>
+	</tr>
+	<tr>
+<td>EVENT_MESSAGE</td>
+<td>VARCHAR2(4000 BYTE)</td>
+<td>Yes</td>
+<td>null</td>
+<td>12</td>
+<td>Event message</td>
+	</tr>
+</table></div>

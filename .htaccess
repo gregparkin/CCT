@@ -1,0 +1,7 @@
+AuthType Basic
+AuthName "Please login"
+AuthBasicProvider ldap
+AuthLDAPURL ldaps://ldap.qintra.com:1636/dc=mnet,dc=qintra,dc=com?uid?sub
+AuthLDAPBindDN uid=cctadm,ou=people,dc=mnet,dc=qintra,dc=com
+AuthLDAPBindPassword Tools2011
+Require valid-user
